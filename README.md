@@ -12,25 +12,26 @@ pipeline in front of it.
 
 ## Current Status
 
-The main implementation now lives in `src/talkie_bridge/`. The old
-`TermProject_team2.py` file is kept only as a prototype/reference under
-`prototypes/team2_pipeline/`. Do not treat it as the current project
-implementation or source of truth.
+The main implementation lives in `src/talkie_bridge/`. The repository does not
+vendor the original `talkie` package and does not keep prototype scripts in the
+committed project tree. Talkie is treated as an external fixed evaluator.
 
 ## Repository Layout
 
 ```text
 .
 ├─ PROJECT_PROPOSAL.md          # Project proposal and source of truth
+├─ DATASET_SCHEMA.md            # Dataset and dictionary schema
 ├─ pyproject.toml               # Minimal project metadata
 ├─ src/talkie_bridge/           # Proposal-centered rewriting/evaluation pipeline
-├─ prototypes/team2_pipeline/   # Old prototype, not the main implementation
-├─ prototypes/talkie_web_api/   # Old unofficial Talkie API prototype
-└─ docs/html/                   # Proposal/explanation HTML exports
+├─ tests/                       # Unit and pipeline tests
+├─ data/*_example.*             # Example dataset and dictionary files
+├─ input_data/*_example.*       # Example manual response sheet
+└─ results/*_example.*          # Example output artifacts
 ```
 
-The original `talkie` implementation is not vendored into this project
-repository. Talkie is treated as an external fixed evaluator.
+Generated `data/`, `input_data/`, `cache/`, and `results/` files are ignored by
+default, except files with `_example` in the filename.
 
 ## Pipeline Commands
 
@@ -50,7 +51,18 @@ python -m talkie_bridge.cli rewrite-only
 This command reads `data/generated_questions.jsonl`. It does not auto-generate
 final experiment data. See `DATASET_SCHEMA.md` for the fields to fill.
 
-Create a local mock dataset for schema reference:
+Use the committed example files only as templates:
+
+```powershell
+Copy-Item data/generated_questions_example.jsonl data/generated_questions.jsonl
+Copy-Item data/modern_terms_dictionary_example.json data/modern_terms_dictionary.json
+Copy-Item data/primitive_dictionary_example.json data/primitive_dictionary.json
+```
+
+Then replace the copied dataset with the real 100-150 item human-validated
+dataset before making final claims.
+
+Create a local mock dataset for smoke testing:
 
 ```powershell
 python -m talkie_bridge.cli init-mock-data --force
@@ -80,6 +92,11 @@ Evaluate manually pasted Talkie responses:
 ```powershell
 python -m talkie_bridge.cli evaluate-manual --manual-response-csv input_data/manual_talkie_input_sheet.csv
 ```
+
+`input_data/manual_talkie_input_sheet_example.csv` shows the expected manual
+sheet columns. Final evaluation should use the generated
+`input_data/manual_talkie_input_sheet.csv` with real Talkie responses pasted into
+`raw_response_manual`.
 
 Manual evaluation fails by default if prompt hashes are missing/mismatched or if
 responses are blank. Use `--allow-hash-mismatch` or `--allow-missing-responses`
@@ -115,4 +132,5 @@ python -m venv .venv
 ```
 
 Local environments, Python caches, logs, model checkpoints, large recordings,
-and generated dataset/result/cache directories are ignored by git.
+and generated dataset/result/cache files are ignored by git unless their
+filenames include `_example`.

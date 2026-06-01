@@ -1,0 +1,3 @@
+item_id,condition,gold_answer,raw_response,parsed_answer,correct,provider,rewrite_validation,repair_attempts,prompt_hash,response_prompt_hash,prompt_hash_match
+q006,raw,A,A,A,True,manual_talkie_csv,"{""pass"": true}",0,example_hash_q006_raw,example_hash_q006_raw,True
+q006,proposed,A,A,A,True,manual_talkie_csv,"{""pass"": true, ""forbidden_terms_present"": []}",0,example_hash_q006_proposed,example_hash_q006_proposed,True

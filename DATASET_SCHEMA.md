@@ -3,6 +3,9 @@
 Put the final experiment dataset at `data/generated_questions.jsonl` by default.
 Each line must be one JSON object for one four-choice question.
 
+Use `data/generated_questions_example.jsonl` only as a filename/schema example.
+Copy it to `data/generated_questions.jsonl` before editing real items.
+
 Required fields:
 
 | Field | Fill with |
@@ -60,6 +63,9 @@ Predeclared generation dictionaries:
 
 - `modern_terms_dictionary.json` maps normalized aliases to `{alias, canonical_term, primitive_id, domain}`.
 - `primitive_dictionary.json` maps primitive ids to `{concept_term, domain, primitive_phrase}`.
+- `modern_terms_dictionary_example.json` and `primitive_dictionary_example.json`
+  are template files only; copy them to the non-example filenames before using
+  them in CLI commands.
 - These files are allowed to be prior project resources. They should not be
   generated from dev/test item annotations during final evaluation.
 - They are used only when passed explicitly with `--concept-dictionary-json`

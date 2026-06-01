@@ -1,0 +1,4 @@
+component,metric,value
+rewriter,anachronism_removal_rate,1.0
+rewriter,required_primitive_recall,1.0
+validator,rewrite_pass_rate,1.0

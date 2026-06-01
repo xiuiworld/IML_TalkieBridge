@@ -1,0 +1,3 @@
+condition,accuracy,macro_f1,invalid_rate,n_items
+raw,1.0,1.0,0.0,1
+proposed,1.0,1.0,0.0,1

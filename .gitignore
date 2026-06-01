@@ -21,10 +21,14 @@ playwright-report/
 test-results/
 
 # TalkieBridge generated artifacts
-/data/
-/input_data/
-/cache/
-/results*/
+/data/*
+!/data/*_example.*
+/input_data/*
+!/input_data/*_example.*
+/cache/*
+!/cache/*_example.*
+/results/*
+!/results/*_example.*
 
 # Original Talkie checkout/reference package is not part of this project repo
 /src/talkie/

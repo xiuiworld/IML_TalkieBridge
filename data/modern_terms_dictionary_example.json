@@ -1,0 +1,74 @@
+{
+  "api": {
+    "alias": "API",
+    "canonical_term": "API",
+    "domain": "AI_Computing",
+    "primitive_id": "published_machine_commands"
+  },
+  "application programming interface": {
+    "alias": "application programming interface",
+    "canonical_term": "API",
+    "domain": "AI_Computing",
+    "primitive_id": "published_machine_commands"
+  },
+  "global positioning system": {
+    "alias": "global positioning system",
+    "canonical_term": "GPS",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "radio_position_signals"
+  },
+  "gps": {
+    "alias": "GPS",
+    "canonical_term": "GPS",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "radio_position_signals"
+  },
+  "large language model": {
+    "alias": "large language model",
+    "canonical_term": "LLM",
+    "domain": "AI_Computing",
+    "primitive_id": "unsupported_automatic_text"
+  },
+  "llm": {
+    "alias": "LLM",
+    "canonical_term": "LLM",
+    "domain": "AI_Computing",
+    "primitive_id": "unsupported_automatic_text"
+  },
+  "messenger rna vaccine": {
+    "alias": "messenger RNA vaccine",
+    "canonical_term": "mRNA vaccine",
+    "domain": "Medicine_Biology",
+    "primitive_id": "temporary_body_instruction"
+  },
+  "mrna vaccine": {
+    "alias": "mRNA vaccine",
+    "canonical_term": "mRNA vaccine",
+    "domain": "Medicine_Biology",
+    "primitive_id": "temporary_body_instruction"
+  },
+  "rag": {
+    "alias": "RAG",
+    "canonical_term": "RAG",
+    "domain": "AI_Computing",
+    "primitive_id": "record_lookup_before_reply"
+  },
+  "recommendation algorithm": {
+    "alias": "recommendation algorithm",
+    "canonical_term": "recommendation algorithm",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "rank_by_past_preference"
+  },
+  "recommender system": {
+    "alias": "recommender system",
+    "canonical_term": "recommendation algorithm",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "rank_by_past_preference"
+  },
+  "retrieval augmented generation": {
+    "alias": "retrieval augmented generation",
+    "canonical_term": "RAG",
+    "domain": "AI_Computing",
+    "primitive_id": "record_lookup_before_reply"
+  }
+}

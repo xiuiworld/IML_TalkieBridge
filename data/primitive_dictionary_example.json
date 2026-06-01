@@ -1,0 +1,32 @@
+{
+  "published_machine_commands": {
+    "concept_term": "API",
+    "domain": "AI_Computing",
+    "primitive_phrase": "offers a published set of commands one machine can use to request work from another"
+  },
+  "radio_position_signals": {
+    "concept_term": "GPS",
+    "domain": "Transportation_Engineering",
+    "primitive_phrase": "uses timed radio signals from known points to estimate position"
+  },
+  "rank_by_past_preference": {
+    "concept_term": "recommendation algorithm",
+    "domain": "Daily_Tech_Society",
+    "primitive_phrase": "ranks options using patterns in earlier choices and similarities"
+  },
+  "record_lookup_before_reply": {
+    "concept_term": "RAG",
+    "domain": "AI_Computing",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply"
+  },
+  "temporary_body_instruction": {
+    "concept_term": "mRNA vaccine",
+    "domain": "Medicine_Biology",
+    "primitive_phrase": "delivers a temporary instruction that causes the body to make a harmless marker for practice"
+  },
+  "unsupported_automatic_text": {
+    "concept_term": "LLM",
+    "domain": "AI_Computing",
+    "primitive_phrase": "an automatic writing system may produce unsupported statements unless constrained by evidence"
+  }
+}
