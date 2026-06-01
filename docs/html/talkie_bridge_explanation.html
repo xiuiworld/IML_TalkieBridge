@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TalkieBridge 프로젝트 설명</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --ink: #1f2933;
+      --muted: #5f6b7a;
+      --line: #d9e2ec;
+      --soft: #f5f8fb;
+      --panel: #ffffff;
+      --accent: #0f766e;
+      --accent-soft: #e6f4f1;
+      --warn: #9a3412;
+      --warn-soft: #fff4e6;
+      --code: #233142;
+      --shadow: 0 10px 30px rgba(31, 41, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      line-height: 1.6;
+      color: var(--ink);
+      background: #ffffff;
+    }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, #f7fbfa 0%, #ffffff 100%);
+    }
+
+    .wrap {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    .hero {
+      padding: 52px 0 34px;
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      color: var(--accent);
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 860px;
+      margin: 18px 0 0;
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+    }
+
+    nav .wrap {
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      padding: 10px 0;
+    }
+
+    nav a {
+      flex: 0 0 auto;
+      color: var(--ink);
+      text-decoration: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      background: #fff;
+    }
+
+    main {
+      padding: 28px 0 64px;
+    }
+
+    section {
+      padding: 26px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 22px 0 8px;
+      font-size: 19px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 10px 0;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .callout {
+      border-left: 4px solid var(--accent);
+      background: var(--accent-soft);
+      padding: 14px 16px;
+      margin: 14px 0;
+    }
+
+    .warning {
+      border-left-color: var(--warn);
+      background: var(--warn-soft);
+    }
+
+    .pipeline {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .step {
+      min-height: 96px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 12px;
+      background: var(--soft);
+    }
+
+    .step strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 14px 0 20px;
+      font-size: 14px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft);
+      font-weight: 700;
+    }
+
+    code,
+    pre {
+      font-family: Consolas, "Courier New", monospace;
+    }
+
+    code {
+      color: var(--code);
+      background: #eef2f6;
+      border-radius: 4px;
+      padding: 2px 5px;
+      font-size: 0.95em;
+    }
+
+    pre {
+      overflow-x: auto;
+      background: #172331;
+      color: #f5f7fa;
+      border-radius: 8px;
+      padding: 14px;
+      line-height: 1.5;
+      font-size: 14px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 21px;
+    }
+
+    li {
+      margin: 6px 0;
+    }
+
+    .tag {
+      display: inline-block;
+      margin: 2px 4px 2px 0;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 3px 8px;
+      background: #fff;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .mini {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer {
+      padding: 26px 0 42px;
+      color: var(--muted);
+      background: var(--soft);
+      border-top: 1px solid var(--line);
+    }
+
+    @media (max-width: 860px) {
+      .wrap {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .grid,
+      .pipeline {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 36px;
+      }
+
+      .lead {
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap hero">
+      <p class="eyebrow">TalkieBridge</p>
+      <h1>Era-Neutral Prompt Generator 설명서</h1>
+      <p class="lead">
+        이 문서는 저장소의 현재 구현인 <code>src/talkie_bridge/</code>를 기준으로,
+        TalkieBridge가 무엇을 만들었고 어떤 실험 산출물을 내는지 빠르게 이해하기 위한 HTML 설명서입니다.
+      </p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="wrap">
+      <a href="#summary">요약</a>
+      <a href="#pipeline">파이프라인</a>
+      <a href="#dataset">데이터셋</a>
+      <a href="#leakage">Leakage 방지</a>
+      <a href="#conditions">평가 조건</a>
+      <a href="#autoencoder">Autoencoder</a>
+      <a href="#validator">Validator</a>
+      <a href="#manual">Manual CSV</a>
+      <a href="#outputs">산출물</a>
+      <a href="#tests">테스트</a>
+      <a href="#runbook">실행 순서</a>
+    </div>
+  </nav>
+
+  <main class="wrap">
+    <section id="summary">
+      <h2>1. 한 줄 요약</h2>
+      <div class="callout">
+        <strong>TalkieBridge는 Talkie-1930을 학습시키는 프로젝트가 아닙니다.</strong>
+        현대어 객관식 질문을 Talkie-1930이 이해하기 쉬운 시대중립 질문으로 바꾸고,
+        그 rewrite가 downstream 성능에 도움이 되는지 평가하는 전처리 및 실험 파이프라인입니다.
+      </div>
+      <p>
+        기준 문서는 <code>PROJECT_PROPOSAL.md</code>이고, 현재 구현의 핵심 위치는
+        <code>src/talkie_bridge/</code>입니다. <code>prototypes/</code>는 참고용,
+        <code>src/talkie/</code>는 원래 Talkie reference package입니다.
+      </p>
+    </section>
+
+    <section id="pipeline">
+      <h2>2. 전체 파이프라인</h2>
+      <p>실제 코드 흐름은 아래처럼 이어집니다.</p>
+      <div class="pipeline" aria-label="pipeline">
+        <div class="step"><strong>1. Dataset</strong><code>data/generated_questions.jsonl</code>을 읽고 split을 정합니다.</div>
+        <div class="step"><strong>2. Resource</strong>train annotation 또는 explicit dictionary로 generation resource를 만듭니다.</div>
+        <div class="step"><strong>3. Detector</strong>현대 용어 alias를 dictionary 기반으로 탐지합니다.</div>
+        <div class="step"><strong>4. Mapper</strong>탐지된 용어를 primitive id와 phrase로 연결합니다.</div>
+        <div class="step"><strong>5. Rewriter</strong>5가지 조건의 질문을 생성합니다.</div>
+        <div class="step"><strong>6. Validator</strong>금지어, primitive, leakage, 길이, 선택지 복사를 검사합니다.</div>
+        <div class="step"><strong>7. Prompt</strong>같은 choices/gold answer로 MCQ prompt를 만듭니다.</div>
+        <div class="step"><strong>8. Report</strong>수동 Talkie 응답을 평가하고 CSV/Markdown/HTML 산출물을 냅니다.</div>
+      </div>
+      <pre><code>dataset
+  -> detector
+  -> primitive mapper
+  -> rewrite conditions
+  -> validator / deterministic repair
+  -> prompt builder
+  -> manual Talkie collection
+  -> evaluation metrics
+  -> report</code></pre>
+    </section>
+
+    <section id="dataset">
+      <h2>3. 데이터셋 형식</h2>
+      <p>
+        기본 입력은 <code>data/generated_questions.jsonl</code>입니다.
+        한 줄에 한 문항 JSON object를 넣습니다.
+      </p>
+      <table>
+        <thead>
+          <tr><th>필드</th><th>의미</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>id</code></td><td>안정적인 문항 ID. 예: <code>q001</code></td></tr>
+          <tr><td><code>domain</code></td><td>문항 도메인. 예: <code>AI_Computing</code>, <code>Medicine_Biology</code></td></tr>
+          <tr><td><code>original_question</code></td><td>현대어 원본 질문 stem</td></tr>
+          <tr><td><code>choices</code></td><td><code>A</code>, <code>B</code>, <code>C</code>, <code>D</code>를 가진 JSON object</td></tr>
+          <tr><td><code>gold_answer</code></td><td>정답 label. <code>A/B/C/D</code> 중 하나</td></tr>
+          <tr><td><code>gold_anachronism_terms</code></td><td>탐지되어야 하는 현대 용어 목록</td></tr>
+          <tr><td><code>forbidden_terms</code></td><td>rewrite 후 남으면 안 되는 표현 목록</td></tr>
+          <tr><td><code>required_primitives</code></td><td>최종 rewrite가 의미상 보존해야 하는 primitive id</td></tr>
+          <tr><td><code>primitive_phrase</code></td><td>현대 용어를 설명하는 시대중립 기능 문구</td></tr>
+          <tr><td><code>human_validated</code></td><td>사람이 검수했으면 <code>true</code></td></tr>
+          <tr><td><code>split</code></td><td>선택 필드. <code>train/dev/test</code>; 없으면 deterministic 70/15/15 split</td></tr>
+        </tbody>
+      </table>
+      <pre><code>{"id":"q001","domain":"AI_Computing","original_question":"Why is RAG useful for reducing LLM hallucination?","choices":{"A":"It checks relevant records before writing, so the reply is less likely to rest only on memory.","B":"It improves the result only by making the message longer.","C":"It works mainly by changing the names of answer choices.","D":"It guarantees a correct answer without checking evidence."},"gold_answer":"A","gold_anachronism_terms":["RAG","LLM hallucination"],"forbidden_terms":["RAG","retrieval augmented generation","LLM","large language model","hallucination"],"required_primitives":["record_lookup_before_reply","unsupported_automatic_text"],"primitive_phrase":"first searches a store of relevant records before composing a reply, so unsupported statements from an automatic writing system can be reduced","human_validated":true,"split":"test"}</code></pre>
+    </section>
+
+    <section id="leakage">
+      <h2>4. Generation Resource와 Leakage 방지</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>기본 원칙</h3>
+          <p>
+            기본 generation resource는 <code>train</code> split annotation으로만 만듭니다.
+            dev/test 문항의 gold annotation이 rewrite 생성에 들어가지 않도록 분리합니다.
+          </p>
+          <span class="tag">train-only</span>
+          <span class="tag">post-hoc validation</span>
+        </div>
+        <div class="card">
+          <h3>명시 dictionary</h3>
+          <p>
+            predeclared dictionary는 <code>--concept-dictionary-json</code>과
+            <code>--primitive-dictionary-json</code>을 둘 다 넘겼을 때만 사용합니다.
+            파일 이름으로 자동 로드하지 않습니다.
+          </p>
+          <span class="tag">explicit only</span>
+          <span class="tag">no auto-load</span>
+        </div>
+      </div>
+      <ul>
+        <li><code>forbidden_terms</code>, <code>required_primitives</code>, <code>primitive_phrase</code>는 eval item에서 post-hoc validation/metrics용입니다.</li>
+        <li>Repair loop는 eval item의 gold primitive로 제어되지 않고, detector/mapper가 만든 primitive만 보강합니다.</li>
+        <li><code>mock_*dictionary.json</code>은 final evaluation에서 기본 차단됩니다.</li>
+      </ul>
+    </section>
+
+    <section id="conditions">
+      <h2>5. 다섯 가지 평가 조건</h2>
+      <p>
+        모든 조건은 같은 문항, 같은 choices, 같은 gold answer를 씁니다.
+        바뀌는 것은 question text뿐입니다.
+      </p>
+      <table>
+        <thead>
+          <tr><th>조건</th><th>무엇을 평가하나</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>raw</code></td><td>현대어 원본 질문을 그대로 넣는 baseline</td></tr>
+          <tr><td><code>rule_only</code></td><td>dictionary/primitive 기반 치환만 쓴 baseline</td></tr>
+          <tr><td><code>length_controlled</code></td><td>proposed와 길이를 맞춰 prompt 길이 효과를 통제</td></tr>
+          <tr><td><code>proposed</code></td><td>detector + primitive bottleneck + validator/repair를 모두 사용</td></tr>
+          <tr><td><code>proposed_no_validator</code></td><td>validator/repair 효과를 보기 위한 ablation</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="autoencoder">
+      <h2>6. Autoencoder / Learned Component</h2>
+      <div class="callout">
+        <strong>중요:</strong> <code>autoencoder.py</code>는 자연어 문장을 생성하는 full generator가 아닙니다.
+        dependency-free learned primitive selector, 즉 primitive bottleneck입니다.
+      </div>
+      <p>
+        입력 질문의 bag-of-words를 낮은 차원 latent representation으로 압축하고,
+        primitive phrase token을 복원하도록 학습합니다. 이후 원문에 맞는 primitive 후보를 점수화해
+        proposed condition에 보조로 추가합니다.
+      </p>
+      <ul>
+        <li><code>train</code> split으로 학습합니다.</li>
+        <li><code>dev</code> split primitive F1로 config를 선택합니다.</li>
+        <li>train 4개 미만 또는 dev 없음이면 deterministic fallback합니다.</li>
+        <li>fallback 사유와 선택 config는 <code>cache/primitive_autoencoder_selection.json</code>에 기록됩니다.</li>
+      </ul>
+      <p class="mini">
+        보고서에서는 이 component를 "문장 생성 모델"이 아니라 "rule mapper를 보조하는 작은 learned primitive selector"로 해석해야 합니다.
+      </p>
+    </section>
+
+    <section id="detector">
+      <h2>7. Detector와 Primitive Mapper</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Dictionary Detector</h3>
+          <p>
+            alias를 longest-first regex로 매칭해서 현대 용어 span, canonical term, primitive id를 찾습니다.
+            실제 rewrite를 구동하는 주 detector입니다.
+          </p>
+        </div>
+        <div class="card">
+          <h3>Bernoulli Naive Bayes</h3>
+          <p>
+            train 질문 token과 modern-term token으로 학습해 token별 modern score를 냅니다.
+            현재는 diagnostic 기록용이며 dictionary detection을 대체하지 않습니다.
+          </p>
+        </div>
+      </div>
+      <p>
+        Primitive mapper는 detector가 찾은 term의 <code>primitive_id</code>를 모아
+        <code>primitive_dictionary</code>에서 <code>primitive_phrase</code>를 꺼냅니다.
+      </p>
+    </section>
+
+    <section id="validator">
+      <h2>8. Validator와 Repair Loop</h2>
+      <p><code>validator.py</code>는 rewrite가 실험적으로 공정한지 검사합니다.</p>
+      <table>
+        <thead>
+          <tr><th>검사</th><th>의미</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Forbidden terms remaining</td><td>현대 용어가 rewrite에 남았는지 확인</td></tr>
+          <tr><td>Required primitive recall</td><td>primitive phrase keyword가 충분히 보존됐는지 확인</td></tr>
+          <tr><td>Choice-copying risk</td><td>선택지 문장을 과도하게 베꼈는지 확인</td></tr>
+          <tr><td>Answer-hint risk</td><td>정답 선택지와 keyword overlap이 높은지 확인</td></tr>
+          <tr><td>Leakage phrases</td><td><code>correct answer</code>, <code>option A</code> 같은 직접 힌트 확인</td></tr>
+          <tr><td>Length ratio</td><td>원문 대비 너무 짧거나 긴 rewrite 차단</td></tr>
+        </tbody>
+      </table>
+      <p>
+        Repair loop는 최대 2번 deterministic하게 실행됩니다. 남은 detected term 제거,
+        leakage phrase 삭제, generation primitive phrase 보강, 일부 choice-copying/hint 표현 완화를 합니다.
+        eval gold annotation을 새로 읽어 정답 힌트를 삽입하지 않습니다.
+      </p>
+    </section>
+
+    <section id="manual">
+      <h2>9. Manual CSV 평가 흐름</h2>
+      <p>
+        최종 재현성 경로는 Talkie 웹 응답을 사람이 CSV에 채우는 manual mode입니다.
+      </p>
+      <pre><code>python -m talkie_bridge.cli init-mock-data --force
+python -m talkie_bridge.cli prepare-manual
+python -m talkie_bridge.cli evaluate-manual --manual-response-csv input_data/manual_talkie_input_sheet.csv
+python -m talkie_bridge.cli demo --item-id q001 --out results/demo.html</code></pre>
+      <div class="warning callout">
+        <strong>Manual integrity:</strong>
+        <code>prepare-manual</code>이 만든 <code>prompt_hash</code>가 평가 시 다시 확인됩니다.
+        hash mismatch와 blank response는 기본 실패입니다.
+      </div>
+      <p>
+        필요한 경우에만 diagnostic 목적으로 <code>--allow-hash-mismatch</code> 또는
+        <code>--allow-missing-responses</code>를 씁니다.
+      </p>
+    </section>
+
+    <section id="outputs">
+      <h2>10. Metrics와 Report 산출물</h2>
+      <table>
+        <thead>
+          <tr><th>파일</th><th>의미</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>prepared_prompts.csv</code></td><td>조건별 prompt, rewrite, detection, validation 정보</td></tr>
+          <tr><td><code>manual_talkie_input_sheet.csv</code></td><td>Talkie 응답을 수동으로 채우는 입력 sheet</td></tr>
+          <tr><td><code>per_item_results.csv</code></td><td>item-condition별 raw response, parsed answer, correctness</td></tr>
+          <tr><td><code>final_metrics.csv</code></td><td>조건별 accuracy, macro-F1, invalid rate</td></tr>
+          <tr><td><code>final_metrics_test.csv</code></td><td>test split만 따로 계산한 primary metric</td></tr>
+          <tr><td><code>paired_tests.csv</code></td><td>각 조건 vs raw paired delta, bootstrap CI, exact McNemar</td></tr>
+          <tr><td><code>key_comparisons.csv</code></td><td>raw/rule/length/no-validator/proposed의 핵심 비교</td></tr>
+          <tr><td><code>component_metrics.csv</code></td><td>detector precision/recall/F1, removal, primitive recall, validator, repair 지표</td></tr>
+          <tr><td><code>dataset_quality.csv</code></td><td>domain, split, answer 분포, 길이, leakage/copying 진단</td></tr>
+          <tr><td><code>response_integrity.csv</code></td><td>hash match rate, blank response count, completion rate</td></tr>
+          <tr><td><code>qualitative_examples.md</code></td><td>성공/실패/invalid/repaired 사례</td></tr>
+          <tr><td><code>report.md</code></td><td>최종 Markdown 실험 리포트</td></tr>
+          <tr><td><code>demo.html</code></td><td>한 문항의 조건별 rewrite/validation 시각화</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="tests">
+      <h2>11. 테스트</h2>
+      <p><code>tests/</code>는 구현의 핵심 안전장치를 확인합니다.</p>
+      <ul>
+        <li><code>test_detector_mapper.py</code>: alias detection과 primitive mapping 검증</li>
+        <li><code>test_validator.py</code>: forbidden term, leakage phrase, deterministic repair 검증</li>
+        <li><code>test_prompting_metrics.py</code>: strict answer parsing, invalid rate, paired McNemar 검증</li>
+        <li><code>test_cli_pipeline.py</code>: rewrite/manual/evaluate/demo 산출물 생성, blank response 실패, dictionary 자동 로딩 방지</li>
+        <li><code>test_autoencoder.py</code>: train/dev 학습, eval annotation leakage 방지, gold primitive가 repair를 제어하지 않는지 검증</li>
+      </ul>
+      <p class="mini">
+        현재 확인한 환경에서는 <code>pytest</code>가 설치되어 있지 않아 <code>python -m pytest -q</code>는 실행되지 않았습니다.
+      </p>
+    </section>
+
+    <section id="remaining">
+      <h2>12. 실제 실험 전 남은 작업</h2>
+      <ul>
+        <li>100~150개 <code>human_validated=true</code> 문항 작성</li>
+        <li>independent predeclared dictionary 작성 또는 train-only resource 사용 결정</li>
+        <li>Talkie 웹에서 manual response 수집</li>
+        <li>최종 <code>evaluate-manual</code> 실행</li>
+        <li>raw, rule_only, length_controlled, proposed, proposed_no_validator 비교 해석</li>
+      </ul>
+    </section>
+
+    <section id="runbook">
+      <h2>최종 실험 실행 순서</h2>
+      <p>실제 validated dataset을 준비한 뒤 아래 순서로 실행합니다.</p>
+      <pre><code>python -m pip install -e .
+
+# data/generated_questions.jsonl에 최종 검수 데이터 배치
+python -m talkie_bridge.cli prepare-manual --eval-split test
+
+# input_data/manual_talkie_input_sheet.csv에 Talkie 응답을 채운 뒤
+python -m talkie_bridge.cli evaluate-manual --eval-split test --manual-response-csv input_data/manual_talkie_input_sheet.csv
+
+# 선택: 한 문항 demo HTML 생성
+python -m talkie_bridge.cli demo --item-id q001 --out results/demo.html</code></pre>
+      <div class="callout">
+        <strong>해석 포인트:</strong>
+        proposed가 raw보다 높아도 충분하지 않습니다. rule_only, length_controlled,
+        proposed_no_validator와 함께 봐야 성능 향상이 단순 길이 증가나 정답 힌트 때문이 아닌지 판단할 수 있습니다.
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>
+        이 HTML은 <code>PROJECT_PROPOSAL.md</code>, <code>DATASET_SCHEMA.md</code>,
+        <code>README.md</code>, <code>src/talkie_bridge/</code>, <code>tests/</code>의 현재 구현을 기준으로 정리한 설명 문서입니다.
+      </p>
+    </div>
+  </footer>
+</body>
+</html>

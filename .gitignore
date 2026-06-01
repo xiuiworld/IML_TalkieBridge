@@ -1,0 +1,34 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+.venv-*/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.ipynb_checkpoints/
+*.pt
+*.ckpt
+*.log
+.env
+.env.*
+uv.lock
+
+# Tool/test generated artifacts
+playwright-report/
+test-results/
+
+# TalkieBridge generated artifacts
+/data/
+/input_data/
+/cache/
+/results*/
+
+# Original Talkie checkout/reference package is not part of this project repo
+/src/talkie/
+/assets/
+
+# Local lecture/transcript materials
+/docs/audio/

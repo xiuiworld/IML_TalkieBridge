@@ -1,0 +1,510 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>정량평가·차별점·구현 방법</title>
+  <style>
+    :root {
+      --ink: #1d2733;
+      --muted: #637083;
+      --line: #d8e1ec;
+      --bg: #f6f8fb;
+      --panel: #ffffff;
+      --blue: #1f6feb;
+      --green: #0d8f6f;
+      --orange: #b45f06;
+      --soft-blue: #eef5ff;
+      --soft-green: #ecf8f4;
+      --soft-orange: #fff4e4;
+      --shadow: 0 14px 34px rgba(29, 39, 51, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans KR", sans-serif;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+      padding: 34px 0 54px;
+    }
+
+    header {
+      padding: 42px;
+      border-radius: 8px;
+      background: linear-gradient(135deg, #14345f, #146a6d);
+      color: white;
+      box-shadow: var(--shadow);
+    }
+
+    .eyebrow {
+      margin: 0 0 10px;
+      font-size: 14px;
+      font-weight: 800;
+      opacity: 0.82;
+    }
+
+    h1 {
+      margin: 0;
+      max-width: 920px;
+      font-size: clamp(30px, 4vw, 46px);
+      line-height: 1.15;
+      letter-spacing: 0;
+    }
+
+    .subtitle {
+      max-width: 880px;
+      margin: 18px 0 0;
+      font-size: 18px;
+      opacity: 0.94;
+    }
+
+    section {
+      margin-top: 22px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--panel);
+      box-shadow: 0 10px 24px rgba(29, 39, 51, 0.045);
+    }
+
+    h2 {
+      margin: 0 0 14px;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 9px;
+      font-size: 18px;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    ul {
+      margin: 10px 0 0;
+      padding-left: 22px;
+    }
+
+    li {
+      margin: 5px 0;
+    }
+
+    a {
+      color: var(--blue);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 13px 14px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf2f8;
+      font-weight: 800;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .box {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fbfcfe;
+    }
+
+    .blue {
+      border-color: #c9dcff;
+      background: var(--soft-blue);
+    }
+
+    .green {
+      border-color: #c4e8dd;
+      background: var(--soft-green);
+    }
+
+    .orange {
+      border-color: #efcf9d;
+      background: var(--soft-orange);
+    }
+
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(5, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .step {
+      min-height: 120px;
+      padding: 16px;
+      border: 1px solid #cbd7e4;
+      border-radius: 8px;
+      background: white;
+    }
+
+    .step b {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      margin-bottom: 10px;
+      border-radius: 50%;
+      background: var(--blue);
+      color: white;
+      font-size: 13px;
+    }
+
+    .step p {
+      margin: 0;
+      font-size: 14px;
+    }
+
+    .code {
+      margin: 14px 0 0;
+      padding: 16px;
+      overflow-x: auto;
+      border-radius: 8px;
+      background: #111827;
+      color: #f9fafb;
+      font-family: "Cascadia Mono", Consolas, monospace;
+      font-size: 14px;
+      line-height: 1.55;
+      white-space: pre-wrap;
+    }
+
+    .callout {
+      margin-top: 16px;
+      padding: 20px;
+      border-left: 5px solid var(--green);
+      border-radius: 8px;
+      background: #f6fbf9;
+    }
+
+    footer {
+      margin-top: 22px;
+      color: var(--muted);
+      font-size: 13px;
+      text-align: center;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        width: min(100% - 24px, 1120px);
+        padding-top: 18px;
+      }
+
+      header,
+      section {
+        padding: 22px;
+      }
+
+      .grid-2,
+      .grid-3,
+      .flow {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <p class="eyebrow">Vintage LLM Project Note</p>
+      <h1>정량평가, talkie-lm.com과의 차이점, 구현 방법</h1>
+      <p class="subtitle">
+        시대중립 프롬프트 전처리 프로젝트를 기계학습개론 과제로 설득력 있게 만들기 위한
+        평가 설계와 구현 계획을 정리한 문서입니다.
+      </p>
+    </header>
+
+    <section>
+      <h2>1. 다른 LLM은 품질을 어떻게 정량 평가하는가?</h2>
+      <p>
+        LLM은 하나의 점수로 모든 품질을 평가하기 어렵기 때문에, 보통 능력별 벤치마크를 나누어 사용합니다.
+        객관식 문제는 accuracy, 코드 생성은 테스트 통과율, 대화 품질은 pairwise win rate나 Elo를 사용합니다.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>평가 대상</th>
+            <th>대표 지표</th>
+            <th>대표 벤치마크 / 방식</th>
+            <th>의미</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>지식·추론</td>
+            <td>Accuracy</td>
+            <td><a href="https://arxiv.org/abs/2009.03300">MMLU</a>, GPQA</td>
+            <td>객관식 또는 정답이 있는 문제를 몇 개 맞혔는지 측정</td>
+          </tr>
+          <tr>
+            <td>수학</td>
+            <td>정답률, pass rate</td>
+            <td>GSM8K, MATH, AIME</td>
+            <td>계산과 추론을 거쳐 최종 정답을 맞히는지 평가</td>
+          </tr>
+          <tr>
+            <td>코딩</td>
+            <td>pass@k, 테스트 통과율</td>
+            <td><a href="https://github.com/openai/human-eval">HumanEval</a>, <a href="https://github.com/SWE-bench/SWE-bench">SWE-bench</a></td>
+            <td>생성한 코드가 unit test 또는 실제 issue 테스트를 통과하는지 평가</td>
+          </tr>
+          <tr>
+            <td>대화 품질</td>
+            <td>Win Rate, Elo, Judge Score</td>
+            <td><a href="https://arxiv.org/abs/2403.04132">Chatbot Arena</a>, <a href="https://arxiv.org/abs/2306.05685">MT-Bench</a></td>
+            <td>두 답변 중 더 나은 답변을 사람이거나 judge LLM이 선택</td>
+          </tr>
+          <tr>
+            <td>사실성·환각</td>
+            <td>Truthfulness, Faithfulness</td>
+            <td><a href="https://arxiv.org/abs/2109.07958">TruthfulQA</a></td>
+            <td>그럴듯하지만 틀린 답변을 얼마나 줄이는지 평가</td>
+          </tr>
+          <tr>
+            <td>RAG 시스템</td>
+            <td>Context Recall, Faithfulness, Answer Relevance</td>
+            <td><a href="https://docs.ragas.io/">RAGAS</a></td>
+            <td>검색된 문서가 충분한지, 답변이 문서에 충실한지 측정</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="callout">
+        <strong>이 프로젝트에 적용할 핵심:</strong>
+        자유 생성 답변의 품질은 하나의 정답과 비교하기 어렵기 때문에,
+        baseline 답변과 proposed 답변을 익명으로 비교하는 <b>Pairwise Win Rate</b>를 메인 지표로 사용합니다.
+      </div>
+    </section>
+
+    <section>
+      <h2>2. 본 프로젝트의 정량 평가 설계</h2>
+      <p>
+        평가는 두 층으로 나눕니다. 첫 번째는 전처리기가 질문을 잘 바꿨는지 평가하고,
+        두 번째는 전처리 후 vintage LLM의 답변 품질이 실제로 향상됐는지 평가합니다.
+      </p>
+      <div class="grid-2">
+        <div class="box green">
+          <h3>전처리기 자체 평가</h3>
+          <ul>
+            <li><b>Anachronism Removal Rate</b>: 제거된 현대 용어 수 / 원문 현대 용어 수</li>
+            <li><b>Rewrite Success Rate</b>: 검증기를 통과한 변환문 수 / 전체 질문 수</li>
+            <li><b>Semantic Preservation Score</b>: 원문 질문 의도 보존 정도, 1~5점</li>
+            <li><b>Leakage Score</b>: 변환문이 답을 미리 알려준 정도, 낮을수록 좋음</li>
+          </ul>
+        </div>
+        <div class="box green">
+          <h3>최종 답변 품질 평가</h3>
+          <ul>
+            <li><b>Answer Relevance</b>: 답변이 질문에 맞는지, 1~5점</li>
+            <li><b>Comprehension Score</b>: 모델이 핵심 개념을 이해했는지, 1~5점</li>
+            <li><b>Task Success Rate</b>: 기준 점수 이상 답변 비율</li>
+            <li><b>Pairwise Win Rate</b>: Proposed가 Baseline보다 낫다고 선택된 비율</li>
+          </ul>
+        </div>
+      </div>
+      <div class="code">Baseline:
+현대어 질문 → talkie-1930-13b-it → baseline answer
+
+Proposed:
+현대어 질문 → 시대중립 전처리기 → talkie-1930-13b-it → proposed answer
+
+Pairwise Win Rate 예시:
+총 30개 질문
+Proposed 승리 21개, Baseline 승리 6개, 무승부 3개
+Proposed Win Rate = 21 / 30 = 70.0%</div>
+    </section>
+
+    <section>
+      <h2>3. talkie-lm.com 소개 글과의 차이점</h2>
+      <p>
+        이 프로젝트는 talkie 소개 글의 실험을 그대로 반복하지 않습니다.
+        talkie 소개 글은 vintage LLM의 성능을 분석하기 위해 시대착오 질문을 탐지하고 필터링하는 데 초점이 있습니다.
+        반면 본 프로젝트는 그런 질문을 버리지 않고, vintage LLM이 이해할 수 있는 입력으로 재작성하는 서비스를 만듭니다.
+      </p>
+      <table>
+        <thead>
+          <tr>
+            <th>구분</th>
+            <th>talkie-lm.com 소개 글</th>
+            <th>본 프로젝트</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>핵심 목적</td>
+            <td>1930년 기반 LLM과 현대 LLM의 성능·특성 비교</td>
+            <td>현대어 질문을 vintage LLM에 맞게 변환하는 입력 전처리 서비스 구현</td>
+          </tr>
+          <tr>
+            <td>시대착오 질문 처리</td>
+            <td>시대착오 질문을 탐지하고 평가에서 제외하거나 별도 분석</td>
+            <td>시대착오 질문을 시대중립 표현으로 재작성하여 사용</td>
+          </tr>
+          <tr>
+            <td>입력 데이터</td>
+            <td>기존 벤치마크 중심</td>
+            <td>현대 개념이 포함된 질문 20~50개 직접 제작</td>
+          </tr>
+          <tr>
+            <td>산출물</td>
+            <td>모델 소개, 벤치마크 결과, 분석</td>
+            <td>Detector, Rewriter, Validator, Evaluator로 구성된 파이프라인</td>
+          </tr>
+          <tr>
+            <td>연구 질문</td>
+            <td>1930년 모델은 현대 모델과 비교해 어떤 차이를 보이는가?</td>
+            <td>시대착오 질문을 재작성하면 vintage LLM의 응답 품질이 향상되는가?</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="box blue" style="margin-top: 16px;">
+        <h3>차별화된 메인 질문</h3>
+        <p>
+          시대착오 질문을 단순히 제외하지 않고, 답을 유출하지 않는 시대중립 표현으로 재작성하면
+          vintage LLM의 활용 가능성과 응답 품질을 높일 수 있는가?
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>4. 구현 방법</h2>
+      <p>
+        구현은 Python 기반 실험 파이프라인으로 시작하고, 가능하면 Streamlit 같은 간단한 UI를 붙여
+        발표에서 시연 가능한 서비스 형태로 만듭니다.
+      </p>
+      <div class="flow">
+        <div class="step">
+          <b>1</b>
+          <p>현대 개념 포함 질문 데이터셋 제작</p>
+        </div>
+        <div class="step">
+          <b>2</b>
+          <p>시대착오 개념 탐지기 구현</p>
+        </div>
+        <div class="step">
+          <b>3</b>
+          <p>시대중립 재작성기 구현</p>
+        </div>
+        <div class="step">
+          <b>4</b>
+          <p>검증기와 자가수정 루프 구현</p>
+        </div>
+        <div class="step">
+          <b>5</b>
+          <p>Baseline/Proposed 비교 평가</p>
+        </div>
+      </div>
+      <div class="grid-3">
+        <div class="box blue">
+          <h3>Detector</h3>
+          <p>
+            직접 만든 현대어 사전과 LLM 기반 탐지를 함께 사용합니다.
+            명확한 현대 용어는 사전으로 빠르게 잡고, 암묵적인 시대착오 개념은 LLM이 보완합니다.
+          </p>
+        </div>
+        <div class="box blue">
+          <h3>Rewriter</h3>
+          <p>
+            현대 용어를 직접 쓰지 않고 기능적 설명으로 바꿉니다.
+            예를 들어 LLM은 “많은 글을 읽고 다음 단어를 예측하도록 훈련된 자동 문장 생성 기계”로 변환합니다.
+          </p>
+        </div>
+        <div class="box blue">
+          <h3>Validator</h3>
+          <p>
+            변환문에 현대 용어가 남았는지, 원래 질문의 의미가 유지됐는지,
+            답을 과도하게 알려주지는 않았는지 검사합니다.
+          </p>
+        </div>
+      </div>
+      <div class="grid-2">
+        <div class="box">
+          <h3>파일 구조 예시</h3>
+          <div class="code">data/questions.jsonl
+src/detector.py
+src/rewriter.py
+src/validator.py
+src/run_talkie.py
+src/evaluator.py
+src/run_experiment.py
+results/baseline_outputs.jsonl
+results/proposed_outputs.jsonl
+results/evaluation.csv
+app.py</div>
+        </div>
+        <div class="box">
+          <h3>실험 루프 예시</h3>
+          <div class="code">for question in dataset:
+    terms = detect_anachronisms(question)
+    rewritten = rewrite_era_neutral(question, terms)
+    verdict = validate_rewrite(question, rewritten)
+
+    if verdict.failed:
+        rewritten = revise_rewrite(question, rewritten, verdict)
+
+    baseline_answer = ask_talkie(question)
+    proposed_answer = ask_talkie(rewritten)
+    score = evaluate_pairwise(question, baseline_answer, proposed_answer)</div>
+        </div>
+      </div>
+      <div class="box orange" style="margin-top: 16px;">
+        <h3>현실적 리스크</h3>
+        <p>
+          talkie-1930-13b-it는 13B 모델이므로 GPU VRAM 요구량이 큽니다.
+          로컬 실행이 어렵다면 전체 데이터셋은 전처리 품질과 LLM-as-a-Judge 평가 중심으로 진행하고,
+          talkie 직접 실행은 가능한 샘플 수만 수행하는 방식을 권장합니다.
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      Era-Neutral Prompt Rewriter · Quantitative Evaluation and Implementation Note
+    </footer>
+  </main>
+</body>
+</html>
