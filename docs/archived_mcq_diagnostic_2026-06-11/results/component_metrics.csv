@@ -1,0 +1,13 @@
+﻿component,metric,value
+detector,precision,0.93
+detector,recall,0.6739130434782609
+detector,f1,0.7815126050420169
+rewriter,anachronism_removal_rate,1.0
+rewriter,required_primitive_recall,0.7670158730158728
+validator,rewrite_pass_rate,0.7575
+validator,leakage_risk_rate,0.0
+validator,mean_choice_copying_score,0.0
+validator,max_choice_copying_score,0.0
+validator,mean_choice_keyword_overlap_score,0.14149900793650794
+validator,max_choice_keyword_overlap_score,0.42857142857142855
+repair,mean_repair_attempts,0.0

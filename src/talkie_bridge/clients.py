@@ -66,6 +66,7 @@ class UnofficialTalkieApiClient:
         retry_base_delay: float = 30.0,
         retry_max_delay: float = 300.0,
         sleep_fn: Callable[[float], None] = time.sleep,
+        event_callback: Callable[[dict[str, Any]], None] | None = None,
     ) -> None:
         self.cache = JsonlCache(cache_path)
         self.temperature = temperature
@@ -76,12 +77,17 @@ class UnofficialTalkieApiClient:
         self.retry_base_delay = retry_base_delay
         self.retry_max_delay = retry_max_delay
         self.sleep_fn = sleep_fn
+        self.event_callback = event_callback
 
     def ask(self, prompt: str) -> dict[str, Any]:
         cache_key = _cache_key(prompt, self.temperature, self.max_tokens)
         cached = self.cache.get(cache_key)
         if cached is not None:
-            return cached
+            self._emit({"event": "cache_hit", "cache_key": cache_key})
+            row = dict(cached)
+            row["cache_hit"] = True
+            return row
+        self._emit({"event": "request_start", "cache_key": cache_key})
         answer = "".join(
             chunk
             for event, chunk in self._iter_events(prompt)
@@ -93,9 +99,12 @@ class UnofficialTalkieApiClient:
             "provider": "unofficial_talkie_api",
             "temperature": self.temperature,
             "max_tokens": self.max_tokens,
+            "cache_hit": False,
         }
         self.cache.put(row)
+        self._emit({"event": "response_complete", "cache_key": cache_key, "response_chars": len(answer)})
         if self.request_delay > 0:
+            self._emit({"event": "request_delay", "delay_seconds": self.request_delay})
             self.sleep_fn(self.request_delay)
         return row
 
@@ -128,7 +137,18 @@ class UnofficialTalkieApiClient:
                 ) as response:
                     status_code = getattr(response, "status_code", 0)
                     if _is_retryable_status(status_code) and attempt < self.max_retries:
-                        self.sleep_fn(self._retry_delay(attempt, response))
+                        delay = self._retry_delay(attempt, response)
+                        self._emit(
+                            {
+                                "event": "retry_wait",
+                                "attempt": attempt + 1,
+                                "max_retries": self.max_retries,
+                                "delay_seconds": delay,
+                                "status_code": status_code,
+                                "reason": f"HTTP {status_code}",
+                            }
+                        )
+                        self.sleep_fn(delay)
                         continue
                     response.raise_for_status()
                     event_name = "message"
@@ -150,10 +170,29 @@ class UnofficialTalkieApiClient:
                     if data_lines:
                         yield event_name, "\n".join(data_lines)
                     return
-            except requests.RequestException:
+            except requests.RequestException as exc:
                 if attempt >= self.max_retries:
+                    self._emit(
+                        {
+                            "event": "request_failed",
+                            "attempt": attempt + 1,
+                            "max_retries": self.max_retries,
+                            "reason": str(exc),
+                        }
+                    )
                     raise
-                self.sleep_fn(self._retry_delay(attempt, None))
+                delay = self._retry_delay(attempt, None)
+                self._emit(
+                    {
+                        "event": "retry_wait",
+                        "attempt": attempt + 1,
+                        "max_retries": self.max_retries,
+                        "delay_seconds": delay,
+                        "status_code": "",
+                        "reason": str(exc),
+                    }
+                )
+                self.sleep_fn(delay)
 
     def _retry_delay(self, attempt: int, response: Any | None) -> float:
         retry_after = _retry_after_seconds(response)
@@ -161,6 +200,10 @@ class UnofficialTalkieApiClient:
             return min(retry_after, self.retry_max_delay)
         delay = self.retry_base_delay * (2**attempt)
         return min(delay, self.retry_max_delay)
+
+    def _emit(self, event: dict[str, Any]) -> None:
+        if self.event_callback is not None:
+            self.event_callback(event)
 
 
 def _cache_key(prompt: str, temperature: float, max_tokens: int) -> str:

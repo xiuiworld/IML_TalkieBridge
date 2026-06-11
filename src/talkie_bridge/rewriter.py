@@ -23,11 +23,16 @@ class PrimitiveBottleneck:
 
 
 class RuleOnlyRewriter:
-    def rewrite(self, item: DatasetItem, detected_terms: Sequence[DetectedTerm], mapper: ConceptPrimitiveMapper) -> str:
+    def rewrite(self, item: DatasetItem, detected_terms: Sequence[DetectedTerm], mapper: ConceptPrimitiveMapper, *, task: str = "mcq") -> str:
         text = replace_detected_terms(item.original_question, detected_terms)
         primitive_ids = mapper.map_terms(detected_terms)
         phrases = mapper.phrases_for(primitive_ids)
         phrase = phrases[0] if phrases else "can be described by its practical function"
+        if task == "open_ended":
+            return (
+                f"Consider a method that {phrase}. "
+                f"{text} Focus on the mechanism, not on the modern name."
+            )
         return (
             f"Consider a method that {phrase}. "
             f"{text} Focus on the mechanism, not on the modern name."
@@ -35,8 +40,22 @@ class RuleOnlyRewriter:
 
 
 class LengthControlledRewriter:
-    def rewrite(self, item: DatasetItem, detected_terms: Sequence[DetectedTerm], mapper: ConceptPrimitiveMapper, *, target_tokens: int) -> str:
+    def rewrite(
+        self,
+        item: DatasetItem,
+        detected_terms: Sequence[DetectedTerm],
+        mapper: ConceptPrimitiveMapper,
+        *,
+        target_tokens: int,
+        task: str = "mcq",
+    ) -> str:
         text = replace_detected_terms(item.original_question, detected_terms)
+        if task == "open_ended":
+            base = (
+                "Consider the same practical situation described in plain terms. "
+                f"{text} Focus on the practical mechanism."
+            )
+            return match_token_length(base, target_tokens)
         base = (
             "Consider the same practical situation described in plain terms. "
             "Use only the information in the question and choices. "
@@ -72,9 +91,23 @@ class DenoisingPrimitiveBottleneckRewriter:
         phrases = tuple(mapper.phrases_for(primitive_ids))
         return PrimitiveBottleneck(tuple(primitive_ids), phrases)
 
-    def rewrite(self, item: DatasetItem, detected_terms: Sequence[DetectedTerm], mapper: ConceptPrimitiveMapper) -> tuple[str, PrimitiveBottleneck]:
+    def rewrite(
+        self,
+        item: DatasetItem,
+        detected_terms: Sequence[DetectedTerm],
+        mapper: ConceptPrimitiveMapper,
+        *,
+        task: str = "mcq",
+    ) -> tuple[str, PrimitiveBottleneck]:
         bottleneck = self.compress(item, detected_terms, mapper)
         neutral_question = replace_detected_terms(item.original_question, detected_terms)
+        if task == "open_ended":
+            rewritten = (
+                f"Consider a method that {bottleneck.primary_phrase}. "
+                f"{neutral_question} "
+                "Focus on the functional reason in ordinary terms."
+            )
+            return rewritten, bottleneck
         rewritten = (
             f"Consider a method that {bottleneck.primary_phrase}. "
             f"{neutral_question} "
@@ -101,6 +134,12 @@ class EraNeutralPromptGenerator:
         self.proposed = proposed_rewriter
 
     def rewrite_item(self, item: DatasetItem) -> list[RewriteArtifact]:
+        return self._rewrite_item(item, task="mcq")
+
+    def rewrite_open_item(self, item: DatasetItem) -> list[RewriteArtifact]:
+        return self._rewrite_item(item, task="open_ended")
+
+    def _rewrite_item(self, item: DatasetItem, *, task: str) -> list[RewriteArtifact]:
         detected = self.detector.detect_details(item.original_question)
         detected_terms = [term.term for term in detected]
         mapped = self.mapper.map_terms(detected)
@@ -111,7 +150,7 @@ class EraNeutralPromptGenerator:
             self._artifact(
                 item=item,
                 condition="rule_only",
-                rewritten_question=self.rule_only.rewrite(item, detected, self.mapper),
+                rewritten_question=self.rule_only.rewrite(item, detected, self.mapper, task=task),
                 detected_terms=detected_terms,
                 mapped_primitives=mapped,
                 detector_token_scores=detector_token_scores,
@@ -120,7 +159,7 @@ class EraNeutralPromptGenerator:
                 repair_primitives=mapped,
             )
         )
-        proposed_question, bottleneck = self.proposed.rewrite(item, detected, self.mapper)
+        proposed_question, bottleneck = self.proposed.rewrite(item, detected, self.mapper, task=task)
         proposed_mapped = list(bottleneck.primitive_ids)
         artifacts.append(
             self._artifact(
@@ -131,6 +170,7 @@ class EraNeutralPromptGenerator:
                     detected,
                     self.mapper,
                     target_tokens=len(tokenize(proposed_question)),
+                    task=task,
                 ),
                 detected_terms=detected_terms,
                 mapped_primitives=mapped,

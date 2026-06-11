@@ -1,0 +1,989 @@
+{
+  "2fa": {
+    "canonical_term": "2FA",
+    "concept_term": "two-factor authentication",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "two_factor_authentication",
+    "primitive_phrase": "requires a second proof in addition to the secret word"
+  },
+  "3d printing": {
+    "canonical_term": "3D printing",
+    "concept_term": "3D printing",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "3d_printing",
+    "primitive_phrase": "builds an object layer by layer from a digital plan"
+  },
+  "abs": {
+    "canonical_term": "ABS",
+    "concept_term": "anti-lock braking system",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "anti_lock_braking_system",
+    "primitive_phrase": "rapidly reduces and restores brake force when wheels begin to lock"
+  },
+  "airbag": {
+    "canonical_term": "airbag",
+    "concept_term": "airbag",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "airbag",
+    "primitive_phrase": "inflates a cushion very quickly during a collision"
+  },
+  "algorithm": {
+    "canonical_term": "algorithm",
+    "concept_term": "recommendation algorithm",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "recommendation_algorithm",
+    "primitive_phrase": "calculates suggestions from prior choices and similarities"
+  },
+  "algorithmic feed": {
+    "canonical_term": "algorithmic feed",
+    "concept_term": "algorithmic feed",
+    "domain": "Communication_Media",
+    "primitive_id": "algorithmic_feed",
+    "primitive_phrase": "orders messages by calculated signals of likely interest"
+  },
+  "anti-lock braking system": {
+    "canonical_term": "anti-lock braking system",
+    "concept_term": "anti-lock braking system",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "anti_lock_braking_system",
+    "primitive_phrase": "rapidly reduces and restores brake force when wheels begin to lock"
+  },
+  "antibiotic": {
+    "canonical_term": "antibiotic",
+    "concept_term": "antibiotic resistance",
+    "domain": "Medicine_Biology",
+    "primitive_id": "antibiotic_resistance",
+    "primitive_phrase": "describes germs surviving a medicine and passing that trait onward"
+  },
+  "antibiotic resistance": {
+    "canonical_term": "antibiotic resistance",
+    "concept_term": "antibiotic resistance",
+    "domain": "Medicine_Biology",
+    "primitive_id": "antibiotic_resistance",
+    "primitive_phrase": "describes germs surviving a medicine and passing that trait onward"
+  },
+  "antiviral": {
+    "canonical_term": "antiviral",
+    "concept_term": "antiviral drug",
+    "domain": "Medicine_Biology",
+    "primitive_id": "antiviral_drug",
+    "primitive_phrase": "interferes with a step the virus needs to copy itself"
+  },
+  "antiviral drug": {
+    "canonical_term": "antiviral drug",
+    "concept_term": "antiviral drug",
+    "domain": "Medicine_Biology",
+    "primitive_id": "antiviral_drug",
+    "primitive_phrase": "interferes with a step the virus needs to copy itself"
+  },
+  "api": {
+    "canonical_term": "API",
+    "concept_term": "API",
+    "domain": "AI_Computing",
+    "primitive_id": "api",
+    "primitive_phrase": "offers a published set of commands that one machine can use to request work from another"
+  },
+  "app": {
+    "canonical_term": "app",
+    "concept_term": "food delivery app",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "food_delivery_app",
+    "primitive_phrase": "matches customer, restaurant, courier, and payment through portable messages"
+  },
+  "autopilot": {
+    "canonical_term": "autopilot",
+    "concept_term": "autopilot",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "autopilot",
+    "primitive_phrase": "uses instruments and control rules to adjust steering automatically"
+  },
+  "battery storage": {
+    "canonical_term": "battery storage",
+    "concept_term": "battery storage",
+    "domain": "Environment_Energy",
+    "primitive_id": "battery_storage",
+    "primitive_phrase": "stores electrical energy chemically for later release"
+  },
+  "biofuel": {
+    "canonical_term": "biofuel",
+    "concept_term": "biofuel",
+    "domain": "Environment_Energy",
+    "primitive_id": "biofuel",
+    "primitive_phrase": "makes burnable fuel from recently grown biological material"
+  },
+  "biometric": {
+    "canonical_term": "biometric",
+    "concept_term": "biometric authentication",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "biometric_authentication",
+    "primitive_phrase": "compares a body feature with a stored reference"
+  },
+  "biometric authentication": {
+    "canonical_term": "biometric authentication",
+    "concept_term": "biometric authentication",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "biometric_authentication",
+    "primitive_phrase": "compares a body feature with a stored reference"
+  },
+  "blockchain": {
+    "canonical_term": "blockchain",
+    "concept_term": "blockchain",
+    "domain": "AI_Computing",
+    "primitive_id": "blockchain",
+    "primitive_phrase": "links records so each new record depends on earlier records"
+  },
+  "cache": {
+    "canonical_term": "cache",
+    "concept_term": "cache",
+    "domain": "AI_Computing",
+    "primitive_id": "cache",
+    "primitive_phrase": "keeps recently used results in a nearby fast store"
+  },
+  "carbon capture": {
+    "canonical_term": "carbon capture",
+    "concept_term": "carbon capture",
+    "domain": "Environment_Energy",
+    "primitive_id": "carbon_capture",
+    "primitive_phrase": "separates carbon-bearing gas before it enters the air"
+  },
+  "carbon fiber": {
+    "canonical_term": "carbon fiber",
+    "concept_term": "carbon fiber composite",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "carbon_fiber_composite",
+    "primitive_phrase": "embeds strong fibers inside a binding material"
+  },
+  "carbon fiber composite": {
+    "canonical_term": "carbon fiber composite",
+    "concept_term": "carbon fiber composite",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "carbon_fiber_composite",
+    "primitive_phrase": "embeds strong fibers inside a binding material"
+  },
+  "climate model": {
+    "canonical_term": "climate model",
+    "concept_term": "climate model",
+    "domain": "Environment_Energy",
+    "primitive_id": "climate_model",
+    "primitive_phrase": "uses mathematical rules to simulate air, water, and energy flows"
+  },
+  "cloud": {
+    "canonical_term": "cloud",
+    "concept_term": "cloud file sharing",
+    "domain": "Communication_Media",
+    "primitive_id": "cloud_file_sharing",
+    "primitive_phrase": "keeps a file on distant machines reachable by several users"
+  },
+  "cloud computing": {
+    "canonical_term": "cloud computing",
+    "concept_term": "cloud computing",
+    "domain": "AI_Computing",
+    "primitive_id": "cloud_computing",
+    "primitive_phrase": "rents distant computing machines as needed"
+  },
+  "cloud file sharing": {
+    "canonical_term": "cloud file sharing",
+    "concept_term": "cloud file sharing",
+    "domain": "Communication_Media",
+    "primitive_id": "cloud_file_sharing",
+    "primitive_phrase": "keeps a file on distant machines reachable by several users"
+  },
+  "composite": {
+    "canonical_term": "composite",
+    "concept_term": "carbon fiber composite",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "carbon_fiber_composite",
+    "primitive_phrase": "embeds strong fibers inside a binding material"
+  },
+  "compression": {
+    "canonical_term": "compression",
+    "concept_term": "data compression",
+    "domain": "AI_Computing",
+    "primitive_id": "data_compression",
+    "primitive_phrase": "uses shorter codes for repeated or predictable parts"
+  },
+  "computed tomography": {
+    "canonical_term": "computed tomography",
+    "concept_term": "CT scan",
+    "domain": "Medicine_Biology",
+    "primitive_id": "ct_scan",
+    "primitive_phrase": "combines many narrow X-ray views into cross-section pictures"
+  },
+  "contact tracing app": {
+    "canonical_term": "contact tracing app",
+    "concept_term": "contact tracing app",
+    "domain": "Medicine_Biology",
+    "primitive_id": "contact_tracing_app",
+    "primitive_phrase": "keeps recent encounter records on a portable communication device"
+  },
+  "contactless payment": {
+    "canonical_term": "contactless payment",
+    "concept_term": "contactless payment",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "contactless_payment",
+    "primitive_phrase": "sends payment information over a very short wireless distance"
+  },
+  "containerization": {
+    "canonical_term": "containerization",
+    "concept_term": "software container",
+    "domain": "AI_Computing",
+    "primitive_id": "software_container",
+    "primitive_phrase": "packs a program with the surrounding files it expects"
+  },
+  "continuous glucose monitor": {
+    "canonical_term": "continuous glucose monitor",
+    "concept_term": "continuous glucose monitor",
+    "domain": "Medicine_Biology",
+    "primitive_id": "continuous_glucose_monitor",
+    "primitive_phrase": "uses a small sensor to measure body chemistry repeatedly"
+  },
+  "crispr": {
+    "canonical_term": "CRISPR",
+    "concept_term": "CRISPR",
+    "domain": "Medicine_Biology",
+    "primitive_id": "crispr",
+    "primitive_phrase": "uses a guided molecular tool to cut a selected hereditary location"
+  },
+  "cruise control": {
+    "canonical_term": "cruise control",
+    "concept_term": "cruise control",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "cruise_control",
+    "primitive_phrase": "automatically adjusts engine force to hold a chosen speed"
+  },
+  "ct scan": {
+    "canonical_term": "CT scan",
+    "concept_term": "CT scan",
+    "domain": "Medicine_Biology",
+    "primitive_id": "ct_scan",
+    "primitive_phrase": "combines many narrow X-ray views into cross-section pictures"
+  },
+  "data compression": {
+    "canonical_term": "data compression",
+    "concept_term": "data compression",
+    "domain": "AI_Computing",
+    "primitive_id": "data_compression",
+    "primitive_phrase": "uses shorter codes for repeated or predictable parts"
+  },
+  "database": {
+    "canonical_term": "database",
+    "concept_term": "database index",
+    "domain": "AI_Computing",
+    "primitive_id": "database_index",
+    "primitive_phrase": "keeps a smaller ordered guide to where records are stored"
+  },
+  "database index": {
+    "canonical_term": "database index",
+    "concept_term": "database index",
+    "domain": "AI_Computing",
+    "primitive_id": "database_index",
+    "primitive_phrase": "keeps a smaller ordered guide to where records are stored"
+  },
+  "delivery drone": {
+    "canonical_term": "delivery drone",
+    "concept_term": "delivery drone",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "delivery_drone",
+    "primitive_phrase": "uses a small pilotless flying machine"
+  },
+  "desalination membrane": {
+    "canonical_term": "desalination membrane",
+    "concept_term": "desalination membrane",
+    "domain": "Environment_Energy",
+    "primitive_id": "desalination_membrane",
+    "primitive_phrase": "lets water pass while holding back much dissolved salt"
+  },
+  "digital camera": {
+    "canonical_term": "digital camera",
+    "concept_term": "digital camera",
+    "domain": "Communication_Media",
+    "primitive_id": "digital_camera",
+    "primitive_phrase": "records light as numerical picture elements"
+  },
+  "digital map": {
+    "canonical_term": "digital map",
+    "concept_term": "digital map",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "digital_map",
+    "primitive_phrase": "stores map data and computes paths on a machine"
+  },
+  "dna sequencing": {
+    "canonical_term": "DNA sequencing",
+    "concept_term": "DNA sequencing",
+    "domain": "Medicine_Biology",
+    "primitive_id": "dna_sequencing",
+    "primitive_phrase": "reads the order of hereditary chemical units"
+  },
+  "drone": {
+    "canonical_term": "drone",
+    "concept_term": "delivery drone",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "delivery_drone",
+    "primitive_phrase": "uses a small pilotless flying machine"
+  },
+  "e-book": {
+    "canonical_term": "e-book",
+    "concept_term": "e-book",
+    "domain": "Communication_Media",
+    "primitive_id": "e_book",
+    "primitive_phrase": "stores book text as electronic data"
+  },
+  "e-commerce": {
+    "canonical_term": "e-commerce",
+    "concept_term": "e-commerce",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "e_commerce",
+    "primitive_phrase": "uses electronic catalogues, orders, and payment records"
+  },
+  "ebook": {
+    "canonical_term": "ebook",
+    "concept_term": "e-book",
+    "domain": "Communication_Media",
+    "primitive_id": "e_book",
+    "primitive_phrase": "stores book text as electronic data"
+  },
+  "edge computing": {
+    "canonical_term": "edge computing",
+    "concept_term": "edge computing",
+    "domain": "AI_Computing",
+    "primitive_id": "edge_computing",
+    "primitive_phrase": "does computation near the measuring device instead of a distant center"
+  },
+  "electric vehicle": {
+    "canonical_term": "electric vehicle",
+    "concept_term": "electric vehicle",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "electric_vehicle",
+    "primitive_phrase": "moves by an electric motor powered from stored electrical energy"
+  },
+  "electronic medical record": {
+    "canonical_term": "electronic medical record",
+    "concept_term": "electronic medical record",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "electronic_medical_record",
+    "primitive_phrase": "keeps patient records as machine-readable data"
+  },
+  "elisa": {
+    "canonical_term": "ELISA",
+    "concept_term": "ELISA",
+    "domain": "Medicine_Biology",
+    "primitive_id": "elisa",
+    "primitive_phrase": "uses a binding reaction plus a color signal"
+  },
+  "email": {
+    "canonical_term": "email",
+    "concept_term": "email",
+    "domain": "Communication_Media",
+    "primitive_id": "email",
+    "primitive_phrase": "moves written messages between machine mailboxes"
+  },
+  "encryption": {
+    "canonical_term": "encryption",
+    "concept_term": "encryption",
+    "domain": "AI_Computing",
+    "primitive_id": "encryption",
+    "primitive_phrase": "transforms a message into a form readable only with a secret key"
+  },
+  "ev": {
+    "canonical_term": "EV",
+    "concept_term": "electric vehicle",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "electric_vehicle",
+    "primitive_phrase": "moves by an electric motor powered from stored electrical energy"
+  },
+  "food delivery app": {
+    "canonical_term": "food delivery app",
+    "concept_term": "food delivery app",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "food_delivery_app",
+    "primitive_phrase": "matches customer, restaurant, courier, and payment through portable messages"
+  },
+  "fusion": {
+    "canonical_term": "fusion",
+    "concept_term": "fusion reactor",
+    "domain": "Environment_Energy",
+    "primitive_id": "fusion_reactor",
+    "primitive_phrase": "joins light atomic nuclei under extreme conditions"
+  },
+  "fusion reactor": {
+    "canonical_term": "fusion reactor",
+    "concept_term": "fusion reactor",
+    "domain": "Environment_Energy",
+    "primitive_id": "fusion_reactor",
+    "primitive_phrase": "joins light atomic nuclei under extreme conditions"
+  },
+  "genome-wide association study": {
+    "canonical_term": "genome-wide association study",
+    "concept_term": "genome-wide association study",
+    "domain": "Medicine_Biology",
+    "primitive_id": "genome_wide_association_study",
+    "primitive_phrase": "compares many hereditary positions across many people"
+  },
+  "glucose monitor": {
+    "canonical_term": "glucose monitor",
+    "concept_term": "continuous glucose monitor",
+    "domain": "Medicine_Biology",
+    "primitive_id": "continuous_glucose_monitor",
+    "primitive_phrase": "uses a small sensor to measure body chemistry repeatedly"
+  },
+  "gps": {
+    "canonical_term": "GPS",
+    "concept_term": "GPS",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "gps",
+    "primitive_phrase": "compares timed signals from distant transmitters to estimate position"
+  },
+  "gpu": {
+    "canonical_term": "GPU",
+    "concept_term": "GPU acceleration",
+    "domain": "AI_Computing",
+    "primitive_id": "gpu_acceleration",
+    "primitive_phrase": "uses many small calculating units at the same time"
+  },
+  "gpu acceleration": {
+    "canonical_term": "GPU acceleration",
+    "concept_term": "GPU acceleration",
+    "domain": "AI_Computing",
+    "primitive_id": "gpu_acceleration",
+    "primitive_phrase": "uses many small calculating units at the same time"
+  },
+  "gwas": {
+    "canonical_term": "GWAS",
+    "concept_term": "genome-wide association study",
+    "domain": "Medicine_Biology",
+    "primitive_id": "genome_wide_association_study",
+    "primitive_phrase": "compares many hereditary positions across many people"
+  },
+  "hallucination": {
+    "canonical_term": "hallucination",
+    "concept_term": "RAG for LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "rag_for_llm_hallucination",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply"
+  },
+  "heat pump": {
+    "canonical_term": "heat pump",
+    "concept_term": "heat pump",
+    "domain": "Environment_Energy",
+    "primitive_id": "heat_pump",
+    "primitive_phrase": "moves heat from one place to another using work"
+  },
+  "high-speed rail": {
+    "canonical_term": "high-speed rail",
+    "concept_term": "high-speed rail",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "high_speed_rail",
+    "primitive_phrase": "uses trains and track designed for sustained very high speed"
+  },
+  "hybrid car": {
+    "canonical_term": "hybrid car",
+    "concept_term": "hybrid car",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "hybrid_car",
+    "primitive_phrase": "combines a fuel engine with an electric drive and stored energy"
+  },
+  "instant messaging": {
+    "canonical_term": "instant messaging",
+    "concept_term": "instant messaging",
+    "domain": "Communication_Media",
+    "primitive_id": "instant_messaging",
+    "primitive_phrase": "sends short written messages almost immediately between devices"
+  },
+  "insulin pump": {
+    "canonical_term": "insulin pump",
+    "concept_term": "insulin pump",
+    "domain": "Medicine_Biology",
+    "primitive_id": "insulin_pump",
+    "primitive_phrase": "releases measured small doses of medicine through a wearable device"
+  },
+  "internet": {
+    "canonical_term": "internet",
+    "concept_term": "internet",
+    "domain": "Communication_Media",
+    "primitive_id": "internet",
+    "primitive_phrase": "connects many smaller machine networks into one addressing system"
+  },
+  "lab-on-a-chip": {
+    "canonical_term": "lab-on-a-chip",
+    "concept_term": "lab-on-a-chip",
+    "domain": "Medicine_Biology",
+    "primitive_id": "lab_on_a_chip",
+    "primitive_phrase": "moves tiny drops through small channels on a plate"
+  },
+  "led": {
+    "canonical_term": "LED",
+    "concept_term": "LED lighting",
+    "domain": "Environment_Energy",
+    "primitive_id": "led_lighting",
+    "primitive_phrase": "makes light with a small solid electrical device"
+  },
+  "led lighting": {
+    "canonical_term": "LED lighting",
+    "concept_term": "LED lighting",
+    "domain": "Environment_Energy",
+    "primitive_id": "led_lighting",
+    "primitive_phrase": "makes light with a small solid electrical device"
+  },
+  "light-emitting diode": {
+    "canonical_term": "light-emitting diode",
+    "concept_term": "LED lighting",
+    "domain": "Environment_Energy",
+    "primitive_id": "led_lighting",
+    "primitive_phrase": "makes light with a small solid electrical device"
+  },
+  "lithium-ion battery": {
+    "canonical_term": "lithium-ion battery",
+    "concept_term": "lithium-ion battery",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "lithium_ion_battery",
+    "primitive_phrase": "stores much electrical energy in a light chemical cell"
+  },
+  "llm": {
+    "canonical_term": "LLM",
+    "concept_term": "RAG for LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "rag_for_llm_hallucination",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply"
+  },
+  "machine learning": {
+    "canonical_term": "machine learning",
+    "concept_term": "machine learning",
+    "domain": "AI_Computing",
+    "primitive_id": "machine_learning",
+    "primitive_phrase": "adjusts its rules after seeing many labelled cases"
+  },
+  "magnetic resonance imaging": {
+    "canonical_term": "magnetic resonance imaging",
+    "concept_term": "MRI",
+    "domain": "Medicine_Biology",
+    "primitive_id": "mri",
+    "primitive_phrase": "uses strong magnetic effects and measured returning signals to form an inside picture"
+  },
+  "medical ultrasound": {
+    "canonical_term": "medical ultrasound",
+    "concept_term": "medical ultrasound",
+    "domain": "Medicine_Biology",
+    "primitive_id": "medical_ultrasound",
+    "primitive_phrase": "sends high-frequency sound and measures echoes"
+  },
+  "microplastics": {
+    "canonical_term": "microplastics",
+    "concept_term": "microplastics",
+    "domain": "Environment_Energy",
+    "primitive_id": "microplastics",
+    "primitive_phrase": "describes very small pieces of manufactured plastic material"
+  },
+  "monoclonal antibody": {
+    "canonical_term": "monoclonal antibody",
+    "concept_term": "monoclonal antibody",
+    "domain": "Medicine_Biology",
+    "primitive_id": "monoclonal_antibody",
+    "primitive_phrase": "uses many copies of a single highly specific defensive molecule"
+  },
+  "mri": {
+    "canonical_term": "MRI",
+    "concept_term": "MRI",
+    "domain": "Medicine_Biology",
+    "primitive_id": "mri",
+    "primitive_phrase": "uses strong magnetic effects and measured returning signals to form an inside picture"
+  },
+  "mrna": {
+    "canonical_term": "mRNA",
+    "concept_term": "mRNA vaccine",
+    "domain": "Medicine_Biology",
+    "primitive_id": "mrna_vaccine",
+    "primitive_phrase": "delivers temporary instructions for making a harmless identifying part"
+  },
+  "mrna vaccine": {
+    "canonical_term": "mRNA vaccine",
+    "concept_term": "mRNA vaccine",
+    "domain": "Medicine_Biology",
+    "primitive_id": "mrna_vaccine",
+    "primitive_phrase": "delivers temporary instructions for making a harmless identifying part"
+  },
+  "natural language processing": {
+    "canonical_term": "natural language processing",
+    "concept_term": "natural language processing",
+    "domain": "AI_Computing",
+    "primitive_id": "natural_language_processing",
+    "primitive_phrase": "uses statistical patterns in words and phrases"
+  },
+  "neural network": {
+    "canonical_term": "neural network",
+    "concept_term": "neural network",
+    "domain": "AI_Computing",
+    "primitive_id": "neural_network",
+    "primitive_phrase": "connects many simple adjustable units in layers"
+  },
+  "nlp": {
+    "canonical_term": "NLP",
+    "concept_term": "natural language processing",
+    "domain": "AI_Computing",
+    "primitive_id": "natural_language_processing",
+    "primitive_phrase": "uses statistical patterns in words and phrases"
+  },
+  "ocean cleanup device": {
+    "canonical_term": "ocean cleanup device",
+    "concept_term": "ocean cleanup device",
+    "domain": "Environment_Energy",
+    "primitive_id": "ocean_cleanup_device",
+    "primitive_phrase": "uses barriers and currents to concentrate floating material"
+  },
+  "ocr": {
+    "canonical_term": "OCR",
+    "concept_term": "OCR",
+    "domain": "AI_Computing",
+    "primitive_id": "ocr",
+    "primitive_phrase": "matches shapes of printed letters to written symbols"
+  },
+  "online banking": {
+    "canonical_term": "online banking",
+    "concept_term": "online banking",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "online_banking",
+    "primitive_phrase": "uses a distant electronic connection to view and move account records"
+  },
+  "online forum": {
+    "canonical_term": "online forum",
+    "concept_term": "online forum",
+    "domain": "Communication_Media",
+    "primitive_id": "online_forum",
+    "primitive_phrase": "keeps public written discussions in a shared electronic place"
+  },
+  "online learning platform": {
+    "canonical_term": "online learning platform",
+    "concept_term": "online learning platform",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "online_learning_platform",
+    "primitive_phrase": "delivers lessons, exercises, and messages through connected machines"
+  },
+  "online shopping": {
+    "canonical_term": "online shopping",
+    "concept_term": "e-commerce",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "e_commerce",
+    "primitive_phrase": "uses electronic catalogues, orders, and payment records"
+  },
+  "optical character recognition": {
+    "canonical_term": "optical character recognition",
+    "concept_term": "OCR",
+    "domain": "AI_Computing",
+    "primitive_id": "ocr",
+    "primitive_phrase": "matches shapes of printed letters to written symbols"
+  },
+  "organ transplant matching": {
+    "canonical_term": "organ transplant matching",
+    "concept_term": "organ transplant matching",
+    "domain": "Medicine_Biology",
+    "primitive_id": "organ_transplant_matching",
+    "primitive_phrase": "compares biological markers between donor and patient"
+  },
+  "password manager": {
+    "canonical_term": "password manager",
+    "concept_term": "password manager",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "password_manager",
+    "primitive_phrase": "stores secret words in a protected vault"
+  },
+  "payment": {
+    "canonical_term": "payment",
+    "concept_term": "QR code payment",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "qr_code_payment",
+    "primitive_phrase": "uses a camera-readable square code to identify the transaction"
+  },
+  "pcr": {
+    "canonical_term": "PCR",
+    "concept_term": "PCR",
+    "domain": "Medicine_Biology",
+    "primitive_id": "pcr",
+    "primitive_phrase": "copies a chosen hereditary chemical segment many times"
+  },
+  "podcast": {
+    "canonical_term": "podcast",
+    "concept_term": "podcast",
+    "domain": "Communication_Media",
+    "primitive_id": "podcast",
+    "primitive_phrase": "delivers recorded sound episodes through an electronic subscription feed"
+  },
+  "polymerase chain reaction": {
+    "canonical_term": "polymerase chain reaction",
+    "concept_term": "PCR",
+    "domain": "Medicine_Biology",
+    "primitive_id": "pcr",
+    "primitive_phrase": "copies a chosen hereditary chemical segment many times"
+  },
+  "pulse oximeter": {
+    "canonical_term": "pulse oximeter",
+    "concept_term": "pulse oximeter",
+    "domain": "Medicine_Biology",
+    "primitive_id": "pulse_oximeter",
+    "primitive_phrase": "shines light through tissue and compares how colors are absorbed"
+  },
+  "qr code": {
+    "canonical_term": "QR code",
+    "concept_term": "QR code",
+    "domain": "Communication_Media",
+    "primitive_id": "qr_code",
+    "primitive_phrase": "stores coded information in a square pattern read by a camera"
+  },
+  "qr code payment": {
+    "canonical_term": "QR code payment",
+    "concept_term": "QR code payment",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "qr_code_payment",
+    "primitive_phrase": "uses a camera-readable square code to identify the transaction"
+  },
+  "rag": {
+    "canonical_term": "RAG",
+    "concept_term": "RAG for LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "rag_for_llm_hallucination",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply"
+  },
+  "rag for llm hallucination": {
+    "canonical_term": "RAG for LLM hallucination",
+    "concept_term": "RAG for LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "rag_for_llm_hallucination",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply"
+  },
+  "recommendation algorithm": {
+    "canonical_term": "recommendation algorithm",
+    "concept_term": "recommendation algorithm",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "recommendation_algorithm",
+    "primitive_phrase": "calculates suggestions from prior choices and similarities"
+  },
+  "recommender system": {
+    "canonical_term": "recommender system",
+    "concept_term": "recommender system",
+    "domain": "AI_Computing",
+    "primitive_id": "recommender_system",
+    "primitive_phrase": "compares past choices and similarities among people or objects"
+  },
+  "regenerative medicine": {
+    "canonical_term": "regenerative medicine",
+    "concept_term": "stem cell therapy",
+    "domain": "Medicine_Biology",
+    "primitive_id": "stem_cell_therapy",
+    "primitive_phrase": "uses cells that can develop into specialized body cells"
+  },
+  "remote work software": {
+    "canonical_term": "remote work software",
+    "concept_term": "remote work software",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "remote_work_software",
+    "primitive_phrase": "combines distant speech, documents, and task records"
+  },
+  "renewable": {
+    "canonical_term": "renewable",
+    "concept_term": "renewable energy grid",
+    "domain": "Environment_Energy",
+    "primitive_id": "renewable_energy_grid",
+    "primitive_phrase": "coordinates many power sources whose output changes with weather"
+  },
+  "renewable energy grid": {
+    "canonical_term": "renewable energy grid",
+    "concept_term": "renewable energy grid",
+    "domain": "Environment_Energy",
+    "primitive_id": "renewable_energy_grid",
+    "primitive_phrase": "coordinates many power sources whose output changes with weather"
+  },
+  "ride-sharing app": {
+    "canonical_term": "ride-sharing app",
+    "concept_term": "ride-sharing app",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "ride_sharing_app",
+    "primitive_phrase": "uses a portable communication device to match riders and drivers"
+  },
+  "satellite": {
+    "canonical_term": "satellite",
+    "concept_term": "satellite monitoring",
+    "domain": "Environment_Energy",
+    "primitive_id": "satellite_monitoring",
+    "primitive_phrase": "observes the earth repeatedly from high above"
+  },
+  "satellite monitoring": {
+    "canonical_term": "satellite monitoring",
+    "concept_term": "satellite monitoring",
+    "domain": "Environment_Energy",
+    "primitive_id": "satellite_monitoring",
+    "primitive_phrase": "observes the earth repeatedly from high above"
+  },
+  "satellite television": {
+    "canonical_term": "satellite television",
+    "concept_term": "satellite television",
+    "domain": "Communication_Media",
+    "primitive_id": "satellite_television",
+    "primitive_phrase": "relays signals through an object high above the earth"
+  },
+  "search engine": {
+    "canonical_term": "search engine",
+    "concept_term": "search engine",
+    "domain": "AI_Computing",
+    "primitive_id": "search_engine",
+    "primitive_phrase": "matches a query against a large catalog and ranks likely useful records"
+  },
+  "sensor fusion": {
+    "canonical_term": "sensor fusion",
+    "concept_term": "sensor fusion",
+    "domain": "AI_Computing",
+    "primitive_id": "sensor_fusion",
+    "primitive_phrase": "combines measurements from several instruments"
+  },
+  "smart meter": {
+    "canonical_term": "smart meter",
+    "concept_term": "smart meter",
+    "domain": "Environment_Energy",
+    "primitive_id": "smart_meter",
+    "primitive_phrase": "records usage frequently and sends readings automatically"
+  },
+  "smart thermostat": {
+    "canonical_term": "smart thermostat",
+    "concept_term": "smart thermostat",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "smart_thermostat",
+    "primitive_phrase": "learns schedules and adjusts temperature automatically"
+  },
+  "smartphone": {
+    "canonical_term": "smartphone",
+    "concept_term": "smartphone",
+    "domain": "Communication_Media",
+    "primitive_id": "smartphone",
+    "primitive_phrase": "combines pocket wireless speech, written messages, tools, and records"
+  },
+  "social media": {
+    "canonical_term": "social media",
+    "concept_term": "social media",
+    "domain": "Communication_Media",
+    "primitive_id": "social_media",
+    "primitive_phrase": "lets many people publish short messages to connected groups"
+  },
+  "software container": {
+    "canonical_term": "software container",
+    "concept_term": "software container",
+    "domain": "AI_Computing",
+    "primitive_id": "software_container",
+    "primitive_phrase": "packs a program with the surrounding files it expects"
+  },
+  "solar panel": {
+    "canonical_term": "solar panel",
+    "concept_term": "solar panel",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "solar_panel",
+    "primitive_phrase": "turns sunlight directly into electrical current"
+  },
+  "spam filter": {
+    "canonical_term": "spam filter",
+    "concept_term": "spam filter",
+    "domain": "AI_Computing",
+    "primitive_id": "spam_filter",
+    "primitive_phrase": "learns signs that separate wanted messages from unwanted ones"
+  },
+  "stem cell": {
+    "canonical_term": "stem cell",
+    "concept_term": "stem cell therapy",
+    "domain": "Medicine_Biology",
+    "primitive_id": "stem_cell_therapy",
+    "primitive_phrase": "uses cells that can develop into specialized body cells"
+  },
+  "stem cell therapy": {
+    "canonical_term": "stem cell therapy",
+    "concept_term": "stem cell therapy",
+    "domain": "Medicine_Biology",
+    "primitive_id": "stem_cell_therapy",
+    "primitive_phrase": "uses cells that can develop into specialized body cells"
+  },
+  "streaming": {
+    "canonical_term": "streaming",
+    "concept_term": "streaming video",
+    "domain": "Communication_Media",
+    "primitive_id": "streaming_video",
+    "primitive_phrase": "sends picture data continuously in small parts"
+  },
+  "streaming video": {
+    "canonical_term": "streaming video",
+    "concept_term": "streaming video",
+    "domain": "Communication_Media",
+    "primitive_id": "streaming_video",
+    "primitive_phrase": "sends picture data continuously in small parts"
+  },
+  "telemedicine": {
+    "canonical_term": "telemedicine",
+    "concept_term": "telemedicine",
+    "domain": "Medicine_Biology",
+    "primitive_id": "telemedicine",
+    "primitive_phrase": "uses distant communication to exchange symptoms, advice, and records"
+  },
+  "traffic sensor network": {
+    "canonical_term": "traffic sensor network",
+    "concept_term": "traffic sensor network",
+    "domain": "Transportation_Engineering",
+    "primitive_id": "traffic_sensor_network",
+    "primitive_phrase": "collects road measurements from many connected instruments"
+  },
+  "transplant": {
+    "canonical_term": "transplant",
+    "concept_term": "organ transplant matching",
+    "domain": "Medicine_Biology",
+    "primitive_id": "organ_transplant_matching",
+    "primitive_phrase": "compares biological markers between donor and patient"
+  },
+  "two-factor authentication": {
+    "canonical_term": "two-factor authentication",
+    "concept_term": "two-factor authentication",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "two_factor_authentication",
+    "primitive_phrase": "requires a second proof in addition to the secret word"
+  },
+  "ultrasound": {
+    "canonical_term": "ultrasound",
+    "concept_term": "medical ultrasound",
+    "domain": "Medicine_Biology",
+    "primitive_id": "medical_ultrasound",
+    "primitive_phrase": "sends high-frequency sound and measures echoes"
+  },
+  "version control": {
+    "canonical_term": "version control",
+    "concept_term": "version control",
+    "domain": "AI_Computing",
+    "primitive_id": "version_control",
+    "primitive_phrase": "keeps a dated history of edits and lets workers merge changes"
+  },
+  "video call": {
+    "canonical_term": "video call",
+    "concept_term": "video call",
+    "domain": "Communication_Media",
+    "primitive_id": "video_call",
+    "primitive_phrase": "sends voice and moving pictures in both directions"
+  },
+  "wastewater sensor": {
+    "canonical_term": "wastewater sensor",
+    "concept_term": "wastewater sensor",
+    "domain": "Environment_Energy",
+    "primitive_id": "wastewater_sensor",
+    "primitive_phrase": "measures selected chemicals in dirty water repeatedly"
+  },
+  "wearable fitness tracker": {
+    "canonical_term": "wearable fitness tracker",
+    "concept_term": "wearable fitness tracker",
+    "domain": "Daily_Tech_Society",
+    "primitive_id": "wearable_fitness_tracker",
+    "primitive_phrase": "uses a small worn instrument to record movement and body signals"
+  },
+  "wind turbine": {
+    "canonical_term": "wind turbine",
+    "concept_term": "wind turbine farm",
+    "domain": "Environment_Energy",
+    "primitive_id": "wind_turbine_farm",
+    "primitive_phrase": "uses many wind-driven rotors connected to generators"
+  },
+  "wind turbine farm": {
+    "canonical_term": "wind turbine farm",
+    "concept_term": "wind turbine farm",
+    "domain": "Environment_Energy",
+    "primitive_id": "wind_turbine_farm",
+    "primitive_phrase": "uses many wind-driven rotors connected to generators"
+  }
+}

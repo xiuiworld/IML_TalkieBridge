@@ -73,6 +73,60 @@ def build_mcq_prompt(question: str, choices: dict[str, str]) -> str:
     )
 
 
+def build_open_ended_prompt(question: str) -> str:
+    return (
+        "Answer the following question in 1-2 sentences.\n"
+        "Explain the practical mechanism in ordinary terms.\n"
+        "Do not answer with a multiple-choice letter or option label.\n\n"
+        "Question:\n"
+        f"{question}\n"
+    )
+
+
+def build_judge_prompt(
+    *,
+    question: str,
+    response_a: str,
+    response_b: str,
+    expected_mechanism: str = "",
+    reference_points: list[str] | None = None,
+) -> str:
+    points = reference_points or []
+    reference_block = "None provided."
+    if expected_mechanism or points:
+        lines = []
+        if expected_mechanism:
+            lines.append(f"- Expected mechanism: {expected_mechanism}")
+        for point in points:
+            lines.append(f"- Reference point: {point}")
+        reference_block = "\n".join(lines)
+    return (
+        "You are judging two answers to the same question for a fixed 1930-era model setting.\n"
+        "The condition names are hidden. Judge only the answer quality.\n\n"
+        "Question:\n"
+        f"{question}\n\n"
+        "Reference information for judging, not for the answer writer:\n"
+        f"{reference_block}\n\n"
+        "Answer A:\n"
+        f"{response_a}\n\n"
+        "Answer B:\n"
+        f"{response_b}\n\n"
+        "Rubric:\n"
+        "- task_relevance: answers the question directly.\n"
+        "- functional_correctness: explains the expected practical mechanism.\n"
+        "- era_neutrality: uses wording understandable without modern jargon.\n"
+        "- anachronism_handling: avoids confusion, refusal, or nonsense caused by modern terms.\n"
+        "- usefulness: gives a clearer and more useful explanation.\n"
+        "- leakage_risk: lower is better; penalize answers that seem to rely on answer leakage.\n\n"
+        "Return only valid JSON with this exact shape:\n"
+        '{"winner":"A|B|Tie","task_relevance":{"A":1,"B":1},'
+        '"functional_correctness":{"A":1,"B":1},"era_neutrality":{"A":1,"B":1},'
+        '"anachronism_handling":{"A":1,"B":1},"usefulness":{"A":1,"B":1},'
+        '"leakage_risk":{"A":1,"B":1},"rationale":"short reason"}\n'
+        "Use integer scores from 1 to 5. For leakage_risk, 1 means low risk and 5 means high risk.\n"
+    )
+
+
 def normalize_choice(raw_text: str, choices: Mapping[str, str] | None = None) -> str:
     text = raw_text.strip().upper()
     if text in LABELS:

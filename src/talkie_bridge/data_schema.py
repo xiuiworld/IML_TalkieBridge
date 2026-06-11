@@ -30,6 +30,16 @@ class DatasetItem:
     human_validated: bool = False
     target_year: int = 1930
     split: str = ""
+    concept_term: str = ""
+    task: str = ""
+    open_question: str = ""
+    expected_mechanism: str = ""
+    judge_reference_points: list[str] = field(default_factory=list)
+    leakage_sensitive_terms: list[str] = field(default_factory=list)
+    answer_leakage_terms: list[str] = field(default_factory=list)
+    dataset_version: str = ""
+    review_status: str = ""
+    review_notes: str = ""
 
     @classmethod
     def from_dict(cls, row: dict[str, Any]) -> "DatasetItem":
@@ -69,6 +79,16 @@ class DatasetItem:
             human_validated=as_bool(row.get("human_validated", False)),
             target_year=int(row.get("target_year", 1930)),
             split=str(row.get("split", "")).strip().lower(),
+            concept_term=str(row.get("concept_term", "")),
+            task=str(row.get("task", "")),
+            open_question=str(row.get("open_question", "")),
+            expected_mechanism=str(row.get("expected_mechanism", "")),
+            judge_reference_points=list_field("judge_reference_points"),
+            leakage_sensitive_terms=list_field("leakage_sensitive_terms"),
+            answer_leakage_terms=list_field("answer_leakage_terms"),
+            dataset_version=str(row.get("dataset_version", "")),
+            review_status=str(row.get("review_status", "")),
+            review_notes=str(row.get("review_notes", "")),
         )
 
     def to_dict(self) -> dict[str, Any]:

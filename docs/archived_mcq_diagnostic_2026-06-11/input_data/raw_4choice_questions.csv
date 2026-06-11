@@ -1,0 +1,1301 @@
+﻿item_id,id,domain,split,condition,prompt,prompt_hash,original_question,rewritten_question,choices,choice_A,choice_B,choice_C,choice_D,gold_answer,gold_anachronism_terms,forbidden_terms,required_primitives,primitive_phrase,human_validated,detected_terms,detector_token_scores,mapped_primitives,model_info,rewrite_validation,repair_attempts,pass_validation
+fixed_q001,fixed_q001,AI_Computing,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on reducing unsupported answers from an automatic writing system. Which explanation best supports using RAG for LLM hallucination?
+
+Choices:
+A. It reduces error by using independent observations together.
+B. It adds or removes remote capacity without owning every machine locally.
+C. It checks outside records before answering, so unsupported claims are less likely.
+D. It makes past versions recoverable and conflicting edits visible.
+",c2e4cef4dc6da98f,A team is working on reducing unsupported answers from an automatic writing system. Which explanation best supports using RAG for LLM hallucination?,A team is working on reducing unsupported answers from an automatic writing system. Which explanation best supports using RAG for LLM hallucination?,"{""A"": ""It reduces error by using independent observations together."", ""B"": ""It adds or removes remote capacity without owning every machine locally."", ""C"": ""It checks outside records before answering, so unsupported claims are less likely."", ""D"": ""It makes past versions recoverable and conflicting edits visible.""}",It reduces error by using independent observations together.,It adds or removes remote capacity without owning every machine locally.,"It checks outside records before answering, so unsupported claims are less likely.",It makes past versions recoverable and conflicting edits visible.,C,"[""RAG"", ""LLM"", ""hallucination""]","[""RAG for LLM hallucination"", ""RAG"", ""LLM"", ""hallucination""]","[""rag_for_llm_hallucination""]",first searches a store of relevant records before composing a reply,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q002,fixed_q002,AI_Computing,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of GPU acceleration for training a large pattern-learning calculator. What is its most relevant advantage?
+
+Choices:
+A. It adds or removes remote capacity without owning every machine locally.
+B. It combines many small weighted signals into a prediction.
+C. It reduces error by using independent observations together.
+D. It performs many similar calculations in parallel instead of one after another.
+",ab7cfb106d747f8e,Consider the use of GPU acceleration for training a large pattern-learning calculator. What is its most relevant advantage?,Consider the use of GPU acceleration for training a large pattern-learning calculator. What is its most relevant advantage?,"{""A"": ""It adds or removes remote capacity without owning every machine locally."", ""B"": ""It combines many small weighted signals into a prediction."", ""C"": ""It reduces error by using independent observations together."", ""D"": ""It performs many similar calculations in parallel instead of one after another.""}",It adds or removes remote capacity without owning every machine locally.,It combines many small weighted signals into a prediction.,It reduces error by using independent observations together.,It performs many similar calculations in parallel instead of one after another.,D,"[""GPU""]","[""GPU acceleration"", ""GPU""]","[""gpu_acceleration""]",uses many small calculating units at the same time,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q003,fixed_q003,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why API can help with letting two software services cooperate?
+
+Choices:
+A. It gives both systems a stable contract for requests and replies.
+B. It marks likely unwanted messages before they reach the reader.
+C. It groups texts by language evidence rather than manual reading alone.
+D. It cuts delay by avoiding a long trip to a remote machine.
+",1574243d0c7904f8,Which mechanism explains why API can help with letting two software services cooperate?,Which mechanism explains why API can help with letting two software services cooperate?,"{""A"": ""It gives both systems a stable contract for requests and replies."", ""B"": ""It marks likely unwanted messages before they reach the reader."", ""C"": ""It groups texts by language evidence rather than manual reading alone."", ""D"": ""It cuts delay by avoiding a long trip to a remote machine.""}",It gives both systems a stable contract for requests and replies.,It marks likely unwanted messages before they reach the reader.,It groups texts by language evidence rather than manual reading alone.,It cuts delay by avoiding a long trip to a remote machine.,A,"[""API""]","[""API""]","[""api""]",offers a published set of commands that one machine can use to request work from another,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q004,fixed_q004,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for finding records in a huge table. Why might database index be selected?
+
+Choices:
+A. It keeps the program environment consistent across machines.
+B. It avoids inspecting every record one by one.
+C. It converts images of letters into machine-readable characters.
+D. It combines many small weighted signals into a prediction.
+",1aba24144816f075,A decision-maker is comparing methods for finding records in a huge table. Why might database index be selected?,A decision-maker is comparing methods for finding records in a huge table. Why might database index be selected?,"{""A"": ""It keeps the program environment consistent across machines."", ""B"": ""It avoids inspecting every record one by one."", ""C"": ""It converts images of letters into machine-readable characters."", ""D"": ""It combines many small weighted signals into a prediction.""}",It keeps the program environment consistent across machines.,It avoids inspecting every record one by one.,It converts images of letters into machine-readable characters.,It combines many small weighted signals into a prediction.,B,"[""database index"", ""database""]","[""database index"", ""database""]","[""database_index""]",keeps a smaller ordered guide to where records are stored,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q005,fixed_q005,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What practical benefit does cloud computing provide when the goal is handling sudden demand for computation?
+
+Choices:
+A. It checks outside records before answering, so unsupported claims are less likely.
+B. It avoids inspecting every record one by one.
+C. It adds or removes remote capacity without owning every machine locally.
+D. It gives both systems a stable contract for requests and replies.
+",46e4a81931c22712,What practical benefit does cloud computing provide when the goal is handling sudden demand for computation?,What practical benefit does cloud computing provide when the goal is handling sudden demand for computation?,"{""A"": ""It checks outside records before answering, so unsupported claims are less likely."", ""B"": ""It avoids inspecting every record one by one."", ""C"": ""It adds or removes remote capacity without owning every machine locally."", ""D"": ""It gives both systems a stable contract for requests and replies.""}","It checks outside records before answering, so unsupported claims are less likely.",It avoids inspecting every record one by one.,It adds or removes remote capacity without owning every machine locally.,It gives both systems a stable contract for requests and replies.,C,"[""cloud computing"", ""cloud""]","[""cloud computing"", ""cloud""]","[""cloud_computing""]",rents distant computing machines as needed,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q006,fixed_q006,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Suppose a system must handle finding useful pages in a vast electronic library. Which statement best explains the role of search engine?
+
+Choices:
+A. It converts images of letters into machine-readable characters.
+B. It represents the same information with fewer symbols.
+C. It avoids inspecting every record one by one.
+D. It orders many records by signals of relevance.
+",a494b70f36ee6a1b,Suppose a system must handle finding useful pages in a vast electronic library. Which statement best explains the role of search engine?,Suppose a system must handle finding useful pages in a vast electronic library. Which statement best explains the role of search engine?,"{""A"": ""It converts images of letters into machine-readable characters."", ""B"": ""It represents the same information with fewer symbols."", ""C"": ""It avoids inspecting every record one by one."", ""D"": ""It orders many records by signals of relevance.""}",It converts images of letters into machine-readable characters.,It represents the same information with fewer symbols.,It avoids inspecting every record one by one.,It orders many records by signals of relevance.,D,"[""search engine""]","[""search engine""]","[""search_engine""]",matches a query against a large catalog and ranks likely useful records,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q007,fixed_q007,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+In a discussion about protecting a private message sent across a public network, which account of encryption is the most accurate?
+
+Choices:
+A. It keeps intercepted text unintelligible to outsiders.
+B. It groups texts by language evidence rather than manual reading alone.
+C. It makes past versions recoverable and conflicting edits visible.
+D. It checks outside records before answering, so unsupported claims are less likely.
+",a6a41cfacdabb043,"In a discussion about protecting a private message sent across a public network, which account of encryption is the most accurate?","In a discussion about protecting a private message sent across a public network, which account of encryption is the most accurate?","{""A"": ""It keeps intercepted text unintelligible to outsiders."", ""B"": ""It groups texts by language evidence rather than manual reading alone."", ""C"": ""It makes past versions recoverable and conflicting edits visible."", ""D"": ""It checks outside records before answering, so unsupported claims are less likely.""}",It keeps intercepted text unintelligible to outsiders.,It groups texts by language evidence rather than manual reading alone.,It makes past versions recoverable and conflicting edits visible.,"It checks outside records before answering, so unsupported claims are less likely.",A,"[""encryption""]","[""encryption""]","[""encryption""]",transforms a message into a form readable only with a secret key,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q008,fixed_q008,AI_Computing,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Why would a specialist consider machine learning when working on improving predictions from examples?
+
+Choices:
+A. It avoids recomputing or refetching the same result.
+B. It learns recurring patterns from past examples.
+C. It keeps intercepted text unintelligible to outsiders.
+D. It uses preference patterns to rank likely useful items.
+",719f63d3809b7ee9,Why would a specialist consider machine learning when working on improving predictions from examples?,Why would a specialist consider machine learning when working on improving predictions from examples?,"{""A"": ""It avoids recomputing or refetching the same result."", ""B"": ""It learns recurring patterns from past examples."", ""C"": ""It keeps intercepted text unintelligible to outsiders."", ""D"": ""It uses preference patterns to rank likely useful items.""}",It avoids recomputing or refetching the same result.,It learns recurring patterns from past examples.,It keeps intercepted text unintelligible to outsiders.,It uses preference patterns to rank likely useful items.,B,"[""machine learning""]","[""machine learning""]","[""machine_learning""]",adjusts its rules after seeing many labelled cases,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q009,fixed_q009,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement best describes how neural network contributes to recognizing complex patterns in data?
+
+Choices:
+A. It makes later alteration easy to detect.
+B. It uses preference patterns to rank likely useful items.
+C. It combines many small weighted signals into a prediction.
+D. It keeps the program environment consistent across machines.
+",9329cd52adc3ce56,Which statement best describes how neural network contributes to recognizing complex patterns in data?,Which statement best describes how neural network contributes to recognizing complex patterns in data?,"{""A"": ""It makes later alteration easy to detect."", ""B"": ""It uses preference patterns to rank likely useful items."", ""C"": ""It combines many small weighted signals into a prediction."", ""D"": ""It keeps the program environment consistent across machines.""}",It makes later alteration easy to detect.,It uses preference patterns to rank likely useful items.,It combines many small weighted signals into a prediction.,It keeps the program environment consistent across machines.,C,"[""neural network""]","[""neural network""]","[""neural_network""]",connects many simple adjustable units in layers,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q010,fixed_q010,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A project is designed around speeding up repeated computer requests. What is the main reason to include cache?
+
+Choices:
+A. It makes past versions recoverable and conflicting edits visible.
+B. It gives both systems a stable contract for requests and replies.
+C. It reduces error by using independent observations together.
+D. It avoids recomputing or refetching the same result.
+",b3ff145ec384159b,A project is designed around speeding up repeated computer requests. What is the main reason to include cache?,A project is designed around speeding up repeated computer requests. What is the main reason to include cache?,"{""A"": ""It makes past versions recoverable and conflicting edits visible."", ""B"": ""It gives both systems a stable contract for requests and replies."", ""C"": ""It reduces error by using independent observations together."", ""D"": ""It avoids recomputing or refetching the same result.""}",It makes past versions recoverable and conflicting edits visible.,It gives both systems a stable contract for requests and replies.,It reduces error by using independent observations together.,It avoids recomputing or refetching the same result.,D,"[""cache""]","[""cache""]","[""cache""]",keeps recently used results in a nearby fast store,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q011,fixed_q011,AI_Computing,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+When attempting sending a large file through a narrow channel, what is the clearest justification for using data compression?
+
+Choices:
+A. It represents the same information with fewer symbols.
+B. It cuts delay by avoiding a long trip to a remote machine.
+C. It avoids recomputing or refetching the same result.
+D. It gives both systems a stable contract for requests and replies.
+",06028fc1977034f6,"When attempting sending a large file through a narrow channel, what is the clearest justification for using data compression?","When attempting sending a large file through a narrow channel, what is the clearest justification for using data compression?","{""A"": ""It represents the same information with fewer symbols."", ""B"": ""It cuts delay by avoiding a long trip to a remote machine."", ""C"": ""It avoids recomputing or refetching the same result."", ""D"": ""It gives both systems a stable contract for requests and replies.""}",It represents the same information with fewer symbols.,It cuts delay by avoiding a long trip to a remote machine.,It avoids recomputing or refetching the same result.,It gives both systems a stable contract for requests and replies.,A,"[""data compression"", ""compression""]","[""data compression"", ""compression""]","[""data_compression""]",uses shorter codes for repeated or predictable parts,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q012,fixed_q012,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which description captures the useful function of version control in the context of coordinating changes to a shared program?
+
+Choices:
+A. It converts images of letters into machine-readable characters.
+B. It makes past versions recoverable and conflicting edits visible.
+C. It adds or removes remote capacity without owning every machine locally.
+D. It avoids recomputing or refetching the same result.
+",647ff0ee60cf4e15,Which description captures the useful function of version control in the context of coordinating changes to a shared program?,Which description captures the useful function of version control in the context of coordinating changes to a shared program?,"{""A"": ""It converts images of letters into machine-readable characters."", ""B"": ""It makes past versions recoverable and conflicting edits visible."", ""C"": ""It adds or removes remote capacity without owning every machine locally."", ""D"": ""It avoids recomputing or refetching the same result.""}",It converts images of letters into machine-readable characters.,It makes past versions recoverable and conflicting edits visible.,It adds or removes remote capacity without owning every machine locally.,It avoids recomputing or refetching the same result.,B,"[""version control""]","[""version control""]","[""version_control""]",keeps a dated history of edits and lets workers merge changes,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q013,fixed_q013,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+For a case involving keeping a tamper-resistant public ledger, why is blockchain relevant?
+
+Choices:
+A. It checks outside records before answering, so unsupported claims are less likely.
+B. It keeps the program environment consistent across machines.
+C. It makes later alteration easy to detect.
+D. It avoids recomputing or refetching the same result.
+",e1a6b75cccb61771,"For a case involving keeping a tamper-resistant public ledger, why is blockchain relevant?","For a case involving keeping a tamper-resistant public ledger, why is blockchain relevant?","{""A"": ""It checks outside records before answering, so unsupported claims are less likely."", ""B"": ""It keeps the program environment consistent across machines."", ""C"": ""It makes later alteration easy to detect."", ""D"": ""It avoids recomputing or refetching the same result.""}","It checks outside records before answering, so unsupported claims are less likely.",It keeps the program environment consistent across machines.,It makes later alteration easy to detect.,It avoids recomputing or refetching the same result.,C,"[""blockchain""]","[""blockchain""]","[""blockchain""]",links records so each new record depends on earlier records,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q014,fixed_q014,AI_Computing,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What is the strongest explanation for applying recommender system to choosing items a person may like?
+
+Choices:
+A. It makes past versions recoverable and conflicting edits visible.
+B. It keeps the program environment consistent across machines.
+C. It converts images of letters into machine-readable characters.
+D. It uses preference patterns to rank likely useful items.
+",113e1140dfc1ee9a,What is the strongest explanation for applying recommender system to choosing items a person may like?,What is the strongest explanation for applying recommender system to choosing items a person may like?,"{""A"": ""It makes past versions recoverable and conflicting edits visible."", ""B"": ""It keeps the program environment consistent across machines."", ""C"": ""It converts images of letters into machine-readable characters."", ""D"": ""It uses preference patterns to rank likely useful items.""}",It makes past versions recoverable and conflicting edits visible.,It keeps the program environment consistent across machines.,It converts images of letters into machine-readable characters.,It uses preference patterns to rank likely useful items.,D,"[""recommender system""]","[""recommender system""]","[""recommender_system""]",compares past choices and similarities among people or objects,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q015,fixed_q015,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A group is evaluating tools for screening unwanted electronic messages. Which property of spam filter matters most?
+
+Choices:
+A. It marks likely unwanted messages before they reach the reader.
+B. It uses preference patterns to rank likely useful items.
+C. It gives both systems a stable contract for requests and replies.
+D. It makes later alteration easy to detect.
+",c4f53d2668c2111d,A group is evaluating tools for screening unwanted electronic messages. Which property of spam filter matters most?,A group is evaluating tools for screening unwanted electronic messages. Which property of spam filter matters most?,"{""A"": ""It marks likely unwanted messages before they reach the reader."", ""B"": ""It uses preference patterns to rank likely useful items."", ""C"": ""It gives both systems a stable contract for requests and replies."", ""D"": ""It makes later alteration easy to detect.""}",It marks likely unwanted messages before they reach the reader.,It uses preference patterns to rank likely useful items.,It gives both systems a stable contract for requests and replies.,It makes later alteration easy to detect.,A,"[""spam filter""]","[""spam filter""]","[""spam_filter""]",learns signs that separate wanted messages from unwanted ones,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q016,fixed_q016,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement gives the best reason that OCR is associated with turning scanned pages into editable text?
+
+Choices:
+A. It keeps the program environment consistent across machines.
+B. It converts images of letters into machine-readable characters.
+C. It cuts delay by avoiding a long trip to a remote machine.
+D. It groups texts by language evidence rather than manual reading alone.
+",e01f037a65eb2b0c,Which statement gives the best reason that OCR is associated with turning scanned pages into editable text?,Which statement gives the best reason that OCR is associated with turning scanned pages into editable text?,"{""A"": ""It keeps the program environment consistent across machines."", ""B"": ""It converts images of letters into machine-readable characters."", ""C"": ""It cuts delay by avoiding a long trip to a remote machine."", ""D"": ""It groups texts by language evidence rather than manual reading alone.""}",It keeps the program environment consistent across machines.,It converts images of letters into machine-readable characters.,It cuts delay by avoiding a long trip to a remote machine.,It groups texts by language evidence rather than manual reading alone.,B,"[""OCR"", ""optical character recognition""]","[""OCR"", ""optical character recognition""]","[""ocr""]",matches shapes of printed letters to written symbols,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q017,fixed_q017,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on sorting written complaints by topic. Which explanation best supports using natural language processing?
+
+Choices:
+A. It reduces error by using independent observations together.
+B. It avoids inspecting every record one by one.
+C. It groups texts by language evidence rather than manual reading alone.
+D. It uses preference patterns to rank likely useful items.
+",9dd78d216a6fbaff,A team is working on sorting written complaints by topic. Which explanation best supports using natural language processing?,A team is working on sorting written complaints by topic. Which explanation best supports using natural language processing?,"{""A"": ""It reduces error by using independent observations together."", ""B"": ""It avoids inspecting every record one by one."", ""C"": ""It groups texts by language evidence rather than manual reading alone."", ""D"": ""It uses preference patterns to rank likely useful items.""}",It reduces error by using independent observations together.,It avoids inspecting every record one by one.,It groups texts by language evidence rather than manual reading alone.,It uses preference patterns to rank likely useful items.,C,"[""NLP"", ""natural language processing""]","[""natural language processing"", ""NLP""]","[""natural_language_processing""]",uses statistical patterns in words and phrases,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q018,fixed_q018,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of sensor fusion for guiding a moving machine through a room. What is its most relevant advantage?
+
+Choices:
+A. It makes later alteration easy to detect.
+B. It groups texts by language evidence rather than manual reading alone.
+C. It converts images of letters into machine-readable characters.
+D. It reduces error by using independent observations together.
+",535b8cbb77251ce5,Consider the use of sensor fusion for guiding a moving machine through a room. What is its most relevant advantage?,Consider the use of sensor fusion for guiding a moving machine through a room. What is its most relevant advantage?,"{""A"": ""It makes later alteration easy to detect."", ""B"": ""It groups texts by language evidence rather than manual reading alone."", ""C"": ""It converts images of letters into machine-readable characters."", ""D"": ""It reduces error by using independent observations together.""}",It makes later alteration easy to detect.,It groups texts by language evidence rather than manual reading alone.,It converts images of letters into machine-readable characters.,It reduces error by using independent observations together.,D,"[""sensor fusion""]","[""sensor fusion""]","[""sensor_fusion""]",combines measurements from several instruments,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q019,fixed_q019,AI_Computing,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why edge computing can help with reacting quickly to local measurements?
+
+Choices:
+A. It cuts delay by avoiding a long trip to a remote machine.
+B. It converts images of letters into machine-readable characters.
+C. It combines many small weighted signals into a prediction.
+D. It uses preference patterns to rank likely useful items.
+",8f2c6363b9a5a227,Which mechanism explains why edge computing can help with reacting quickly to local measurements?,Which mechanism explains why edge computing can help with reacting quickly to local measurements?,"{""A"": ""It cuts delay by avoiding a long trip to a remote machine."", ""B"": ""It converts images of letters into machine-readable characters."", ""C"": ""It combines many small weighted signals into a prediction."", ""D"": ""It uses preference patterns to rank likely useful items.""}",It cuts delay by avoiding a long trip to a remote machine.,It converts images of letters into machine-readable characters.,It combines many small weighted signals into a prediction.,It uses preference patterns to rank likely useful items.,A,"[""edge computing""]","[""edge computing""]","[""edge_computing""]",does computation near the measuring device instead of a distant center,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q020,fixed_q020,AI_Computing,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for running a program on different machines. Why might software container be selected?
+
+Choices:
+A. It cuts delay by avoiding a long trip to a remote machine.
+B. It keeps the program environment consistent across machines.
+C. It checks outside records before answering, so unsupported claims are less likely.
+D. It groups texts by language evidence rather than manual reading alone.
+",c6fba7e577f23390,A decision-maker is comparing methods for running a program on different machines. Why might software container be selected?,A decision-maker is comparing methods for running a program on different machines. Why might software container be selected?,"{""A"": ""It cuts delay by avoiding a long trip to a remote machine."", ""B"": ""It keeps the program environment consistent across machines."", ""C"": ""It checks outside records before answering, so unsupported claims are less likely."", ""D"": ""It groups texts by language evidence rather than manual reading alone.""}",It cuts delay by avoiding a long trip to a remote machine.,It keeps the program environment consistent across machines.,"It checks outside records before answering, so unsupported claims are less likely.",It groups texts by language evidence rather than manual reading alone.,B,"[""software container"", ""containerization""]","[""software container"", ""containerization""]","[""software_container""]",packs a program with the surrounding files it expects,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q021,fixed_q021,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What practical benefit does MRI provide when the goal is looking inside soft tissue without cutting the body?
+
+Choices:
+A. It helps identify contacts faster than memory alone.
+B. It uses light absorption differences to estimate oxygen level.
+C. It distinguishes soft tissues without using a knife.
+D. It trains defenses without giving the whole disease agent.
+",f080aea007631cd6,What practical benefit does MRI provide when the goal is looking inside soft tissue without cutting the body?,What practical benefit does MRI provide when the goal is looking inside soft tissue without cutting the body?,"{""A"": ""It helps identify contacts faster than memory alone."", ""B"": ""It uses light absorption differences to estimate oxygen level."", ""C"": ""It distinguishes soft tissues without using a knife."", ""D"": ""It trains defenses without giving the whole disease agent.""}",It helps identify contacts faster than memory alone.,It uses light absorption differences to estimate oxygen level.,It distinguishes soft tissues without using a knife.,It trains defenses without giving the whole disease agent.,C,"[""MRI"", ""magnetic resonance imaging""]","[""MRI"", ""magnetic resonance imaging""]","[""mri""]",uses strong magnetic effects and measured returning signals to form an inside picture,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q022,fixed_q022,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Suppose a system must handle detecting a tiny trace of hereditary material. Which statement best explains the role of PCR?
+
+Choices:
+A. It uses little sample and short paths to speed measurement.
+B. It reveals the exact order where differences can be found.
+C. It lets surviving germs become more common after treatment.
+D. It turns a small trace into enough material to measure.
+",404774a935e883a8,Suppose a system must handle detecting a tiny trace of hereditary material. Which statement best explains the role of PCR?,Suppose a system must handle detecting a tiny trace of hereditary material. Which statement best explains the role of PCR?,"{""A"": ""It uses little sample and short paths to speed measurement."", ""B"": ""It reveals the exact order where differences can be found."", ""C"": ""It lets surviving germs become more common after treatment."", ""D"": ""It turns a small trace into enough material to measure.""}",It uses little sample and short paths to speed measurement.,It reveals the exact order where differences can be found.,It lets surviving germs become more common after treatment.,It turns a small trace into enough material to measure.,D,"[""PCR"", ""polymerase chain reaction""]","[""PCR"", ""polymerase chain reaction""]","[""pcr""]",copies a chosen hereditary chemical segment many times,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q023,fixed_q023,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+In a discussion about identifying changes in hereditary material, which account of DNA sequencing is the most accurate?
+
+Choices:
+A. It reveals the exact order where differences can be found.
+B. It trains defenses without giving the whole disease agent.
+C. It reduces the chance that the body rejects the donated organ.
+D. It may replace or support damaged specialized cells.
+",664e72a2279b6eff,"In a discussion about identifying changes in hereditary material, which account of DNA sequencing is the most accurate?","In a discussion about identifying changes in hereditary material, which account of DNA sequencing is the most accurate?","{""A"": ""It reveals the exact order where differences can be found."", ""B"": ""It trains defenses without giving the whole disease agent."", ""C"": ""It reduces the chance that the body rejects the donated organ."", ""D"": ""It may replace or support damaged specialized cells.""}",It reveals the exact order where differences can be found.,It trains defenses without giving the whole disease agent.,It reduces the chance that the body rejects the donated organ.,It may replace or support damaged specialized cells.,A,"[""DNA sequencing""]","[""DNA sequencing""]","[""dna_sequencing""]",reads the order of hereditary chemical units,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q024,fixed_q024,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Why would a specialist consider CRISPR when working on editing a chosen hereditary instruction?
+
+Choices:
+A. It uses light absorption differences to estimate oxygen level.
+B. It aims the change at a chosen location instead of altering many places.
+C. It lets surviving germs become more common after treatment.
+D. It may replace or support damaged specialized cells.
+",6fa774b3e9de336b,Why would a specialist consider CRISPR when working on editing a chosen hereditary instruction?,Why would a specialist consider CRISPR when working on editing a chosen hereditary instruction?,"{""A"": ""It uses light absorption differences to estimate oxygen level."", ""B"": ""It aims the change at a chosen location instead of altering many places."", ""C"": ""It lets surviving germs become more common after treatment."", ""D"": ""It may replace or support damaged specialized cells.""}",It uses light absorption differences to estimate oxygen level.,It aims the change at a chosen location instead of altering many places.,It lets surviving germs become more common after treatment.,It may replace or support damaged specialized cells.,B,"[""CRISPR""]","[""CRISPR""]","[""crispr""]",uses a guided molecular tool to cut a selected hereditary location,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q025,fixed_q025,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement best describes how antibiotic resistance contributes to explaining why a germ medicine stops working?
+
+Choices:
+A. It may replace or support damaged specialized cells.
+B. It reduces multiplication of the virus.
+C. It lets surviving germs become more common after treatment.
+D. It reconstructs slices that show internal structure.
+",ef21731617870899,Which statement best describes how antibiotic resistance contributes to explaining why a germ medicine stops working?,Which statement best describes how antibiotic resistance contributes to explaining why a germ medicine stops working?,"{""A"": ""It may replace or support damaged specialized cells."", ""B"": ""It reduces multiplication of the virus."", ""C"": ""It lets surviving germs become more common after treatment."", ""D"": ""It reconstructs slices that show internal structure.""}",It may replace or support damaged specialized cells.,It reduces multiplication of the virus.,It lets surviving germs become more common after treatment.,It reconstructs slices that show internal structure.,C,"[""antibiotic resistance"", ""antibiotic""]","[""antibiotic resistance"", ""antibiotic""]","[""antibiotic_resistance""]",describes germs surviving a medicine and passing that trait onward,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q026,fixed_q026,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A project is designed around teaching the body to recognize a disease agent. What is the main reason to include mRNA vaccine?
+
+Choices:
+A. It turns specific binding into a visible measurement.
+B. It allows medical judgment without both people being in one room.
+C. It forms pictures from returning sound waves.
+D. It trains defenses without giving the whole disease agent.
+",06c8e1726b3f1bee,A project is designed around teaching the body to recognize a disease agent. What is the main reason to include mRNA vaccine?,A project is designed around teaching the body to recognize a disease agent. What is the main reason to include mRNA vaccine?,"{""A"": ""It turns specific binding into a visible measurement."", ""B"": ""It allows medical judgment without both people being in one room."", ""C"": ""It forms pictures from returning sound waves."", ""D"": ""It trains defenses without giving the whole disease agent.""}",It turns specific binding into a visible measurement.,It allows medical judgment without both people being in one room.,It forms pictures from returning sound waves.,It trains defenses without giving the whole disease agent.,D,"[""mRNA vaccine"", ""mRNA""]","[""mRNA vaccine"", ""mRNA""]","[""mrna_vaccine""]",delivers temporary instructions for making a harmless identifying part,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q027,fixed_q027,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+When attempting targeting one marker on a diseased cell, what is the clearest justification for using monoclonal antibody?
+
+Choices:
+A. It binds mainly to the chosen marker instead of many unrelated ones.
+B. It may replace or support damaged specialized cells.
+C. It turns specific binding into a visible measurement.
+D. It uses little sample and short paths to speed measurement.
+",0d5c5c88743a40ce,"When attempting targeting one marker on a diseased cell, what is the clearest justification for using monoclonal antibody?","When attempting targeting one marker on a diseased cell, what is the clearest justification for using monoclonal antibody?","{""A"": ""It binds mainly to the chosen marker instead of many unrelated ones."", ""B"": ""It may replace or support damaged specialized cells."", ""C"": ""It turns specific binding into a visible measurement."", ""D"": ""It uses little sample and short paths to speed measurement.""}",It binds mainly to the chosen marker instead of many unrelated ones.,It may replace or support damaged specialized cells.,It turns specific binding into a visible measurement.,It uses little sample and short paths to speed measurement.,A,"[""monoclonal antibody""]","[""monoclonal antibody""]","[""monoclonal_antibody""]",uses many copies of a single highly specific defensive molecule,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q028,fixed_q028,Medicine_Biology,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which description captures the useful function of insulin pump in the context of controlling blood sugar through the day?
+
+Choices:
+A. It binds mainly to the chosen marker instead of many unrelated ones.
+B. It adjusts dosing more continuously than occasional injections.
+C. It allows medical judgment without both people being in one room.
+D. It reduces the chance that the body rejects the donated organ.
+",3267e805f55a6a0e,Which description captures the useful function of insulin pump in the context of controlling blood sugar through the day?,Which description captures the useful function of insulin pump in the context of controlling blood sugar through the day?,"{""A"": ""It binds mainly to the chosen marker instead of many unrelated ones."", ""B"": ""It adjusts dosing more continuously than occasional injections."", ""C"": ""It allows medical judgment without both people being in one room."", ""D"": ""It reduces the chance that the body rejects the donated organ.""}",It binds mainly to the chosen marker instead of many unrelated ones.,It adjusts dosing more continuously than occasional injections.,It allows medical judgment without both people being in one room.,It reduces the chance that the body rejects the donated organ.,B,"[""insulin pump""]","[""insulin pump""]","[""insulin_pump""]",releases measured small doses of medicine through a wearable device,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q029,fixed_q029,Medicine_Biology,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+For a case involving estimating oxygen in the blood without drawing blood, why is pulse oximeter relevant?
+
+Choices:
+A. It forms pictures from returning sound waves.
+B. It distinguishes soft tissues without using a knife.
+C. It uses light absorption differences to estimate oxygen level.
+D. It reconstructs slices that show internal structure.
+",4e3998b2aa559fc1,"For a case involving estimating oxygen in the blood without drawing blood, why is pulse oximeter relevant?","For a case involving estimating oxygen in the blood without drawing blood, why is pulse oximeter relevant?","{""A"": ""It forms pictures from returning sound waves."", ""B"": ""It distinguishes soft tissues without using a knife."", ""C"": ""It uses light absorption differences to estimate oxygen level."", ""D"": ""It reconstructs slices that show internal structure.""}",It forms pictures from returning sound waves.,It distinguishes soft tissues without using a knife.,It uses light absorption differences to estimate oxygen level.,It reconstructs slices that show internal structure.,C,"[""pulse oximeter""]","[""pulse oximeter""]","[""pulse_oximeter""]",shines light through tissue and compares how colors are absorbed,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q030,fixed_q030,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What is the strongest explanation for applying CT scan to finding hidden injury inside the body?
+
+Choices:
+A. It turns a small trace into enough material to measure.
+B. It reduces multiplication of the virus.
+C. It lets surviving germs become more common after treatment.
+D. It reconstructs slices that show internal structure.
+",9eb19f9d1508ffc2,What is the strongest explanation for applying CT scan to finding hidden injury inside the body?,What is the strongest explanation for applying CT scan to finding hidden injury inside the body?,"{""A"": ""It turns a small trace into enough material to measure."", ""B"": ""It reduces multiplication of the virus."", ""C"": ""It lets surviving germs become more common after treatment."", ""D"": ""It reconstructs slices that show internal structure.""}",It turns a small trace into enough material to measure.,It reduces multiplication of the virus.,It lets surviving germs become more common after treatment.,It reconstructs slices that show internal structure.,D,"[""CT scan"", ""computed tomography""]","[""CT scan"", ""computed tomography""]","[""ct_scan""]",combines many narrow X-ray views into cross-section pictures,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q031,fixed_q031,Medicine_Biology,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A group is evaluating tools for watching a moving organ inside the body. Which property of medical ultrasound matters most?
+
+Choices:
+A. It forms pictures from returning sound waves.
+B. It uses little sample and short paths to speed measurement.
+C. It finds statistical associations between variations and outcomes.
+D. It may replace or support damaged specialized cells.
+",ee74f85a246fd793,A group is evaluating tools for watching a moving organ inside the body. Which property of medical ultrasound matters most?,A group is evaluating tools for watching a moving organ inside the body. Which property of medical ultrasound matters most?,"{""A"": ""It forms pictures from returning sound waves."", ""B"": ""It uses little sample and short paths to speed measurement."", ""C"": ""It finds statistical associations between variations and outcomes."", ""D"": ""It may replace or support damaged specialized cells.""}",It forms pictures from returning sound waves.,It uses little sample and short paths to speed measurement.,It finds statistical associations between variations and outcomes.,It may replace or support damaged specialized cells.,A,"[""ultrasound""]","[""medical ultrasound"", ""ultrasound""]","[""medical_ultrasound""]",sends high-frequency sound and measures echoes,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q032,fixed_q032,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement gives the best reason that continuous glucose monitor is associated with tracking sugar changes between clinic visits?
+
+Choices:
+A. It uses light absorption differences to estimate oxygen level.
+B. It shows trends that isolated measurements miss.
+C. It may replace or support damaged specialized cells.
+D. It binds mainly to the chosen marker instead of many unrelated ones.
+",22268967dbbee452,Which statement gives the best reason that continuous glucose monitor is associated with tracking sugar changes between clinic visits?,Which statement gives the best reason that continuous glucose monitor is associated with tracking sugar changes between clinic visits?,"{""A"": ""It uses light absorption differences to estimate oxygen level."", ""B"": ""It shows trends that isolated measurements miss."", ""C"": ""It may replace or support damaged specialized cells."", ""D"": ""It binds mainly to the chosen marker instead of many unrelated ones.""}",It uses light absorption differences to estimate oxygen level.,It shows trends that isolated measurements miss.,It may replace or support damaged specialized cells.,It binds mainly to the chosen marker instead of many unrelated ones.,B,"[""continuous glucose monitor"", ""glucose monitor""]","[""continuous glucose monitor"", ""glucose monitor""]","[""continuous_glucose_monitor""]",uses a small sensor to measure body chemistry repeatedly,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q033,fixed_q033,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on linking inherited variations to disease risk. Which explanation best supports using genome-wide association study?
+
+Choices:
+A. It uses little sample and short paths to speed measurement.
+B. It reduces multiplication of the virus.
+C. It finds statistical associations between variations and outcomes.
+D. It may replace or support damaged specialized cells.
+",f84bb1597e36adfc,A team is working on linking inherited variations to disease risk. Which explanation best supports using genome-wide association study?,A team is working on linking inherited variations to disease risk. Which explanation best supports using genome-wide association study?,"{""A"": ""It uses little sample and short paths to speed measurement."", ""B"": ""It reduces multiplication of the virus."", ""C"": ""It finds statistical associations between variations and outcomes."", ""D"": ""It may replace or support damaged specialized cells.""}",It uses little sample and short paths to speed measurement.,It reduces multiplication of the virus.,It finds statistical associations between variations and outcomes.,It may replace or support damaged specialized cells.,C,"[""genome-wide association study"", ""GWAS""]","[""genome-wide association study"", ""GWAS""]","[""genome_wide_association_study""]",compares many hereditary positions across many people,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q034,fixed_q034,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of telemedicine for treating a patient who is far from the doctor. What is its most relevant advantage?
+
+Choices:
+A. It reduces the chance that the body rejects the donated organ.
+B. It turns specific binding into a visible measurement.
+C. It turns a small trace into enough material to measure.
+D. It allows medical judgment without both people being in one room.
+",15c85830902fae71,Consider the use of telemedicine for treating a patient who is far from the doctor. What is its most relevant advantage?,Consider the use of telemedicine for treating a patient who is far from the doctor. What is its most relevant advantage?,"{""A"": ""It reduces the chance that the body rejects the donated organ."", ""B"": ""It turns specific binding into a visible measurement."", ""C"": ""It turns a small trace into enough material to measure."", ""D"": ""It allows medical judgment without both people being in one room.""}",It reduces the chance that the body rejects the donated organ.,It turns specific binding into a visible measurement.,It turns a small trace into enough material to measure.,It allows medical judgment without both people being in one room.,D,"[""telemedicine""]","[""telemedicine""]","[""telemedicine""]","uses distant communication to exchange symptoms, advice, and records",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q035,fixed_q035,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why organ transplant matching can help with choosing a safer donor organ?
+
+Choices:
+A. It reduces the chance that the body rejects the donated organ.
+B. It reconstructs slices that show internal structure.
+C. It reduces multiplication of the virus.
+D. It forms pictures from returning sound waves.
+",72352ca2e5002749,Which mechanism explains why organ transplant matching can help with choosing a safer donor organ?,Which mechanism explains why organ transplant matching can help with choosing a safer donor organ?,"{""A"": ""It reduces the chance that the body rejects the donated organ."", ""B"": ""It reconstructs slices that show internal structure."", ""C"": ""It reduces multiplication of the virus."", ""D"": ""It forms pictures from returning sound waves.""}",It reduces the chance that the body rejects the donated organ.,It reconstructs slices that show internal structure.,It reduces multiplication of the virus.,It forms pictures from returning sound waves.,A,"[""organ transplant matching"", ""transplant""]","[""organ transplant matching"", ""transplant""]","[""organ_transplant_matching""]",compares biological markers between donor and patient,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q036,fixed_q036,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for slowing a virus inside the body. Why might antiviral drug be selected?
+
+Choices:
+A. It reduces the chance that the body rejects the donated organ.
+B. It reduces multiplication of the virus.
+C. It aims the change at a chosen location instead of altering many places.
+D. It uses little sample and short paths to speed measurement.
+",2ce18dd318a69665,A decision-maker is comparing methods for slowing a virus inside the body. Why might antiviral drug be selected?,A decision-maker is comparing methods for slowing a virus inside the body. Why might antiviral drug be selected?,"{""A"": ""It reduces the chance that the body rejects the donated organ."", ""B"": ""It reduces multiplication of the virus."", ""C"": ""It aims the change at a chosen location instead of altering many places."", ""D"": ""It uses little sample and short paths to speed measurement.""}",It reduces the chance that the body rejects the donated organ.,It reduces multiplication of the virus.,It aims the change at a chosen location instead of altering many places.,It uses little sample and short paths to speed measurement.,B,"[""antiviral drug"", ""antiviral""]","[""antiviral drug"", ""antiviral""]","[""antiviral_drug""]",interferes with a step the virus needs to copy itself,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q037,fixed_q037,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A treatment approach in regenerative medicine uses certain cells as part of an intervention for injured tissue. What is the main practical purpose of using these cells?
+
+Choices:
+A. To train immune defenses without using the complete disease-causing agent.
+B. To prevent the immune system from attacking a transplanted organ.
+C. To help restore tissue function by contributing to cells needed at the injury site.
+D. To estimate blood oxygen level using differences in light absorption.
+",c6d0c9d7fd804a75,A treatment approach in regenerative medicine uses certain cells as part of an intervention for injured tissue. What is the main practical purpose of using these cells?,A treatment approach in regenerative medicine uses certain cells as part of an intervention for injured tissue. What is the main practical purpose of using these cells?,"{""A"": ""To train immune defenses without using the complete disease-causing agent."", ""B"": ""To prevent the immune system from attacking a transplanted organ."", ""C"": ""To help restore tissue function by contributing to cells needed at the injury site."", ""D"": ""To estimate blood oxygen level using differences in light absorption.""}",To train immune defenses without using the complete disease-causing agent.,To prevent the immune system from attacking a transplanted organ.,To help restore tissue function by contributing to cells needed at the injury site.,To estimate blood oxygen level using differences in light absorption.,C,"[""regenerative medicine""]","[""regenerative medicine"", ""stem cell therapy"", ""stem cell""]","[""stem_cell_therapy""]",uses cells that can develop into specialized body cells,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q038,fixed_q038,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Suppose a system must handle running a small chemical test quickly. Which statement best explains the role of lab-on-a-chip?
+
+Choices:
+A. It allows medical judgment without both people being in one room.
+B. It reveals the exact order where differences can be found.
+C. It reduces multiplication of the virus.
+D. It uses little sample and short paths to speed measurement.
+",930badd37a717f74,Suppose a system must handle running a small chemical test quickly. Which statement best explains the role of lab-on-a-chip?,Suppose a system must handle running a small chemical test quickly. Which statement best explains the role of lab-on-a-chip?,"{""A"": ""It allows medical judgment without both people being in one room."", ""B"": ""It reveals the exact order where differences can be found."", ""C"": ""It reduces multiplication of the virus."", ""D"": ""It uses little sample and short paths to speed measurement.""}",It allows medical judgment without both people being in one room.,It reveals the exact order where differences can be found.,It reduces multiplication of the virus.,It uses little sample and short paths to speed measurement.,D,"[""lab-on-a-chip""]","[""lab-on-a-chip""]","[""lab_on_a_chip""]",moves tiny drops through small channels on a plate,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q039,fixed_q039,Medicine_Biology,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+In a discussion about measuring a specific disease marker, which account of ELISA is the most accurate?
+
+Choices:
+A. It turns specific binding into a visible measurement.
+B. It uses light absorption differences to estimate oxygen level.
+C. It reduces multiplication of the virus.
+D. It shows trends that isolated measurements miss.
+",ed188f985efc147a,"In a discussion about measuring a specific disease marker, which account of ELISA is the most accurate?","In a discussion about measuring a specific disease marker, which account of ELISA is the most accurate?","{""A"": ""It turns specific binding into a visible measurement."", ""B"": ""It uses light absorption differences to estimate oxygen level."", ""C"": ""It reduces multiplication of the virus."", ""D"": ""It shows trends that isolated measurements miss.""}",It turns specific binding into a visible measurement.,It uses light absorption differences to estimate oxygen level.,It reduces multiplication of the virus.,It shows trends that isolated measurements miss.,A,"[""ELISA""]","[""ELISA""]","[""elisa""]",uses a binding reaction plus a color signal,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q040,fixed_q040,Medicine_Biology,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Why would a specialist consider contact tracing app when working on finding people exposed to an infection?
+
+Choices:
+A. It aims the change at a chosen location instead of altering many places.
+B. It helps identify contacts faster than memory alone.
+C. It binds mainly to the chosen marker instead of many unrelated ones.
+D. It allows medical judgment without both people being in one room.
+",e40bcd45770b29f4,Why would a specialist consider contact tracing app when working on finding people exposed to an infection?,Why would a specialist consider contact tracing app when working on finding people exposed to an infection?,"{""A"": ""It aims the change at a chosen location instead of altering many places."", ""B"": ""It helps identify contacts faster than memory alone."", ""C"": ""It binds mainly to the chosen marker instead of many unrelated ones."", ""D"": ""It allows medical judgment without both people being in one room.""}",It aims the change at a chosen location instead of altering many places.,It helps identify contacts faster than memory alone.,It binds mainly to the chosen marker instead of many unrelated ones.,It allows medical judgment without both people being in one room.,B,"[""contact tracing app"", ""app""]","[""contact tracing app"", ""app""]","[""contact_tracing_app""]",keeps recent encounter records on a portable communication device,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q041,fixed_q041,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement best describes how smartphone contributes to coordinating work while away from a desk?
+
+Choices:
+A. It lets messages travel across many linked networks.
+B. It allows playback while later parts are still arriving.
+C. It lets a person communicate and consult records from many places.
+D. It lets many distant people answer the same topic over time.
+",6051dee0e1a8aa98,Which statement best describes how smartphone contributes to coordinating work while away from a desk?,Which statement best describes how smartphone contributes to coordinating work while away from a desk?,"{""A"": ""It lets messages travel across many linked networks."", ""B"": ""It allows playback while later parts are still arriving."", ""C"": ""It lets a person communicate and consult records from many places."", ""D"": ""It lets many distant people answer the same topic over time.""}",It lets messages travel across many linked networks.,It allows playback while later parts are still arriving.,It lets a person communicate and consult records from many places.,It lets many distant people answer the same topic over time.,C,"[""smartphone""]","[""smartphone""]","[""smartphone""]","combines pocket wireless speech, written messages, tools, and records",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q042,fixed_q042,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A project is designed around sharing information between distant institutions. What is the main reason to include internet?
+
+Choices:
+A. It lets a person communicate and consult records from many places.
+B. It lets many distant people answer the same topic over time.
+C. It uses social links to pass messages rapidly.
+D. It lets messages travel across many linked networks.
+",d34a2961d9282fbb,A project is designed around sharing information between distant institutions. What is the main reason to include internet?,A project is designed around sharing information between distant institutions. What is the main reason to include internet?,"{""A"": ""It lets a person communicate and consult records from many places."", ""B"": ""It lets many distant people answer the same topic over time."", ""C"": ""It uses social links to pass messages rapidly."", ""D"": ""It lets messages travel across many linked networks.""}",It lets a person communicate and consult records from many places.,It lets many distant people answer the same topic over time.,It uses social links to pass messages rapidly.,It lets messages travel across many linked networks.,D,"[""internet""]","[""internet""]","[""internet""]",connects many smaller machine networks into one addressing system,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q043,fixed_q043,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+When attempting spreading a public notice quickly, what is the clearest justification for using social media?
+
+Choices:
+A. It uses social links to pass messages rapidly.
+B. It lets messages travel across many linked networks.
+C. It reduces delay compared with ordinary letters.
+D. It covers areas that ground wires or towers may not reach.
+",daae71ea9762179b,"When attempting spreading a public notice quickly, what is the clearest justification for using social media?","When attempting spreading a public notice quickly, what is the clearest justification for using social media?","{""A"": ""It uses social links to pass messages rapidly."", ""B"": ""It lets messages travel across many linked networks."", ""C"": ""It reduces delay compared with ordinary letters."", ""D"": ""It covers areas that ground wires or towers may not reach.""}",It uses social links to pass messages rapidly.,It lets messages travel across many linked networks.,It reduces delay compared with ordinary letters.,It covers areas that ground wires or towers may not reach.,A,"[""social media""]","[""social media""]","[""social_media""]",lets many people publish short messages to connected groups,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q044,fixed_q044,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which description captures the useful function of streaming video in the context of watching moving pictures before the whole file arrives?
+
+Choices:
+A. It delivers text without a physical carrier.
+B. It allows playback while later parts are still arriving.
+C. It gives each worker access to a shared current copy.
+D. It covers areas that ground wires or towers may not reach.
+",e098d2dcaa4dedf0,Which description captures the useful function of streaming video in the context of watching moving pictures before the whole file arrives?,Which description captures the useful function of streaming video in the context of watching moving pictures before the whole file arrives?,"{""A"": ""It delivers text without a physical carrier."", ""B"": ""It allows playback while later parts are still arriving."", ""C"": ""It gives each worker access to a shared current copy."", ""D"": ""It covers areas that ground wires or towers may not reach.""}",It delivers text without a physical carrier.,It allows playback while later parts are still arriving.,It gives each worker access to a shared current copy.,It covers areas that ground wires or towers may not reach.,B,"[""streaming video"", ""streaming""]","[""streaming video"", ""streaming""]","[""streaming_video""]",sends picture data continuously in small parts,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q045,fixed_q045,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+For a case involving sending a written note to a distant office, why is email relevant?
+
+Choices:
+A. It allows playback while later parts are still arriving.
+B. It covers areas that ground wires or towers may not reach.
+C. It delivers text without a physical carrier.
+D. It lets messages travel across many linked networks.
+",48c017c324bc07a9,"For a case involving sending a written note to a distant office, why is email relevant?","For a case involving sending a written note to a distant office, why is email relevant?","{""A"": ""It allows playback while later parts are still arriving."", ""B"": ""It covers areas that ground wires or towers may not reach."", ""C"": ""It delivers text without a physical carrier."", ""D"": ""It lets messages travel across many linked networks.""}",It allows playback while later parts are still arriving.,It covers areas that ground wires or towers may not reach.,It delivers text without a physical carrier.,It lets messages travel across many linked networks.,C,"[""email""]","[""email""]","[""email""]",moves written messages between machine mailboxes,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q046,fixed_q046,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What is the strongest explanation for applying video call to holding a meeting across distance?
+
+Choices:
+A. It reduces delay compared with ordinary letters.
+B. It lets a person communicate and consult records from many places.
+C. It gives each worker access to a shared current copy.
+D. It lets participants see and hear one another while apart.
+",c84a57be58e99e35,What is the strongest explanation for applying video call to holding a meeting across distance?,What is the strongest explanation for applying video call to holding a meeting across distance?,"{""A"": ""It reduces delay compared with ordinary letters."", ""B"": ""It lets a person communicate and consult records from many places."", ""C"": ""It gives each worker access to a shared current copy."", ""D"": ""It lets participants see and hear one another while apart.""}",It reduces delay compared with ordinary letters.,It lets a person communicate and consult records from many places.,It gives each worker access to a shared current copy.,It lets participants see and hear one another while apart.,D,"[""video call""]","[""video call""]","[""video_call""]",sends voice and moving pictures in both directions,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q047,fixed_q047,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A group is evaluating tools for distributing a recorded talk to subscribers. Which property of podcast matters most?
+
+Choices:
+A. It sends new recordings automatically to interested listeners.
+B. It lets a machine read the address without manual typing.
+C. It delivers text without a physical carrier.
+D. It gives each worker access to a shared current copy.
+",249b1d83e510603f,A group is evaluating tools for distributing a recorded talk to subscribers. Which property of podcast matters most?,A group is evaluating tools for distributing a recorded talk to subscribers. Which property of podcast matters most?,"{""A"": ""It sends new recordings automatically to interested listeners."", ""B"": ""It lets a machine read the address without manual typing."", ""C"": ""It delivers text without a physical carrier."", ""D"": ""It gives each worker access to a shared current copy.""}",It sends new recordings automatically to interested listeners.,It lets a machine read the address without manual typing.,It delivers text without a physical carrier.,It gives each worker access to a shared current copy.,A,"[""podcast""]","[""podcast""]","[""podcast""]",delivers recorded sound episodes through an electronic subscription feed,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q048,fixed_q048,Communication_Media,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement gives the best reason that digital camera is associated with sharing photographs without chemical film?
+
+Choices:
+A. It lets participants see and hear one another while apart.
+B. It stores pictures as data that can be copied immediately.
+C. It lets a person communicate and consult records from many places.
+D. It uses social links to pass messages rapidly.
+",56e2ee64f9b3a1e5,Which statement gives the best reason that digital camera is associated with sharing photographs without chemical film?,Which statement gives the best reason that digital camera is associated with sharing photographs without chemical film?,"{""A"": ""It lets participants see and hear one another while apart."", ""B"": ""It stores pictures as data that can be copied immediately."", ""C"": ""It lets a person communicate and consult records from many places."", ""D"": ""It uses social links to pass messages rapidly.""}",It lets participants see and hear one another while apart.,It stores pictures as data that can be copied immediately.,It lets a person communicate and consult records from many places.,It uses social links to pass messages rapidly.,B,"[""digital camera""]","[""digital camera""]","[""digital_camera""]",records light as numerical picture elements,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q049,fixed_q049,Communication_Media,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on collecting advice from a community. Which explanation best supports using online forum?
+
+Choices:
+A. It lets participants see and hear one another while apart.
+B. It lets a machine read the address without manual typing.
+C. It lets many distant people answer the same topic over time.
+D. It covers areas that ground wires or towers may not reach.
+",d8e78114b69064d7,A team is working on collecting advice from a community. Which explanation best supports using online forum?,A team is working on collecting advice from a community. Which explanation best supports using online forum?,"{""A"": ""It lets participants see and hear one another while apart."", ""B"": ""It lets a machine read the address without manual typing."", ""C"": ""It lets many distant people answer the same topic over time."", ""D"": ""It covers areas that ground wires or towers may not reach.""}",It lets participants see and hear one another while apart.,It lets a machine read the address without manual typing.,It lets many distant people answer the same topic over time.,It covers areas that ground wires or towers may not reach.,C,"[""online forum""]","[""online forum""]","[""online_forum""]",keeps public written discussions in a shared electronic place,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q050,fixed_q050,Communication_Media,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of instant messaging for coordinating a fast conversation in writing. What is its most relevant advantage?
+
+Choices:
+A. It covers areas that ground wires or towers may not reach.
+B. It stores pictures as data that can be copied immediately.
+C. It gives each worker access to a shared current copy.
+D. It reduces delay compared with ordinary letters.
+",f9dc9102efd0194e,Consider the use of instant messaging for coordinating a fast conversation in writing. What is its most relevant advantage?,Consider the use of instant messaging for coordinating a fast conversation in writing. What is its most relevant advantage?,"{""A"": ""It covers areas that ground wires or towers may not reach."", ""B"": ""It stores pictures as data that can be copied immediately."", ""C"": ""It gives each worker access to a shared current copy."", ""D"": ""It reduces delay compared with ordinary letters.""}",It covers areas that ground wires or towers may not reach.,It stores pictures as data that can be copied immediately.,It gives each worker access to a shared current copy.,It reduces delay compared with ordinary letters.,D,"[""instant messaging""]","[""instant messaging""]","[""instant_messaging""]",sends short written messages almost immediately between devices,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q051,fixed_q051,Communication_Media,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why satellite television can help with broadcasting programs over a wide region?
+
+Choices:
+A. It covers areas that ground wires or towers may not reach.
+B. It uses social links to pass messages rapidly.
+C. It reduces physical bulk while preserving the written content.
+D. It places more likely relevant items before less relevant ones.
+",3306458fb22266ac,Which mechanism explains why satellite television can help with broadcasting programs over a wide region?,Which mechanism explains why satellite television can help with broadcasting programs over a wide region?,"{""A"": ""It covers areas that ground wires or towers may not reach."", ""B"": ""It uses social links to pass messages rapidly."", ""C"": ""It reduces physical bulk while preserving the written content."", ""D"": ""It places more likely relevant items before less relevant ones.""}",It covers areas that ground wires or towers may not reach.,It uses social links to pass messages rapidly.,It reduces physical bulk while preserving the written content.,It places more likely relevant items before less relevant ones.,A,"[""satellite television"", ""satellite""]","[""satellite television"", ""satellite""]","[""satellite_television""]",relays signals through an object high above the earth,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q052,fixed_q052,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for opening a stored address from a printed sign. Why might QR code be selected?
+
+Choices:
+A. It stores pictures as data that can be copied immediately.
+B. It lets a machine read the address without manual typing.
+C. It allows playback while later parts are still arriving.
+D. It lets many distant people answer the same topic over time.
+",6ad706542bdd8bc7,A decision-maker is comparing methods for opening a stored address from a printed sign. Why might QR code be selected?,A decision-maker is comparing methods for opening a stored address from a printed sign. Why might QR code be selected?,"{""A"": ""It stores pictures as data that can be copied immediately."", ""B"": ""It lets a machine read the address without manual typing."", ""C"": ""It allows playback while later parts are still arriving."", ""D"": ""It lets many distant people answer the same topic over time.""}",It stores pictures as data that can be copied immediately.,It lets a machine read the address without manual typing.,It allows playback while later parts are still arriving.,It lets many distant people answer the same topic over time.,B,"[""QR code""]","[""QR code""]","[""qr_code""]",stores coded information in a square pattern read by a camera,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q053,fixed_q053,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What practical benefit does e-book provide when the goal is carrying many books in a small device?
+
+Choices:
+A. It reduces delay compared with ordinary letters.
+B. It places more likely relevant items before less relevant ones.
+C. It reduces physical bulk while preserving the written content.
+D. It uses social links to pass messages rapidly.
+",2701658f0de921f5,What practical benefit does e-book provide when the goal is carrying many books in a small device?,What practical benefit does e-book provide when the goal is carrying many books in a small device?,"{""A"": ""It reduces delay compared with ordinary letters."", ""B"": ""It places more likely relevant items before less relevant ones."", ""C"": ""It reduces physical bulk while preserving the written content."", ""D"": ""It uses social links to pass messages rapidly.""}",It reduces delay compared with ordinary letters.,It places more likely relevant items before less relevant ones.,It reduces physical bulk while preserving the written content.,It uses social links to pass messages rapidly.,C,"[""e-book"", ""ebook""]","[""e-book"", ""ebook""]","[""e_book""]",stores book text as electronic data,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q054,fixed_q054,Communication_Media,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Suppose a system must handle letting a team use the same document. Which statement best explains the role of cloud file sharing?
+
+Choices:
+A. It delivers text without a physical carrier.
+B. It lets many distant people answer the same topic over time.
+C. It lets a machine read the address without manual typing.
+D. It gives each worker access to a shared current copy.
+",0e936f52e3dd16de,Suppose a system must handle letting a team use the same document. Which statement best explains the role of cloud file sharing?,Suppose a system must handle letting a team use the same document. Which statement best explains the role of cloud file sharing?,"{""A"": ""It delivers text without a physical carrier."", ""B"": ""It lets many distant people answer the same topic over time."", ""C"": ""It lets a machine read the address without manual typing."", ""D"": ""It gives each worker access to a shared current copy.""}",It delivers text without a physical carrier.,It lets many distant people answer the same topic over time.,It lets a machine read the address without manual typing.,It gives each worker access to a shared current copy.,D,"[""cloud file sharing"", ""cloud""]","[""cloud file sharing"", ""cloud""]","[""cloud_file_sharing""]",keeps a file on distant machines reachable by several users,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q055,fixed_q055,Communication_Media,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+In a discussion about choosing which notices a reader sees first, which account of algorithmic feed is the most accurate?
+
+Choices:
+A. It places more likely relevant items before less relevant ones.
+B. It lets messages travel across many linked networks.
+C. It covers areas that ground wires or towers may not reach.
+D. It sends new recordings automatically to interested listeners.
+",3cfde3763c01a9bd,"In a discussion about choosing which notices a reader sees first, which account of algorithmic feed is the most accurate?","In a discussion about choosing which notices a reader sees first, which account of algorithmic feed is the most accurate?","{""A"": ""It places more likely relevant items before less relevant ones."", ""B"": ""It lets messages travel across many linked networks."", ""C"": ""It covers areas that ground wires or towers may not reach."", ""D"": ""It sends new recordings automatically to interested listeners.""}",It places more likely relevant items before less relevant ones.,It lets messages travel across many linked networks.,It covers areas that ground wires or towers may not reach.,It sends new recordings automatically to interested listeners.,A,"[""algorithmic feed"", ""algorithm""]","[""algorithmic feed"", ""algorithm""]","[""algorithmic_feed""]",orders messages by calculated signals of likely interest,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q056,fixed_q056,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Why would a specialist consider electric vehicle when working on reducing smoke from city travel?
+
+Choices:
+A. It reduces constant manual speed correction.
+B. It avoids burning fuel at the vehicle while moving.
+C. It spreads the stopping force over a larger area and time.
+D. It gives high energy for its weight.
+",5c422ad8e7604d89,Why would a specialist consider electric vehicle when working on reducing smoke from city travel?,Why would a specialist consider electric vehicle when working on reducing smoke from city travel?,"{""A"": ""It reduces constant manual speed correction."", ""B"": ""It avoids burning fuel at the vehicle while moving."", ""C"": ""It spreads the stopping force over a larger area and time."", ""D"": ""It gives high energy for its weight.""}",It reduces constant manual speed correction.,It avoids burning fuel at the vehicle while moving.,It spreads the stopping force over a larger area and time.,It gives high energy for its weight.,B,"[""electric vehicle"", ""EV""]","[""electric vehicle"", ""EV""]","[""electric_vehicle""]",moves by an electric motor powered from stored electrical energy,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q057,fixed_q057,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement best describes how GPS contributes to finding a vehicle position in unfamiliar country?
+
+Choices:
+A. It helps tires keep grip for steering.
+B. It reduces search time by coordinating location and demand.
+C. It derives location from measured signal timing.
+D. It carries many people quickly with guided motion.
+",f9ef91cca439fbb2,Which statement best describes how GPS contributes to finding a vehicle position in unfamiliar country?,Which statement best describes how GPS contributes to finding a vehicle position in unfamiliar country?,"{""A"": ""It helps tires keep grip for steering."", ""B"": ""It reduces search time by coordinating location and demand."", ""C"": ""It derives location from measured signal timing."", ""D"": ""It carries many people quickly with guided motion.""}",It helps tires keep grip for steering.,It reduces search time by coordinating location and demand.,It derives location from measured signal timing.,It carries many people quickly with guided motion.,C,"[""GPS""]","[""GPS""]","[""gps""]",compares timed signals from distant transmitters to estimate position,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q058,fixed_q058,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A project is designed around keeping an aircraft steady on a long trip. What is the main reason to include autopilot?
+
+Choices:
+A. It adjusts decisions using current traffic conditions.
+B. It gives high energy for its weight.
+C. It reduces search time by coordinating location and demand.
+D. It makes repeated small corrections without constant human input.
+",d0ad95dd95cc3b65,A project is designed around keeping an aircraft steady on a long trip. What is the main reason to include autopilot?,A project is designed around keeping an aircraft steady on a long trip. What is the main reason to include autopilot?,"{""A"": ""It adjusts decisions using current traffic conditions."", ""B"": ""It gives high energy for its weight."", ""C"": ""It reduces search time by coordinating location and demand."", ""D"": ""It makes repeated small corrections without constant human input.""}",It adjusts decisions using current traffic conditions.,It gives high energy for its weight.,It reduces search time by coordinating location and demand.,It makes repeated small corrections without constant human input.,D,"[""autopilot""]","[""autopilot""]","[""autopilot""]",uses instruments and control rules to adjust steering automatically,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q059,fixed_q059,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+When attempting powering a portable machine for a long time, what is the clearest justification for using lithium-ion battery?
+
+Choices:
+A. It gives high energy for its weight.
+B. It helps tires keep grip for steering.
+C. It adjusts decisions using current traffic conditions.
+D. It uses local sunlight instead of transported fuel.
+",b558111f5fd4eea1,"When attempting powering a portable machine for a long time, what is the clearest justification for using lithium-ion battery?","When attempting powering a portable machine for a long time, what is the clearest justification for using lithium-ion battery?","{""A"": ""It gives high energy for its weight."", ""B"": ""It helps tires keep grip for steering."", ""C"": ""It adjusts decisions using current traffic conditions."", ""D"": ""It uses local sunlight instead of transported fuel.""}",It gives high energy for its weight.,It helps tires keep grip for steering.,It adjusts decisions using current traffic conditions.,It uses local sunlight instead of transported fuel.,A,"[""lithium-ion battery""]","[""lithium-ion battery""]","[""lithium_ion_battery""]",stores much electrical energy in a light chemical cell,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q060,fixed_q060,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which description captures the useful function of solar panel in the context of making electricity where fuel delivery is difficult?
+
+Choices:
+A. It avoids burning fuel at the vehicle while moving.
+B. It uses local sunlight instead of transported fuel.
+C. It reduces search time by coordinating location and demand.
+D. It derives location from measured signal timing.
+",4b6e1a83b8bf2dd1,Which description captures the useful function of solar panel in the context of making electricity where fuel delivery is difficult?,Which description captures the useful function of solar panel in the context of making electricity where fuel delivery is difficult?,"{""A"": ""It avoids burning fuel at the vehicle while moving."", ""B"": ""It uses local sunlight instead of transported fuel."", ""C"": ""It reduces search time by coordinating location and demand."", ""D"": ""It derives location from measured signal timing.""}",It avoids burning fuel at the vehicle while moving.,It uses local sunlight instead of transported fuel.,It reduces search time by coordinating location and demand.,It derives location from measured signal timing.,B,"[""solar panel""]","[""solar panel""]","[""solar_panel""]",turns sunlight directly into electrical current,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q061,fixed_q061,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+For a case involving moving many passengers between cities, why is high-speed rail relevant?
+
+Choices:
+A. It derives location from measured signal timing.
+B. It avoids burning fuel at the vehicle while moving.
+C. It carries many people quickly with guided motion.
+D. It reduces search time by coordinating location and demand.
+",216f86818bacaccc,"For a case involving moving many passengers between cities, why is high-speed rail relevant?","For a case involving moving many passengers between cities, why is high-speed rail relevant?","{""A"": ""It derives location from measured signal timing."", ""B"": ""It avoids burning fuel at the vehicle while moving."", ""C"": ""It carries many people quickly with guided motion."", ""D"": ""It reduces search time by coordinating location and demand.""}",It derives location from measured signal timing.,It avoids burning fuel at the vehicle while moving.,It carries many people quickly with guided motion.,It reduces search time by coordinating location and demand.,C,"[""high-speed rail""]","[""high-speed rail""]","[""high_speed_rail""]",uses trains and track designed for sustained very high speed,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q062,fixed_q062,Transportation_Engineering,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What is the strongest explanation for applying delivery drone to bringing a small parcel over blocked roads?
+
+Choices:
+A. It spreads the stopping force over a larger area and time.
+B. It carries many people quickly with guided motion.
+C. It keeps strength while lowering weight.
+D. It moves above ground obstacles without a driver onboard.
+",3c3e2b9d9b86eff7,What is the strongest explanation for applying delivery drone to bringing a small parcel over blocked roads?,What is the strongest explanation for applying delivery drone to bringing a small parcel over blocked roads?,"{""A"": ""It spreads the stopping force over a larger area and time."", ""B"": ""It carries many people quickly with guided motion."", ""C"": ""It keeps strength while lowering weight."", ""D"": ""It moves above ground obstacles without a driver onboard.""}",It spreads the stopping force over a larger area and time.,It carries many people quickly with guided motion.,It keeps strength while lowering weight.,It moves above ground obstacles without a driver onboard.,D,"[""drone""]","[""delivery drone"", ""drone""]","[""delivery_drone""]",uses a small pilotless flying machine,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q063,fixed_q063,Transportation_Engineering,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A group is evaluating tools for matching passengers with nearby hired cars. Which property of ride-sharing app matters most?
+
+Choices:
+A. It reduces search time by coordinating location and demand.
+B. It adjusts decisions using current traffic conditions.
+C. It carries many people quickly with guided motion.
+D. It avoids burning fuel at the vehicle while moving.
+",729661fa80e984a6,A group is evaluating tools for matching passengers with nearby hired cars. Which property of ride-sharing app matters most?,A group is evaluating tools for matching passengers with nearby hired cars. Which property of ride-sharing app matters most?,"{""A"": ""It reduces search time by coordinating location and demand."", ""B"": ""It adjusts decisions using current traffic conditions."", ""C"": ""It carries many people quickly with guided motion."", ""D"": ""It avoids burning fuel at the vehicle while moving.""}",It reduces search time by coordinating location and demand.,It adjusts decisions using current traffic conditions.,It carries many people quickly with guided motion.,It avoids burning fuel at the vehicle while moving.,A,"[""ride-sharing app"", ""app""]","[""ride-sharing app"", ""app""]","[""ride_sharing_app""]",uses a portable communication device to match riders and drivers,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q064,fixed_q064,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement gives the best reason that hybrid car is associated with saving fuel in stop-and-go travel?
+
+Choices:
+A. It helps tires keep grip for steering.
+B. It recovers or reuses energy that would otherwise be wasted.
+C. It avoids burning fuel at the vehicle while moving.
+D. It reduces search time by coordinating location and demand.
+",9b9dc3ac2c88250f,Which statement gives the best reason that hybrid car is associated with saving fuel in stop-and-go travel?,Which statement gives the best reason that hybrid car is associated with saving fuel in stop-and-go travel?,"{""A"": ""It helps tires keep grip for steering."", ""B"": ""It recovers or reuses energy that would otherwise be wasted."", ""C"": ""It avoids burning fuel at the vehicle while moving."", ""D"": ""It reduces search time by coordinating location and demand.""}",It helps tires keep grip for steering.,It recovers or reuses energy that would otherwise be wasted.,It avoids burning fuel at the vehicle while moving.,It reduces search time by coordinating location and demand.,B,"[""hybrid car""]","[""hybrid car""]","[""hybrid_car""]",combines a fuel engine with an electric drive and stored energy,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q065,fixed_q065,Transportation_Engineering,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on keeping control during hard braking. Which explanation best supports using anti-lock braking system?
+
+Choices:
+A. It keeps strength while lowering weight.
+B. It uses local sunlight instead of transported fuel.
+C. It helps tires keep grip for steering.
+D. It carries many people quickly with guided motion.
+",722c9b36da4424df,A team is working on keeping control during hard braking. Which explanation best supports using anti-lock braking system?,A team is working on keeping control during hard braking. Which explanation best supports using anti-lock braking system?,"{""A"": ""It keeps strength while lowering weight."", ""B"": ""It uses local sunlight instead of transported fuel."", ""C"": ""It helps tires keep grip for steering."", ""D"": ""It carries many people quickly with guided motion.""}",It keeps strength while lowering weight.,It uses local sunlight instead of transported fuel.,It helps tires keep grip for steering.,It carries many people quickly with guided motion.,C,"[""anti-lock braking system"", ""ABS""]","[""anti-lock braking system"", ""ABS""]","[""anti_lock_braking_system""]",rapidly reduces and restores brake force when wheels begin to lock,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q066,fixed_q066,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of cruise control for maintaining speed on a long road. What is its most relevant advantage?
+
+Choices:
+A. It reduces search time by coordinating location and demand.
+B. It derives location from measured signal timing.
+C. It carries many people quickly with guided motion.
+D. It reduces constant manual speed correction.
+",6f75c376269ad0b8,Consider the use of cruise control for maintaining speed on a long road. What is its most relevant advantage?,Consider the use of cruise control for maintaining speed on a long road. What is its most relevant advantage?,"{""A"": ""It reduces search time by coordinating location and demand."", ""B"": ""It derives location from measured signal timing."", ""C"": ""It carries many people quickly with guided motion."", ""D"": ""It reduces constant manual speed correction.""}",It reduces search time by coordinating location and demand.,It derives location from measured signal timing.,It carries many people quickly with guided motion.,It reduces constant manual speed correction.,D,"[""cruise control""]","[""cruise control""]","[""cruise_control""]",automatically adjusts engine force to hold a chosen speed,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q067,fixed_q067,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why carbon fiber composite can help with making a strong light vehicle part?
+
+Choices:
+A. It keeps strength while lowering weight.
+B. It reduces search time by coordinating location and demand.
+C. It helps tires keep grip for steering.
+D. It spreads the stopping force over a larger area and time.
+",9a7c5f5437191724,Which mechanism explains why carbon fiber composite can help with making a strong light vehicle part?,Which mechanism explains why carbon fiber composite can help with making a strong light vehicle part?,"{""A"": ""It keeps strength while lowering weight."", ""B"": ""It reduces search time by coordinating location and demand."", ""C"": ""It helps tires keep grip for steering."", ""D"": ""It spreads the stopping force over a larger area and time.""}",It keeps strength while lowering weight.,It reduces search time by coordinating location and demand.,It helps tires keep grip for steering.,It spreads the stopping force over a larger area and time.,A,"[""carbon fiber"", ""composite""]","[""carbon fiber composite"", ""carbon fiber"", ""composite""]","[""carbon_fiber_composite""]",embeds strong fibers inside a binding material,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q068,fixed_q068,Transportation_Engineering,test,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for making a complex prototype quickly. Why might 3D printing be selected?
+
+Choices:
+A. It helps tires keep grip for steering.
+B. It forms shapes without first making special molds.
+C. It adjusts decisions using current traffic conditions.
+D. It makes repeated small corrections without constant human input.
+",ce60cf00f623114a,A decision-maker is comparing methods for making a complex prototype quickly. Why might 3D printing be selected?,A decision-maker is comparing methods for making a complex prototype quickly. Why might 3D printing be selected?,"{""A"": ""It helps tires keep grip for steering."", ""B"": ""It forms shapes without first making special molds."", ""C"": ""It adjusts decisions using current traffic conditions."", ""D"": ""It makes repeated small corrections without constant human input.""}",It helps tires keep grip for steering.,It forms shapes without first making special molds.,It adjusts decisions using current traffic conditions.,It makes repeated small corrections without constant human input.,B,"[""3D printing""]","[""3D printing""]","[""3d_printing""]",builds an object layer by layer from a digital plan,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q069,fixed_q069,Transportation_Engineering,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What practical benefit does traffic sensor network provide when the goal is reducing congestion at busy crossings?
+
+Choices:
+A. It helps tires keep grip for steering.
+B. It makes repeated small corrections without constant human input.
+C. It adjusts decisions using current traffic conditions.
+D. It recovers or reuses energy that would otherwise be wasted.
+",3e390838051d6ca0,What practical benefit does traffic sensor network provide when the goal is reducing congestion at busy crossings?,What practical benefit does traffic sensor network provide when the goal is reducing congestion at busy crossings?,"{""A"": ""It helps tires keep grip for steering."", ""B"": ""It makes repeated small corrections without constant human input."", ""C"": ""It adjusts decisions using current traffic conditions."", ""D"": ""It recovers or reuses energy that would otherwise be wasted.""}",It helps tires keep grip for steering.,It makes repeated small corrections without constant human input.,It adjusts decisions using current traffic conditions.,It recovers or reuses energy that would otherwise be wasted.,C,"[""traffic sensor network""]","[""traffic sensor network""]","[""traffic_sensor_network""]",collects road measurements from many connected instruments,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q070,fixed_q070,Transportation_Engineering,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Suppose a system must handle protecting a passenger in a crash. Which statement best explains the role of airbag?
+
+Choices:
+A. It gives high energy for its weight.
+B. It helps tires keep grip for steering.
+C. It moves above ground obstacles without a driver onboard.
+D. It spreads the stopping force over a larger area and time.
+",328e65536db1c29f,Suppose a system must handle protecting a passenger in a crash. Which statement best explains the role of airbag?,Suppose a system must handle protecting a passenger in a crash. Which statement best explains the role of airbag?,"{""A"": ""It gives high energy for its weight."", ""B"": ""It helps tires keep grip for steering."", ""C"": ""It moves above ground obstacles without a driver onboard."", ""D"": ""It spreads the stopping force over a larger area and time.""}",It gives high energy for its weight.,It helps tires keep grip for steering.,It moves above ground obstacles without a driver onboard.,It spreads the stopping force over a larger area and time.,D,"[""airbag""]","[""airbag""]","[""airbag""]",inflates a cushion very quickly during a collision,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q071,fixed_q071,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+In a discussion about reducing gas released from a power station, which account of carbon capture is the most accurate?
+
+Choices:
+A. It prevents part of the unwanted gas from escaping.
+B. It shifts energy from the time it is made to the time it is needed.
+C. It releases energy from combining light atoms.
+D. It separates salt from water without boiling all of it.
+",a0c323f111ac6227,"In a discussion about reducing gas released from a power station, which account of carbon capture is the most accurate?","In a discussion about reducing gas released from a power station, which account of carbon capture is the most accurate?","{""A"": ""It prevents part of the unwanted gas from escaping."", ""B"": ""It shifts energy from the time it is made to the time it is needed."", ""C"": ""It releases energy from combining light atoms."", ""D"": ""It separates salt from water without boiling all of it.""}",It prevents part of the unwanted gas from escaping.,It shifts energy from the time it is made to the time it is needed.,It releases energy from combining light atoms.,It separates salt from water without boiling all of it.,A,"[""carbon capture""]","[""carbon capture""]","[""carbon_capture""]",separates carbon-bearing gas before it enters the air,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q072,fixed_q072,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Why would a specialist consider satellite monitoring when working on measuring forest loss over a large region?
+
+Choices:
+A. It converts moving air into electrical power at scale.
+B. It covers wide areas with repeated comparable views.
+C. It detects changes before manual inspection would notice them.
+D. It uses carbon from recent growth rather than ancient deposits.
+",51533c17d6fa7a2f,Why would a specialist consider satellite monitoring when working on measuring forest loss over a large region?,Why would a specialist consider satellite monitoring when working on measuring forest loss over a large region?,"{""A"": ""It converts moving air into electrical power at scale."", ""B"": ""It covers wide areas with repeated comparable views."", ""C"": ""It detects changes before manual inspection would notice them."", ""D"": ""It uses carbon from recent growth rather than ancient deposits.""}",It converts moving air into electrical power at scale.,It covers wide areas with repeated comparable views.,It detects changes before manual inspection would notice them.,It uses carbon from recent growth rather than ancient deposits.,B,"[""satellite monitoring"", ""satellite""]","[""satellite monitoring"", ""satellite""]","[""satellite_monitoring""]",observes the earth repeatedly from high above,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q073,fixed_q073,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement best describes how microplastics contributes to studying tiny pollution particles in water?
+
+Choices:
+A. It uses existing heat instead of only creating heat by burning fuel.
+B. It tests how changes may influence a large connected system.
+C. It focuses attention on particles too small to see easily.
+D. It covers wide areas with repeated comparable views.
+",895e85d2fe842005,Which statement best describes how microplastics contributes to studying tiny pollution particles in water?,Which statement best describes how microplastics contributes to studying tiny pollution particles in water?,"{""A"": ""It uses existing heat instead of only creating heat by burning fuel."", ""B"": ""It tests how changes may influence a large connected system."", ""C"": ""It focuses attention on particles too small to see easily."", ""D"": ""It covers wide areas with repeated comparable views.""}",It uses existing heat instead of only creating heat by burning fuel.,It tests how changes may influence a large connected system.,It focuses attention on particles too small to see easily.,It covers wide areas with repeated comparable views.,C,"[""microplastics""]","[""microplastics""]","[""microplastics""]",describes very small pieces of manufactured plastic material,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q074,fixed_q074,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A project is designed around balancing power from changing wind and sunlight. What is the main reason to include renewable energy grid?
+
+Choices:
+A. It detects changes before manual inspection would notice them.
+B. It converts moving air into electrical power at scale.
+C. It prevents part of the unwanted gas from escaping.
+D. It matches supply and demand despite variable sources.
+",9ff795e266cbe067,A project is designed around balancing power from changing wind and sunlight. What is the main reason to include renewable energy grid?,A project is designed around balancing power from changing wind and sunlight. What is the main reason to include renewable energy grid?,"{""A"": ""It detects changes before manual inspection would notice them."", ""B"": ""It converts moving air into electrical power at scale."", ""C"": ""It prevents part of the unwanted gas from escaping."", ""D"": ""It matches supply and demand despite variable sources.""}",It detects changes before manual inspection would notice them.,It converts moving air into electrical power at scale.,It prevents part of the unwanted gas from escaping.,It matches supply and demand despite variable sources.,D,"[""renewable energy grid"", ""renewable""]","[""renewable energy grid"", ""renewable""]","[""renewable_energy_grid""]",coordinates many power sources whose output changes with weather,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q075,fixed_q075,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+When attempting generating electricity on open land, what is the clearest justification for using wind turbine farm?
+
+Choices:
+A. It converts moving air into electrical power at scale.
+B. It focuses attention on particles too small to see easily.
+C. It prevents part of the unwanted gas from escaping.
+D. It detects changes before manual inspection would notice them.
+",8b61ce15b0c2a262,"When attempting generating electricity on open land, what is the clearest justification for using wind turbine farm?","When attempting generating electricity on open land, what is the clearest justification for using wind turbine farm?","{""A"": ""It converts moving air into electrical power at scale."", ""B"": ""It focuses attention on particles too small to see easily."", ""C"": ""It prevents part of the unwanted gas from escaping."", ""D"": ""It detects changes before manual inspection would notice them.""}",It converts moving air into electrical power at scale.,It focuses attention on particles too small to see easily.,It prevents part of the unwanted gas from escaping.,It detects changes before manual inspection would notice them.,A,"[""wind turbine farm"", ""wind turbine""]","[""wind turbine farm"", ""wind turbine""]","[""wind_turbine_farm""]",uses many wind-driven rotors connected to generators,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q076,fixed_q076,Environment_Energy,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which description captures the useful function of smart meter in the context of managing electricity use through the day?
+
+Choices:
+A. It tests how changes may influence a large connected system.
+B. It reveals when demand rises or falls.
+C. It prevents part of the unwanted gas from escaping.
+D. It releases energy from combining light atoms.
+",7591b2fbe8366298,Which description captures the useful function of smart meter in the context of managing electricity use through the day?,Which description captures the useful function of smart meter in the context of managing electricity use through the day?,"{""A"": ""It tests how changes may influence a large connected system."", ""B"": ""It reveals when demand rises or falls."", ""C"": ""It prevents part of the unwanted gas from escaping."", ""D"": ""It releases energy from combining light atoms.""}",It tests how changes may influence a large connected system.,It reveals when demand rises or falls.,It prevents part of the unwanted gas from escaping.,It releases energy from combining light atoms.,B,"[""smart meter""]","[""smart meter""]","[""smart_meter""]",records usage frequently and sends readings automatically,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q077,fixed_q077,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+For a case involving making drinkable water from seawater, why is desalination membrane relevant?
+
+Choices:
+A. It detects changes before manual inspection would notice them.
+B. It turns more electrical energy into light and less into waste heat.
+C. It separates salt from water without boiling all of it.
+D. It gathers scattered waste so it can be removed.
+",64f40d0043798403,"For a case involving making drinkable water from seawater, why is desalination membrane relevant?","For a case involving making drinkable water from seawater, why is desalination membrane relevant?","{""A"": ""It detects changes before manual inspection would notice them."", ""B"": ""It turns more electrical energy into light and less into waste heat."", ""C"": ""It separates salt from water without boiling all of it."", ""D"": ""It gathers scattered waste so it can be removed.""}",It detects changes before manual inspection would notice them.,It turns more electrical energy into light and less into waste heat.,It separates salt from water without boiling all of it.,It gathers scattered waste so it can be removed.,C,"[""desalination membrane""]","[""desalination membrane""]","[""desalination_membrane""]",lets water pass while holding back much dissolved salt,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q078,fixed_q078,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What is the strongest explanation for applying heat pump to warming a building with less fuel?
+
+Choices:
+A. It matches supply and demand despite variable sources.
+B. It releases energy from combining light atoms.
+C. It uses carbon from recent growth rather than ancient deposits.
+D. It uses existing heat instead of only creating heat by burning fuel.
+",589a4db55ebf0619,What is the strongest explanation for applying heat pump to warming a building with less fuel?,What is the strongest explanation for applying heat pump to warming a building with less fuel?,"{""A"": ""It matches supply and demand despite variable sources."", ""B"": ""It releases energy from combining light atoms."", ""C"": ""It uses carbon from recent growth rather than ancient deposits."", ""D"": ""It uses existing heat instead of only creating heat by burning fuel.""}",It matches supply and demand despite variable sources.,It releases energy from combining light atoms.,It uses carbon from recent growth rather than ancient deposits.,It uses existing heat instead of only creating heat by burning fuel.,D,"[""heat pump""]","[""heat pump""]","[""heat_pump""]",moves heat from one place to another using work,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q079,fixed_q079,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A group is evaluating tools for seeking a dense source of energy. Which property of fusion reactor matters most?
+
+Choices:
+A. It releases energy from combining light atoms.
+B. It prevents part of the unwanted gas from escaping.
+C. It focuses attention on particles too small to see easily.
+D. It detects changes before manual inspection would notice them.
+",28375cdd50ef528c,A group is evaluating tools for seeking a dense source of energy. Which property of fusion reactor matters most?,A group is evaluating tools for seeking a dense source of energy. Which property of fusion reactor matters most?,"{""A"": ""It releases energy from combining light atoms."", ""B"": ""It prevents part of the unwanted gas from escaping."", ""C"": ""It focuses attention on particles too small to see easily."", ""D"": ""It detects changes before manual inspection would notice them.""}",It releases energy from combining light atoms.,It prevents part of the unwanted gas from escaping.,It focuses attention on particles too small to see easily.,It detects changes before manual inspection would notice them.,A,"[""fusion reactor"", ""fusion""]","[""fusion reactor"", ""fusion""]","[""fusion_reactor""]",joins light atomic nuclei under extreme conditions,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q080,fixed_q080,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement gives the best reason that climate model is associated with estimating future temperature patterns?
+
+Choices:
+A. It releases energy from combining light atoms.
+B. It tests how changes may influence a large connected system.
+C. It matches supply and demand despite variable sources.
+D. It detects changes before manual inspection would notice them.
+",9aaa65add52f8b50,Which statement gives the best reason that climate model is associated with estimating future temperature patterns?,Which statement gives the best reason that climate model is associated with estimating future temperature patterns?,"{""A"": ""It releases energy from combining light atoms."", ""B"": ""It tests how changes may influence a large connected system."", ""C"": ""It matches supply and demand despite variable sources."", ""D"": ""It detects changes before manual inspection would notice them.""}",It releases energy from combining light atoms.,It tests how changes may influence a large connected system.,It matches supply and demand despite variable sources.,It detects changes before manual inspection would notice them.,B,"[""climate model""]","[""climate model""]","[""climate_model""]","uses mathematical rules to simulate air, water, and energy flows",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q081,fixed_q081,Environment_Energy,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on using solar power after sunset. Which explanation best supports using battery storage?
+
+Choices:
+A. It turns more electrical energy into light and less into waste heat.
+B. It focuses attention on particles too small to see easily.
+C. It shifts energy from the time it is made to the time it is needed.
+D. It releases energy from combining light atoms.
+",25b4990b81786770,A team is working on using solar power after sunset. Which explanation best supports using battery storage?,A team is working on using solar power after sunset. Which explanation best supports using battery storage?,"{""A"": ""It turns more electrical energy into light and less into waste heat."", ""B"": ""It focuses attention on particles too small to see easily."", ""C"": ""It shifts energy from the time it is made to the time it is needed."", ""D"": ""It releases energy from combining light atoms.""}",It turns more electrical energy into light and less into waste heat.,It focuses attention on particles too small to see easily.,It shifts energy from the time it is made to the time it is needed.,It releases energy from combining light atoms.,C,"[""battery storage""]","[""battery storage""]","[""battery_storage""]",stores electrical energy chemically for later release,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q082,fixed_q082,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of wastewater sensor for finding pollution changes early. What is its most relevant advantage?
+
+Choices:
+A. It gathers scattered waste so it can be removed.
+B. It focuses attention on particles too small to see easily.
+C. It shifts energy from the time it is made to the time it is needed.
+D. It detects changes before manual inspection would notice them.
+",aea7d84eba4ea687,Consider the use of wastewater sensor for finding pollution changes early. What is its most relevant advantage?,Consider the use of wastewater sensor for finding pollution changes early. What is its most relevant advantage?,"{""A"": ""It gathers scattered waste so it can be removed."", ""B"": ""It focuses attention on particles too small to see easily."", ""C"": ""It shifts energy from the time it is made to the time it is needed."", ""D"": ""It detects changes before manual inspection would notice them.""}",It gathers scattered waste so it can be removed.,It focuses attention on particles too small to see easily.,It shifts energy from the time it is made to the time it is needed.,It detects changes before manual inspection would notice them.,D,"[""wastewater sensor""]","[""wastewater sensor""]","[""wastewater_sensor""]",measures selected chemicals in dirty water repeatedly,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q083,fixed_q083,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why biofuel can help with replacing part of petroleum fuel?
+
+Choices:
+A. It uses carbon from recent growth rather than ancient deposits.
+B. It converts moving air into electrical power at scale.
+C. It separates salt from water without boiling all of it.
+D. It gathers scattered waste so it can be removed.
+",9248b2768350581d,Which mechanism explains why biofuel can help with replacing part of petroleum fuel?,Which mechanism explains why biofuel can help with replacing part of petroleum fuel?,"{""A"": ""It uses carbon from recent growth rather than ancient deposits."", ""B"": ""It converts moving air into electrical power at scale."", ""C"": ""It separates salt from water without boiling all of it."", ""D"": ""It gathers scattered waste so it can be removed.""}",It uses carbon from recent growth rather than ancient deposits.,It converts moving air into electrical power at scale.,It separates salt from water without boiling all of it.,It gathers scattered waste so it can be removed.,A,"[""biofuel""]","[""biofuel""]","[""biofuel""]",makes burnable fuel from recently grown biological material,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q084,fixed_q084,Environment_Energy,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for reducing electricity used for lamps. Why might LED lighting be selected?
+
+Choices:
+A. It separates salt from water without boiling all of it.
+B. It turns more electrical energy into light and less into waste heat.
+C. It releases energy from combining light atoms.
+D. It covers wide areas with repeated comparable views.
+",ab5928b123fbb90f,A decision-maker is comparing methods for reducing electricity used for lamps. Why might LED lighting be selected?,A decision-maker is comparing methods for reducing electricity used for lamps. Why might LED lighting be selected?,"{""A"": ""It separates salt from water without boiling all of it."", ""B"": ""It turns more electrical energy into light and less into waste heat."", ""C"": ""It releases energy from combining light atoms."", ""D"": ""It covers wide areas with repeated comparable views.""}",It separates salt from water without boiling all of it.,It turns more electrical energy into light and less into waste heat.,It releases energy from combining light atoms.,It covers wide areas with repeated comparable views.,B,"[""LED"", ""light-emitting diode""]","[""LED lighting"", ""LED"", ""light-emitting diode""]","[""led_lighting""]",makes light with a small solid electrical device,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q085,fixed_q085,Environment_Energy,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What practical benefit does ocean cleanup device provide when the goal is collecting floating waste at sea?
+
+Choices:
+A. It focuses attention on particles too small to see easily.
+B. It converts moving air into electrical power at scale.
+C. It gathers scattered waste so it can be removed.
+D. It separates salt from water without boiling all of it.
+",810fbae7604d0558,What practical benefit does ocean cleanup device provide when the goal is collecting floating waste at sea?,What practical benefit does ocean cleanup device provide when the goal is collecting floating waste at sea?,"{""A"": ""It focuses attention on particles too small to see easily."", ""B"": ""It converts moving air into electrical power at scale."", ""C"": ""It gathers scattered waste so it can be removed."", ""D"": ""It separates salt from water without boiling all of it.""}",It focuses attention on particles too small to see easily.,It converts moving air into electrical power at scale.,It gathers scattered waste so it can be removed.,It separates salt from water without boiling all of it.,C,"[""ocean cleanup device""]","[""ocean cleanup device""]","[""ocean_cleanup_device""]",uses barriers and currents to concentrate floating material,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q086,fixed_q086,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Suppose a system must handle paying a shop without handing over coins or notes. Which statement best explains the role of QR code payment?
+
+Choices:
+A. It removes the need to visit the shop physically.
+B. It keeps the password alone from being enough.
+C. It lets each service have a strong different secret without memorizing all of them.
+D. It reduces manual entry of account details.
+",0564f74d75ab8392,Suppose a system must handle paying a shop without handing over coins or notes. Which statement best explains the role of QR code payment?,Suppose a system must handle paying a shop without handing over coins or notes. Which statement best explains the role of QR code payment?,"{""A"": ""It removes the need to visit the shop physically."", ""B"": ""It keeps the password alone from being enough."", ""C"": ""It lets each service have a strong different secret without memorizing all of them."", ""D"": ""It reduces manual entry of account details.""}",It removes the need to visit the shop physically.,It keeps the password alone from being enough.,It lets each service have a strong different secret without memorizing all of them.,It reduces manual entry of account details.,D,"[""QR code"", ""payment""]","[""QR code payment"", ""QR code"", ""payment""]","[""qr_code_payment""]",uses a camera-readable square code to identify the transaction,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q087,fixed_q087,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+In a discussion about checking an account without visiting a bank, which account of online banking is the most accurate?
+
+Choices:
+A. It lets the customer inspect records remotely.
+B. It makes the same record easier to retrieve and transmit.
+C. It heats or cools less when comfort is not needed.
+D. It coordinates the parties without repeated telephone calls.
+",56500e9f5da84dd7,"In a discussion about checking an account without visiting a bank, which account of online banking is the most accurate?","In a discussion about checking an account without visiting a bank, which account of online banking is the most accurate?","{""A"": ""It lets the customer inspect records remotely."", ""B"": ""It makes the same record easier to retrieve and transmit."", ""C"": ""It heats or cools less when comfort is not needed."", ""D"": ""It coordinates the parties without repeated telephone calls.""}",It lets the customer inspect records remotely.,It makes the same record easier to retrieve and transmit.,It heats or cools less when comfort is not needed.,It coordinates the parties without repeated telephone calls.,A,"[""online banking""]","[""online banking""]","[""online_banking""]",uses a distant electronic connection to view and move account records,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q088,fixed_q088,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Why would a specialist consider biometric authentication when working on confirming a person's identity?
+
+Choices:
+A. It removes the need to visit the shop physically.
+B. It uses a hard-to-share personal physical trait.
+C. It heats or cools less when comfort is not needed.
+D. It lets each service have a strong different secret without memorizing all of them.
+",bfac24714cdfe650,Why would a specialist consider biometric authentication when working on confirming a person's identity?,Why would a specialist consider biometric authentication when working on confirming a person's identity?,"{""A"": ""It removes the need to visit the shop physically."", ""B"": ""It uses a hard-to-share personal physical trait."", ""C"": ""It heats or cools less when comfort is not needed."", ""D"": ""It lets each service have a strong different secret without memorizing all of them.""}",It removes the need to visit the shop physically.,It uses a hard-to-share personal physical trait.,It heats or cools less when comfort is not needed.,It lets each service have a strong different secret without memorizing all of them.,B,"[""biometric authentication"", ""biometric""]","[""biometric authentication"", ""biometric""]","[""biometric_authentication""]",compares a body feature with a stored reference,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q089,fixed_q089,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement best describes how e-commerce contributes to buying goods from home?
+
+Choices:
+A. It keeps the password alone from being enough.
+B. It heats or cools less when comfort is not needed.
+C. It removes the need to visit the shop physically.
+D. It updates directions from stored roads and current position.
+",76fae4d5221b028f,Which statement best describes how e-commerce contributes to buying goods from home?,Which statement best describes how e-commerce contributes to buying goods from home?,"{""A"": ""It keeps the password alone from being enough."", ""B"": ""It heats or cools less when comfort is not needed."", ""C"": ""It removes the need to visit the shop physically."", ""D"": ""It updates directions from stored roads and current position.""}",It keeps the password alone from being enough.,It heats or cools less when comfort is not needed.,It removes the need to visit the shop physically.,It updates directions from stored roads and current position.,C,"[""e-commerce"", ""online shopping""]","[""e-commerce"", ""online shopping""]","[""e_commerce""]","uses electronic catalogues, orders, and payment records",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q090,fixed_q090,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A project is designed around paying quickly at a counter. What is the main reason to include contactless payment?
+
+Choices:
+A. It updates directions from stored roads and current position.
+B. It lets the customer inspect records remotely.
+C. It heats or cools less when comfort is not needed.
+D. It reduces handling and manual writing of payment details.
+",612ec4cad8e0205f,A project is designed around paying quickly at a counter. What is the main reason to include contactless payment?,A project is designed around paying quickly at a counter. What is the main reason to include contactless payment?,"{""A"": ""It updates directions from stored roads and current position."", ""B"": ""It lets the customer inspect records remotely."", ""C"": ""It heats or cools less when comfort is not needed."", ""D"": ""It reduces handling and manual writing of payment details.""}",It updates directions from stored roads and current position.,It lets the customer inspect records remotely.,It heats or cools less when comfort is not needed.,It reduces handling and manual writing of payment details.,D,"[""contactless payment""]","[""contactless payment""]","[""contactless_payment""]",sends payment information over a very short wireless distance,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q091,fixed_q091,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+When attempting using many different secret words safely, what is the clearest justification for using password manager?
+
+Choices:
+A. It lets each service have a strong different secret without memorizing all of them.
+B. It ranks options using evidence of likely preference.
+C. It updates directions from stored roads and current position.
+D. It reduces handling and manual writing of payment details.
+",fe8047b1a82680a7,"When attempting using many different secret words safely, what is the clearest justification for using password manager?","When attempting using many different secret words safely, what is the clearest justification for using password manager?","{""A"": ""It lets each service have a strong different secret without memorizing all of them."", ""B"": ""It ranks options using evidence of likely preference."", ""C"": ""It updates directions from stored roads and current position."", ""D"": ""It reduces handling and manual writing of payment details.""}",It lets each service have a strong different secret without memorizing all of them.,It ranks options using evidence of likely preference.,It updates directions from stored roads and current position.,It reduces handling and manual writing of payment details.,A,"[""password manager""]","[""password manager""]","[""password_manager""]",stores secret words in a protected vault,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q092,fixed_q092,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which description captures the useful function of two-factor authentication in the context of protecting an account after a password is stolen?
+
+Choices:
+A. It lets the customer inspect records remotely.
+B. It keeps the password alone from being enough.
+C. It removes the need to visit the shop physically.
+D. It makes the same record easier to retrieve and transmit.
+",b94db299df7c520e,Which description captures the useful function of two-factor authentication in the context of protecting an account after a password is stolen?,Which description captures the useful function of two-factor authentication in the context of protecting an account after a password is stolen?,"{""A"": ""It lets the customer inspect records remotely."", ""B"": ""It keeps the password alone from being enough."", ""C"": ""It removes the need to visit the shop physically."", ""D"": ""It makes the same record easier to retrieve and transmit.""}",It lets the customer inspect records remotely.,It keeps the password alone from being enough.,It removes the need to visit the shop physically.,It makes the same record easier to retrieve and transmit.,B,"[""two-factor authentication"", ""2FA""]","[""two-factor authentication"", ""2FA""]","[""two_factor_authentication""]",requires a second proof in addition to the secret word,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q093,fixed_q093,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+For a case involving ordering a meal from a distant restaurant, why is food delivery app relevant?
+
+Choices:
+A. It removes the need to visit the shop physically.
+B. It reduces manual entry of account details.
+C. It coordinates the parties without repeated telephone calls.
+D. It lets the customer inspect records remotely.
+",54a68ccecd9675ed,"For a case involving ordering a meal from a distant restaurant, why is food delivery app relevant?","For a case involving ordering a meal from a distant restaurant, why is food delivery app relevant?","{""A"": ""It removes the need to visit the shop physically."", ""B"": ""It reduces manual entry of account details."", ""C"": ""It coordinates the parties without repeated telephone calls."", ""D"": ""It lets the customer inspect records remotely.""}",It removes the need to visit the shop physically.,It reduces manual entry of account details.,It coordinates the parties without repeated telephone calls.,It lets the customer inspect records remotely.,C,"[""food delivery app"", ""app""]","[""food delivery app"", ""app""]","[""food_delivery_app""]","matches customer, restaurant, courier, and payment through portable messages",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q094,fixed_q094,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+What is the strongest explanation for applying smart thermostat to saving heating energy at home?
+
+Choices:
+A. It lets instruction continue across distance.
+B. It coordinates the parties without repeated telephone calls.
+C. It lets each service have a strong different secret without memorizing all of them.
+D. It heats or cools less when comfort is not needed.
+",d1bf43b712314210,What is the strongest explanation for applying smart thermostat to saving heating energy at home?,What is the strongest explanation for applying smart thermostat to saving heating energy at home?,"{""A"": ""It lets instruction continue across distance."", ""B"": ""It coordinates the parties without repeated telephone calls."", ""C"": ""It lets each service have a strong different secret without memorizing all of them."", ""D"": ""It heats or cools less when comfort is not needed.""}",It lets instruction continue across distance.,It coordinates the parties without repeated telephone calls.,It lets each service have a strong different secret without memorizing all of them.,It heats or cools less when comfort is not needed.,D,"[""smart thermostat""]","[""smart thermostat""]","[""smart_thermostat""]",learns schedules and adjusts temperature automatically,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q095,fixed_q095,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A group is evaluating tools for finding a route through a city. Which property of digital map matters most?
+
+Choices:
+A. It updates directions from stored roads and current position.
+B. It keeps the password alone from being enough.
+C. It heats or cools less when comfort is not needed.
+D. It lets instruction continue across distance.
+",05346fd459655f3b,A group is evaluating tools for finding a route through a city. Which property of digital map matters most?,A group is evaluating tools for finding a route through a city. Which property of digital map matters most?,"{""A"": ""It updates directions from stored roads and current position."", ""B"": ""It keeps the password alone from being enough."", ""C"": ""It heats or cools less when comfort is not needed."", ""D"": ""It lets instruction continue across distance.""}",It updates directions from stored roads and current position.,It keeps the password alone from being enough.,It heats or cools less when comfort is not needed.,It lets instruction continue across distance.,A,"[""digital map""]","[""digital map""]","[""digital_map""]",stores map data and computes paths on a machine,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q096,fixed_q096,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which statement gives the best reason that wearable fitness tracker is associated with following daily activity?
+
+Choices:
+A. It reduces manual entry of account details.
+B. It collects measurements throughout the day.
+C. It lets each service have a strong different secret without memorizing all of them.
+D. It uses a hard-to-share personal physical trait.
+",68cdf3daa49ce6bf,Which statement gives the best reason that wearable fitness tracker is associated with following daily activity?,Which statement gives the best reason that wearable fitness tracker is associated with following daily activity?,"{""A"": ""It reduces manual entry of account details."", ""B"": ""It collects measurements throughout the day."", ""C"": ""It lets each service have a strong different secret without memorizing all of them."", ""D"": ""It uses a hard-to-share personal physical trait.""}",It reduces manual entry of account details.,It collects measurements throughout the day.,It lets each service have a strong different secret without memorizing all of them.,It uses a hard-to-share personal physical trait.,B,"[""wearable fitness tracker""]","[""wearable fitness tracker""]","[""wearable_fitness_tracker""]",uses a small worn instrument to record movement and body signals,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q097,fixed_q097,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A team is working on studying away from a classroom. Which explanation best supports using online learning platform?
+
+Choices:
+A. It makes the same record easier to retrieve and transmit.
+B. It lets each service have a strong different secret without memorizing all of them.
+C. It lets instruction continue across distance.
+D. It uses a hard-to-share personal physical trait.
+",85c4315bc5d318ac,A team is working on studying away from a classroom. Which explanation best supports using online learning platform?,A team is working on studying away from a classroom. Which explanation best supports using online learning platform?,"{""A"": ""It makes the same record easier to retrieve and transmit."", ""B"": ""It lets each service have a strong different secret without memorizing all of them."", ""C"": ""It lets instruction continue across distance."", ""D"": ""It uses a hard-to-share personal physical trait.""}",It makes the same record easier to retrieve and transmit.,It lets each service have a strong different secret without memorizing all of them.,It lets instruction continue across distance.,It uses a hard-to-share personal physical trait.,C,"[""online learning platform""]","[""online learning platform""]","[""online_learning_platform""]","delivers lessons, exercises, and messages through connected machines",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q098,fixed_q098,Daily_Tech_Society,train,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Consider the use of remote work software for collaborating without a shared office. What is its most relevant advantage?
+
+Choices:
+A. It heats or cools less when comfort is not needed.
+B. It collects measurements throughout the day.
+C. It updates directions from stored roads and current position.
+D. It keeps communication and work records accessible from separate places.
+",2d48fc6322747557,Consider the use of remote work software for collaborating without a shared office. What is its most relevant advantage?,Consider the use of remote work software for collaborating without a shared office. What is its most relevant advantage?,"{""A"": ""It heats or cools less when comfort is not needed."", ""B"": ""It collects measurements throughout the day."", ""C"": ""It updates directions from stored roads and current position."", ""D"": ""It keeps communication and work records accessible from separate places.""}",It heats or cools less when comfort is not needed.,It collects measurements throughout the day.,It updates directions from stored roads and current position.,It keeps communication and work records accessible from separate places.,D,"[""remote work software""]","[""remote work software""]","[""remote_work_software""]","combines distant speech, documents, and task records",false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q099,fixed_q099,Daily_Tech_Society,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+Which mechanism explains why recommendation algorithm can help with choosing a film to watch?
+
+Choices:
+A. It ranks options using evidence of likely preference.
+B. It keeps communication and work records accessible from separate places.
+C. It removes the need to visit the shop physically.
+D. It heats or cools less when comfort is not needed.
+",c1da35536647c224,Which mechanism explains why recommendation algorithm can help with choosing a film to watch?,Which mechanism explains why recommendation algorithm can help with choosing a film to watch?,"{""A"": ""It ranks options using evidence of likely preference."", ""B"": ""It keeps communication and work records accessible from separate places."", ""C"": ""It removes the need to visit the shop physically."", ""D"": ""It heats or cools less when comfort is not needed.""}",It ranks options using evidence of likely preference.,It keeps communication and work records accessible from separate places.,It removes the need to visit the shop physically.,It heats or cools less when comfort is not needed.,A,"[""recommendation algorithm"", ""algorithm""]","[""recommendation algorithm"", ""algorithm""]","[""recommendation_algorithm""]",calculates suggestions from prior choices and similarities,false,[],[],[],{},"{""pass"": true}",0,true
+fixed_q100,fixed_q100,Daily_Tech_Society,dev,raw,"You must answer the following multiple-choice question.
+Choose exactly one option among A, B, C, and D.
+Return only the letter.
+
+Question:
+A decision-maker is comparing methods for sharing patient history between clinics. Why might electronic medical record be selected?
+
+Choices:
+A. It lets the customer inspect records remotely.
+B. It makes the same record easier to retrieve and transmit.
+C. It lets instruction continue across distance.
+D. It updates directions from stored roads and current position.
+",d487171738c30f2e,A decision-maker is comparing methods for sharing patient history between clinics. Why might electronic medical record be selected?,A decision-maker is comparing methods for sharing patient history between clinics. Why might electronic medical record be selected?,"{""A"": ""It lets the customer inspect records remotely."", ""B"": ""It makes the same record easier to retrieve and transmit."", ""C"": ""It lets instruction continue across distance."", ""D"": ""It updates directions from stored roads and current position.""}",It lets the customer inspect records remotely.,It makes the same record easier to retrieve and transmit.,It lets instruction continue across distance.,It updates directions from stored roads and current position.,B,"[""electronic medical record""]","[""electronic medical record""]","[""electronic_medical_record""]",keeps patient records as machine-readable data,false,[],[],[],{},"{""pass"": true}",0,true

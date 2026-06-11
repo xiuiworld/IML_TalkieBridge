@@ -1,0 +1,39 @@
+<!doctype html><html><head><meta charset='utf-8'>
+<title>TalkieBridge Demo</title>
+<style>body{font-family:Arial,sans-serif;margin:32px;line-height:1.45}section{border:1px solid #ccc;padding:16px;margin:12px 0}code{white-space:pre-wrap}</style>
+</head><body>
+<h1>TalkieBridge Demo: q001</h1>
+<p><strong>Domain:</strong> AI_Computing | <strong>Split:</strong> train</p>
+<h2>Original</h2><p>Why is RAG useful for reducing unsupported answers from an automatic writing system?</p>
+<p><strong>Gold answer:</strong> A</p>
+<section><h2>raw</h2>
+<p><strong>Detected:</strong> []</p>
+<p><strong>Primitive candidates:</strong> []</p>
+<p><strong>Validation:</strong> {&#x27;pass&#x27;: True}</p>
+<h3>Question</h3><code>Why is RAG useful for reducing unsupported answers from an automatic writing system?</code>
+</section>
+<section><h2>rule_only</h2>
+<p><strong>Detected:</strong> [&#x27;RAG&#x27;]</p>
+<p><strong>Primitive candidates:</strong> [&#x27;record_lookup_before_reply&#x27;]</p>
+<p><strong>Validation:</strong> {&#x27;pass&#x27;: True, &#x27;fail_reasons&#x27;: [], &#x27;forbidden_terms_remaining&#x27;: [], &#x27;primitive_recall&#x27;: 1.0, &#x27;primitive_detail&#x27;: {&#x27;record_lookup_before_reply&#x27;: 1.0}, &#x27;choice_copying_score&#x27;: 0.0, &#x27;choice_keyword_overlap_score&#x27;: 0.4444444444444444, &#x27;leakage_risk&#x27;: False, &#x27;length_ratio&#x27;: 2.923076923076923}</p>
+<h3>Question</h3><code>Consider a method that first searches a store of relevant records before composing a reply. Why is this method useful for reducing unsupported answers from an automatic writing system? Focus on the mechanism, not on the modern name.</code>
+</section>
+<section><h2>length_controlled</h2>
+<p><strong>Detected:</strong> [&#x27;RAG&#x27;]</p>
+<p><strong>Primitive candidates:</strong> [&#x27;record_lookup_before_reply&#x27;]</p>
+<p><strong>Validation:</strong> {&#x27;pass&#x27;: False, &#x27;fail_reasons&#x27;: [&#x27;required_primitives_missing&#x27;], &#x27;forbidden_terms_remaining&#x27;: [], &#x27;primitive_recall&#x27;: 0.0, &#x27;primitive_detail&#x27;: {&#x27;record_lookup_before_reply&#x27;: 0.0}, &#x27;choice_copying_score&#x27;: 0.0, &#x27;choice_keyword_overlap_score&#x27;: 0.2, &#x27;leakage_risk&#x27;: False, &#x27;length_ratio&#x27;: 3.076923076923077}</p>
+<h3>Question</h3><code>Consider the same practical situation described in plain terms. Use only the information in the question and choices. Why is this method useful for reducing unsupported answers from an automatic writing system? Choose the option that best explains the mechanism.</code>
+</section>
+<section><h2>proposed</h2>
+<p><strong>Detected:</strong> [&#x27;RAG&#x27;]</p>
+<p><strong>Primitive candidates:</strong> [&#x27;record_lookup_before_reply&#x27;]</p>
+<p><strong>Validation:</strong> {&#x27;pass&#x27;: True, &#x27;fail_reasons&#x27;: [], &#x27;forbidden_terms_remaining&#x27;: [], &#x27;primitive_recall&#x27;: 1.0, &#x27;primitive_detail&#x27;: {&#x27;record_lookup_before_reply&#x27;: 1.0}, &#x27;choice_copying_score&#x27;: 0.0, &#x27;choice_keyword_overlap_score&#x27;: 0.4444444444444444, &#x27;leakage_risk&#x27;: False, &#x27;length_ratio&#x27;: 3.1538461538461537}</p>
+<h3>Question</h3><code>Consider a method that first searches a store of relevant records before composing a reply. Why is this method useful for reducing unsupported answers from an automatic writing system? Explain the functional reason in ordinary terms and choose the best option.</code>
+</section>
+<section><h2>proposed_no_validator</h2>
+<p><strong>Detected:</strong> [&#x27;RAG&#x27;]</p>
+<p><strong>Primitive candidates:</strong> [&#x27;record_lookup_before_reply&#x27;]</p>
+<p><strong>Validation:</strong> {&#x27;pass&#x27;: True, &#x27;fail_reasons&#x27;: [], &#x27;forbidden_terms_remaining&#x27;: [], &#x27;primitive_recall&#x27;: 1.0, &#x27;primitive_detail&#x27;: {&#x27;record_lookup_before_reply&#x27;: 1.0}, &#x27;choice_copying_score&#x27;: 0.0, &#x27;choice_keyword_overlap_score&#x27;: 0.4444444444444444, &#x27;leakage_risk&#x27;: False, &#x27;length_ratio&#x27;: 3.1538461538461537}</p>
+<h3>Question</h3><code>Consider a method that first searches a store of relevant records before composing a reply. Why is this method useful for reducing unsupported answers from an automatic writing system? Explain the functional reason in ordinary terms and choose the best option.</code>
+</section>
+</body></html>

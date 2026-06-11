@@ -42,12 +42,14 @@ def test_unofficial_api_retries_after_rate_limit(monkeypatch, tmp_path: Path) ->
     monkeypatch.setitem(sys.modules, "requests", fake_requests)
 
     sleeps: list[float] = []
+    events: list[dict[str, object]] = []
     client = UnofficialTalkieApiClient(
         cache_path=tmp_path / "cache.jsonl",
         max_retries=1,
         retry_base_delay=0,
         request_delay=0,
         sleep_fn=sleeps.append,
+        event_callback=events.append,
     )
 
     answer = client.ask("Choose one: A/B/C/D")
@@ -55,3 +57,5 @@ def test_unofficial_api_retries_after_rate_limit(monkeypatch, tmp_path: Path) ->
     assert answer["raw_response"] == "C"
     assert len(calls) == 2
     assert sleeps == [0.0]
+    assert any(event["event"] == "retry_wait" and event["reason"] == "HTTP 429" for event in events)
+    assert any(event["event"] == "response_complete" for event in events)

@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import time
 from pathlib import Path
 from typing import Any, Sequence
 
@@ -23,6 +24,7 @@ from talkie_bridge.data_schema import (
     RunPaths,
     infer_split,
     json_dumps,
+    read_csv_dicts,
     read_json,
     read_jsonl,
     resolve_under,
@@ -37,6 +39,17 @@ from talkie_bridge.metrics import (
     compute_domain_metrics,
     compute_key_comparisons,
     compute_paired_tests,
+)
+from talkie_bridge.open_ended import (
+    build_judge_pair_rows,
+    build_open_ended_response_rows,
+    compute_judge_pairwise_metrics,
+    item_with_open_question,
+    judge_input_rows,
+    judge_integrity_rows,
+    open_ended_prompt_row_for_item,
+    parse_judge_rows,
+    write_response_quality_report,
 )
 from talkie_bridge.primitive import (
     build_dictionaries_from_dataset,
@@ -77,6 +90,13 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"Manual Talkie sheet: {manual_path}")
         return 0
 
+    if args.command == "prepare-open-ended":
+        prompt_rows = prepare_open_ended_prompt_rows(args, paths)
+        write_open_ended_prepared_artifacts(paths, prompt_rows)
+        manual_path = write_open_ended_manual_sheet(paths, prompt_rows)
+        print(f"Open-ended Talkie sheet: {manual_path}")
+        return 0
+
     if args.command == "evaluate-manual":
         if not args.allow_mock_dictionary:
             reject_mock_dictionary_paths(args)
@@ -94,6 +114,23 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"Report: {paths.out_dir / 'report.md'}")
         return 0
 
+    if args.command == "evaluate-open-ended-manual":
+        if not args.allow_mock_dictionary:
+            reject_mock_dictionary_paths(args)
+        prompt_rows = prepare_open_ended_prompt_rows(args, paths)
+        write_open_ended_prepared_artifacts(paths, prompt_rows)
+        manual_path = Path(args.manual_response_csv)
+        if not manual_path.is_absolute():
+            manual_path = paths.root / manual_path
+            if not manual_path.exists():
+                manual_path = paths.input_dir / Path(args.manual_response_csv).name
+        responses = load_manual_response_records(manual_path)
+        response_rows = build_open_ended_response_rows(prompt_rows, responses, provider="manual_talkie_csv")
+        enforce_manual_integrity(response_rows, args)
+        write_open_ended_response_outputs(paths, prompt_rows, response_rows, provider="manual_talkie_csv", seed=args.seed)
+        print(f"Open-ended judge sheet: {paths.input_dir / 'open_ended_judge_input_sheet.csv'}")
+        return 0
+
     if args.command == "run-api":
         if args.provider != "unofficial-api":
             raise ValueError("Only --provider unofficial-api is supported for run-api.")
@@ -101,6 +138,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         write_prepared_artifacts(paths, prompt_rows)
         if not args.allow_mock_dictionary:
             reject_mock_dictionary_paths(args)
+        progress = ApiRunProgress(total=len(prompt_rows), label="MCQ Talkie API")
         client = UnofficialTalkieApiClient(
             cache_path=paths.cache_dir / "talkie_unofficial_api_cache.jsonl",
             temperature=args.temperature,
@@ -110,17 +148,78 @@ def main(argv: Sequence[str] | None = None) -> int:
             max_retries=args.max_retries,
             retry_base_delay=args.retry_base_delay,
             retry_max_delay=args.retry_max_delay,
+            event_callback=progress.client_event,
         )
+        progress.begin()
         responses: dict[tuple[str, str], dict[str, str]] = {}
-        for row in prompt_rows:
+        for index, row in enumerate(prompt_rows, start=1):
+            progress.start_item(index, row)
             answer = client.ask(str(row["prompt"]))
+            progress.finish_item(index, row, answer)
             responses[(str(row["item_id"]), str(row["condition"]))] = {
                 "raw_response": str(answer.get("raw_response", "")),
                 "prompt_hash": str(row.get("prompt_hash", "")),
             }
+        progress.finish_run()
         result_rows = build_result_rows(prompt_rows, responses, provider="unofficial_talkie_api")
         write_evaluation_outputs(paths, prompt_rows, result_rows, provider="unofficial_talkie_api", seed=args.seed)
         print(f"Report: {paths.out_dir / 'report.md'}")
+        return 0
+
+    if args.command == "run-open-ended-api":
+        if args.provider != "unofficial-api":
+            raise ValueError("Only --provider unofficial-api is supported for run-open-ended-api.")
+        prompt_rows = prepare_open_ended_prompt_rows(args, paths)
+        write_open_ended_prepared_artifacts(paths, prompt_rows)
+        if not args.allow_mock_dictionary:
+            reject_mock_dictionary_paths(args)
+        progress = ApiRunProgress(total=len(prompt_rows), label="Open-ended Talkie API")
+        client = UnofficialTalkieApiClient(
+            cache_path=paths.cache_dir / "talkie_unofficial_api_cache_open_ended.jsonl",
+            temperature=args.temperature,
+            max_tokens=args.max_tokens,
+            timeout=args.timeout,
+            request_delay=args.request_delay,
+            max_retries=args.max_retries,
+            retry_base_delay=args.retry_base_delay,
+            retry_max_delay=args.retry_max_delay,
+            event_callback=progress.client_event,
+        )
+        progress.begin()
+        responses: dict[tuple[str, str], dict[str, str]] = {}
+        for index, row in enumerate(prompt_rows, start=1):
+            progress.start_item(index, row)
+            answer = client.ask(str(row["prompt"]))
+            progress.finish_item(index, row, answer)
+            responses[(str(row["item_id"]), str(row["condition"]))] = {
+                "raw_response": str(answer.get("raw_response", "")),
+                "prompt_hash": str(row.get("prompt_hash", "")),
+            }
+        progress.finish_run()
+        response_rows = build_open_ended_response_rows(prompt_rows, responses, provider="unofficial_talkie_api")
+        write_open_ended_response_outputs(paths, prompt_rows, response_rows, provider="unofficial_talkie_api", seed=args.seed)
+        print(f"Open-ended responses: {paths.out_dir / 'open_ended_responses.csv'}")
+        print(f"Open-ended judge sheet: {paths.input_dir / 'open_ended_judge_input_sheet.csv'}")
+        return 0
+
+    if args.command == "prepare-open-ended-judge":
+        response_path = resolve_under(paths.root, args.open_ended_response_csv)
+        response_rows = read_csv_dicts(response_path)
+        pair_rows = build_judge_pair_rows(response_rows, seed=args.seed)
+        write_open_ended_judge_sheets(paths, pair_rows)
+        print(f"Open-ended judge sheet: {paths.input_dir / 'open_ended_judge_input_sheet.csv'}")
+        return 0
+
+    if args.command == "evaluate-open-ended-judge":
+        pair_path = resolve_under(paths.root, args.open_ended_judge_pairs_csv)
+        judge_path = resolve_under(paths.root, args.judge_response_csv)
+        pair_rows = read_csv_dicts(pair_path)
+        judge_records = load_judge_records(judge_path)
+        parsed_rows = parse_judge_rows(pair_rows, judge_records)
+        if not args.allow_hash_mismatch:
+            enforce_judge_integrity(parsed_rows)
+        write_open_ended_judge_outputs(paths, parsed_rows)
+        print(f"Open-ended response quality report: {paths.out_dir / 'open_ended_response_quality.md'}")
         return 0
 
     if args.command == "demo":
@@ -132,6 +231,89 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
 
     raise ValueError(f"Unknown command: {args.command}")
+
+
+class ApiRunProgress:
+    def __init__(self, *, total: int, label: str) -> None:
+        self.total = total
+        self.label = label
+        self.started_at = 0.0
+        self.item_started_at = 0.0
+        self.completed = 0
+        self.current_item = ""
+        self.cache_hit = False
+        self.response_chars = 0
+
+    def begin(self) -> None:
+        self.started_at = time.monotonic()
+        print(f"[start] {self.label}: {self.total} prompts", flush=True)
+
+    def start_item(self, index: int, row: dict[str, Any]) -> None:
+        self.item_started_at = time.monotonic()
+        self.current_item = f"{row.get('item_id', '')}/{row.get('condition', '')}"
+        self.cache_hit = False
+        self.response_chars = 0
+        percent = (index - 1) / self.total * 100 if self.total else 0.0
+        print(f"[start] {index}/{self.total} ({percent:.1f}%) {self.current_item}", flush=True)
+
+    def client_event(self, event: dict[str, Any]) -> None:
+        name = event.get("event")
+        if name == "cache_hit":
+            self.cache_hit = True
+        elif name == "response_complete":
+            self.response_chars = int(event.get("response_chars") or 0)
+        elif name == "retry_wait":
+            reason = str(event.get("reason") or "request failed")
+            attempt = event.get("attempt")
+            max_retries = event.get("max_retries")
+            delay = float(event.get("delay_seconds") or 0.0)
+            print(
+                f"[retry] {self.current_item}: {reason}; "
+                f"retry {attempt}/{max_retries} after {_format_duration(delay)}",
+                flush=True,
+            )
+        elif name == "request_failed":
+            reason = str(event.get("reason") or "request failed")
+            print(f"[failed] {self.current_item}: {reason}", flush=True)
+        elif name == "request_delay":
+            delay = float(event.get("delay_seconds") or 0.0)
+            if delay >= 5:
+                print(f"[delay] {self.current_item}: waiting {_format_duration(delay)} before next request", flush=True)
+
+    def finish_item(self, index: int, row: dict[str, Any], answer: dict[str, Any]) -> None:
+        del row
+        self.completed = index
+        item_elapsed = time.monotonic() - self.item_started_at
+        elapsed = time.monotonic() - self.started_at
+        remaining = max(self.total - self.completed, 0)
+        avg = elapsed / self.completed if self.completed else 0.0
+        eta = avg * remaining
+        percent = self.completed / self.total * 100 if self.total else 100.0
+        cache_hit = bool(answer.get("cache_hit", self.cache_hit))
+        response_chars = int(answer.get("response_chars") or self.response_chars or len(str(answer.get("raw_response", ""))))
+        print(
+            f"[done] {self.completed}/{self.total} ({percent:.1f}%) {self.current_item}; "
+            f"item={_format_duration(item_elapsed)}; elapsed={_format_duration(elapsed)}; "
+            f"eta={_format_duration(eta)}; cache={'yes' if cache_hit else 'no'}; chars={response_chars}",
+            flush=True,
+        )
+
+    def finish_run(self) -> None:
+        elapsed = time.monotonic() - self.started_at
+        print(f"[complete] {self.label}: {self.completed}/{self.total} prompts in {_format_duration(elapsed)}", flush=True)
+
+
+def _format_duration(seconds: float) -> str:
+    seconds = max(float(seconds), 0.0)
+    if seconds < 60:
+        return f"{seconds:.1f}s"
+    minutes = int(seconds // 60)
+    remaining_seconds = int(seconds % 60)
+    if minutes < 60:
+        return f"{minutes}m {remaining_seconds}s"
+    hours = minutes // 60
+    remaining_minutes = minutes % 60
+    return f"{hours}h {remaining_minutes}m {remaining_seconds}s"
 
 
 def build_parser() -> argparse.ArgumentParser:
@@ -155,11 +337,17 @@ def build_parser() -> argparse.ArgumentParser:
     init_mock.add_argument("--force", action="store_true", help="Overwrite an existing dataset file.")
     sub.add_parser("rewrite-only", parents=[parent], help="Generate rewrites and prompts without Talkie responses.")
     sub.add_parser("prepare-manual", parents=[parent], help="Generate a CSV sheet for manual Talkie response collection.")
+    sub.add_parser("prepare-open-ended", parents=[parent], help="Generate open-ended Talkie prompts and a manual response sheet.")
     eval_manual = sub.add_parser("evaluate-manual", parents=[parent], help="Evaluate responses pasted into a manual CSV.")
     eval_manual.add_argument("--manual-response-csv", default="input_data/manual_talkie_input_sheet.csv")
     eval_manual.add_argument("--allow-hash-mismatch", action="store_true")
     eval_manual.add_argument("--allow-missing-responses", action="store_true")
     eval_manual.add_argument("--allow-mock-dictionary", action="store_true")
+    eval_open = sub.add_parser("evaluate-open-ended-manual", parents=[parent], help="Evaluate collected open-ended Talkie responses and prepare blind judge pairs.")
+    eval_open.add_argument("--manual-response-csv", default="input_data/open_ended_talkie_input_sheet.csv")
+    eval_open.add_argument("--allow-hash-mismatch", action="store_true")
+    eval_open.add_argument("--allow-missing-responses", action="store_true")
+    eval_open.add_argument("--allow-mock-dictionary", action="store_true")
 
     run_api = sub.add_parser("run-api", parents=[parent], help="Collect responses through the optional unofficial Talkie API.")
     run_api.add_argument("--provider", choices=["unofficial-api"], required=True)
@@ -171,6 +359,22 @@ def build_parser() -> argparse.ArgumentParser:
     run_api.add_argument("--retry-base-delay", type=float, default=30.0, help="Initial retry delay in seconds when the API does not send Retry-After.")
     run_api.add_argument("--retry-max-delay", type=float, default=300.0, help="Maximum retry delay in seconds.")
     run_api.add_argument("--allow-mock-dictionary", action="store_true")
+    run_open = sub.add_parser("run-open-ended-api", parents=[parent], help="Collect open-ended Talkie responses through the optional unofficial Talkie API.")
+    run_open.add_argument("--provider", choices=["unofficial-api"], required=True)
+    run_open.add_argument("--temperature", type=float, default=0.0)
+    run_open.add_argument("--max-tokens", type=int, default=96)
+    run_open.add_argument("--timeout", type=int, default=120)
+    run_open.add_argument("--request-delay", type=float, default=1.0, help="Seconds to wait after each uncached API response.")
+    run_open.add_argument("--max-retries", type=int, default=6, help="Maximum retry attempts for 429 and transient server errors.")
+    run_open.add_argument("--retry-base-delay", type=float, default=30.0, help="Initial retry delay in seconds when the API does not send Retry-After.")
+    run_open.add_argument("--retry-max-delay", type=float, default=300.0, help="Maximum retry delay in seconds.")
+    run_open.add_argument("--allow-mock-dictionary", action="store_true")
+    prep_judge = sub.add_parser("prepare-open-ended-judge", parents=[parent], help="Create blind judge sheets from collected open-ended responses.")
+    prep_judge.add_argument("--open-ended-response-csv", default="results/open_ended_responses.csv")
+    eval_judge = sub.add_parser("evaluate-open-ended-judge", parents=[parent], help="Parse filled judge outputs and compute pairwise response-quality metrics.")
+    eval_judge.add_argument("--open-ended-judge-pairs-csv", default="results/open_ended_judge_pairs_unblinded.csv")
+    eval_judge.add_argument("--judge-response-csv", default="input_data/open_ended_judge_input_sheet.csv")
+    eval_judge.add_argument("--allow-hash-mismatch", action="store_true")
     demo = sub.add_parser("demo", parents=[parent], help="Write a static HTML demo for one dataset item.")
     demo.add_argument("--item-id", required=True)
     demo.add_argument("--out", default="results/demo.html")
@@ -232,6 +436,62 @@ def prepare_prompt_rows(args: argparse.Namespace, paths: RunPaths) -> list[dict[
     return rows
 
 
+def prepare_open_ended_prompt_rows(args: argparse.Namespace, paths: RunPaths) -> list[dict[str, Any]]:
+    dataset = load_dataset(paths, dataset_jsonl=args.dataset_jsonl, limit=args.limit, seed=args.seed)
+    train_items = [item for item in dataset if item.split == "train"]
+    modern_dictionary, primitive_dictionary, resource_source = load_generation_resources(args, paths, train_items)
+    _full_modern_dictionary, validation_primitive_dictionary = build_dictionaries_from_dataset(dataset)
+    if not modern_dictionary or not primitive_dictionary:
+        raise ValueError("Train split must provide enough annotations or explicit dictionaries for open-ended prompt generation.")
+    if not validation_primitive_dictionary:
+        raise ValueError("Dataset must provide required_primitives and primitive_phrase for validation metrics.")
+    write_json(paths.data_dir / "modern_terms_dictionary.json", modern_dictionary)
+    write_json(paths.data_dir / "primitive_dictionary.json", primitive_dictionary)
+    write_json(paths.data_dir / "validation_primitive_dictionary.json", validation_primitive_dictionary)
+    write_json(
+        paths.cache_dir / "generation_resource_source.json",
+        {
+            "source": resource_source,
+            "concept_dictionary_json": args.concept_dictionary_json,
+            "primitive_dictionary_json": args.primitive_dictionary_json,
+            "note": "Open-ended prompts use explicit predeclared dictionaries only when CLI paths are provided; otherwise train split annotations are used.",
+        },
+    )
+    classifier = BernoulliModernTermClassifier()
+    classifier.fit(
+        build_modern_token_examples(
+            [item.original_question for item in train_items],
+            [[*item.gold_anachronism_terms, *item.forbidden_terms] for item in train_items],
+        )
+    )
+    autoencoder, autoencoder_selection = train_select_autoencoder(train_items + [item for item in dataset if item.split == "dev"], primitive_dictionary, seed=args.seed)
+    autoencoder_info = autoencoder_selection.__dict__
+    if autoencoder is not None:
+        write_json(paths.cache_dir / "primitive_autoencoder.json", autoencoder.to_dict())
+    write_json(paths.cache_dir / "primitive_autoencoder_selection.json", autoencoder_info)
+    write_json(paths.cache_dir / "modern_token_classifier.json", classifier.to_dict())
+    generator = build_generator(
+        modern_dictionary,
+        primitive_dictionary,
+        validation_primitive_dictionary=validation_primitive_dictionary,
+        token_classifier=classifier,
+        autoencoder=autoencoder,
+        autoencoder_info=autoencoder_info,
+    )
+    output_dataset = [item for item in dataset if args.eval_split == "all" or item.split == args.eval_split]
+    rows: list[dict[str, Any]] = []
+    for item in output_dataset:
+        open_item = item_with_open_question(item)
+        artifact_by_condition = {artifact.condition: artifact for artifact in generator.rewrite_open_item(open_item)}
+        rows.append(open_ended_prompt_row_for_item(open_item, condition="raw", question=open_item.original_question, artifact=None))
+        for condition in CONDITIONS:
+            if condition == "raw":
+                continue
+            artifact = artifact_by_condition[condition]
+            rows.append(open_ended_prompt_row_for_item(open_item, condition=condition, question=artifact.rewritten_question, artifact=artifact))
+    return rows
+
+
 def load_dataset(paths: RunPaths, *, dataset_jsonl: str | Path, limit: int | None = None, seed: int = 13) -> list[DatasetItem]:
     data_path = resolve_under(paths.root, dataset_jsonl)
     rows = read_jsonl(data_path)
@@ -260,6 +520,16 @@ def load_dataset(paths: RunPaths, *, dataset_jsonl: str | Path, limit: int | Non
                 human_validated=item.human_validated,
                 target_year=item.target_year,
                 split=split,
+                concept_term=item.concept_term,
+                task=item.task,
+                open_question=item.open_question,
+                expected_mechanism=item.expected_mechanism,
+                judge_reference_points=item.judge_reference_points,
+                leakage_sensitive_terms=item.leakage_sensitive_terms,
+                answer_leakage_terms=item.answer_leakage_terms,
+                dataset_version=item.dataset_version,
+                review_status=item.review_status,
+                review_notes=item.review_notes,
             )
         )
     return normalized
@@ -392,6 +662,42 @@ def write_manual_sheet(paths: RunPaths, prompt_rows: Sequence[dict[str, Any]]) -
     return manual_path
 
 
+def write_open_ended_prepared_artifacts(paths: RunPaths, prompt_rows: Sequence[dict[str, Any]]) -> None:
+    write_csv_dicts(paths.out_dir / "open_ended_prepared_prompts.csv", list(prompt_rows))
+    write_jsonl(paths.out_dir / "open_ended_prepared_prompts.jsonl", [_json_ready(row) for row in prompt_rows])
+
+    raw_rows = [row for row in prompt_rows if row["condition"] == "raw"]
+    rewrite_rows = [row for row in prompt_rows if row["condition"] != "raw"]
+    write_csv_dicts(paths.input_dir / "open_ended_raw_questions.csv", raw_rows)
+    write_jsonl(paths.input_dir / "open_ended_raw_questions.jsonl", [_json_ready(row) for row in raw_rows])
+    write_csv_dicts(paths.input_dir / "open_ended_preprocessed_questions.csv", rewrite_rows)
+    write_jsonl(paths.input_dir / "open_ended_preprocessed_questions.jsonl", [_json_ready(row) for row in rewrite_rows])
+    write_csv_dicts(paths.out_dir / "open_ended_component_metrics.csv", compute_component_metrics(_csv_ready_rows(prompt_rows)))
+    quality_rows = compute_dataset_quality(_csv_ready_rows(prompt_rows))
+    add_length_control_diagnostics(_csv_ready_rows(prompt_rows), quality_rows)
+    add_proposed_difference_diagnostics(_csv_ready_rows(prompt_rows), quality_rows)
+    write_csv_dicts(paths.out_dir / "open_ended_dataset_quality.csv", quality_rows)
+    write_dataset_quality_markdown(paths.out_dir / "open_ended_dataset_quality.md", quality_rows)
+
+
+def write_open_ended_manual_sheet(paths: RunPaths, prompt_rows: Sequence[dict[str, Any]]) -> Path:
+    manual_rows = [
+        {
+            "item_id": row["item_id"],
+            "condition": row["condition"],
+            "prompt_hash": row["prompt_hash"],
+            "prompt": row["prompt"],
+            "raw_response_manual": "",
+        }
+        for row in prompt_rows
+    ]
+    manual_path = paths.input_dir / "open_ended_talkie_input_sheet.csv"
+    fieldnames = ["item_id", "condition", "prompt_hash", "prompt", "raw_response_manual"]
+    write_csv_dicts(manual_path, manual_rows, fieldnames)
+    write_csv_dicts(paths.out_dir / "open_ended_talkie_input_sheet.csv", manual_rows, fieldnames)
+    return manual_path
+
+
 def build_result_rows(
     prompt_rows: Sequence[dict[str, Any]],
     responses: dict[tuple[str, str], dict[str, str] | str],
@@ -434,6 +740,54 @@ def build_result_rows(
             }
         )
     return result_rows
+
+
+def write_open_ended_response_outputs(
+    paths: RunPaths,
+    prompt_rows: Sequence[dict[str, Any]],
+    response_rows: Sequence[dict[str, Any]],
+    *,
+    provider: str,
+    seed: int,
+) -> None:
+    write_csv_dicts(paths.out_dir / "open_ended_responses.csv", list(response_rows))
+    write_jsonl(paths.out_dir / "open_ended_responses.jsonl", [_json_ready(row) for row in response_rows])
+    write_csv_dicts(paths.out_dir / "open_ended_response_integrity.csv", compute_response_integrity(response_rows))
+    write_csv_dicts(paths.out_dir / "open_ended_component_metrics.csv", compute_component_metrics(_csv_ready_rows(prompt_rows)))
+    pair_rows = build_judge_pair_rows(response_rows, seed=seed)
+    write_open_ended_judge_sheets(paths, pair_rows)
+    write_json(
+        paths.out_dir / "open_ended_run_metadata.json",
+        {
+            "provider": provider,
+            "n_items": len({row["item_id"] for row in response_rows}),
+            "n_response_rows": len(response_rows),
+            "n_judge_pairs": len(pair_rows),
+            "note": "Judge prompts are blind: condition labels are stored in the unblinded analysis file but not included in the judge input sheet.",
+        },
+    )
+
+
+def write_open_ended_judge_sheets(paths: RunPaths, pair_rows: Sequence[dict[str, Any]]) -> None:
+    write_csv_dicts(paths.out_dir / "open_ended_judge_pairs_unblinded.csv", list(pair_rows))
+    write_jsonl(paths.out_dir / "open_ended_judge_pairs_unblinded.jsonl", [_json_ready(row) for row in pair_rows])
+    input_rows = judge_input_rows(pair_rows)
+    fieldnames = ["pair_id", "judge_prompt_hash", "judge_prompt", "judge_raw_output"]
+    write_csv_dicts(paths.input_dir / "open_ended_judge_input_sheet.csv", input_rows, fieldnames)
+    write_csv_dicts(paths.out_dir / "open_ended_judge_input_sheet.csv", input_rows, fieldnames)
+
+
+def write_open_ended_judge_outputs(paths: RunPaths, parsed_rows: Sequence[dict[str, Any]]) -> None:
+    metrics = compute_judge_pairwise_metrics(parsed_rows)
+    integrity = judge_integrity_rows(parsed_rows)
+    write_csv_dicts(paths.out_dir / "open_ended_judge_scores.csv", list(parsed_rows))
+    write_jsonl(paths.out_dir / "open_ended_judge_scores.jsonl", [_json_ready(row) for row in parsed_rows])
+    write_csv_dicts(paths.out_dir / "open_ended_pairwise_metrics.csv", metrics)
+    write_csv_dicts(paths.out_dir / "open_ended_judge_integrity.csv", integrity)
+    (paths.out_dir / "open_ended_response_quality.md").write_text(
+        write_response_quality_report(metrics=metrics, integrity=integrity),
+        encoding="utf-8",
+    )
 
 
 def write_evaluation_outputs(
@@ -533,6 +887,33 @@ def enforce_manual_integrity(result_rows: Sequence[dict[str, Any]], args: argpar
             f"Manual response CSV has {len(blank)} blank responses. "
             "Fill raw_response_manual, or use --allow-missing-responses only for diagnostics."
         )
+
+
+def load_judge_records(path: Path) -> dict[str, dict[str, str]]:
+    records: dict[str, dict[str, str]] = {}
+    for row in read_csv_dicts(path):
+        pair_id = row.get("pair_id", "")
+        if pair_id:
+            records[pair_id] = {
+                "judge_prompt_hash": row.get("judge_prompt_hash", ""),
+                "judge_raw_output": row.get("judge_raw_output", ""),
+            }
+    return records
+
+
+def enforce_judge_integrity(parsed_rows: Sequence[dict[str, Any]]) -> None:
+    bad_hash = [row for row in parsed_rows if not row.get("judge_prompt_hash_match")]
+    blank = [row for row in parsed_rows if not str(row.get("judge_raw_output", "")).strip()]
+    unparsable = [row for row in parsed_rows if row.get("winner") not in {"A", "B", "Tie"}]
+    if bad_hash:
+        raise ValueError(
+            f"Judge response CSV has {len(bad_hash)} missing or mismatched judge_prompt_hash values. "
+            "Use --allow-hash-mismatch only for diagnostic runs."
+        )
+    if blank:
+        raise ValueError(f"Judge response CSV has {len(blank)} blank judge outputs.")
+    if unparsable:
+        raise ValueError(f"Judge response CSV has {len(unparsable)} judge outputs that could not be parsed.")
 
 
 def reject_mock_dictionary_paths(args: argparse.Namespace) -> None:

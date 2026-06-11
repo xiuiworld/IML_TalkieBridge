@@ -1,75 +1,330 @@
 # TalkieBridge Dataset Schema
 
-Put the final experiment dataset at `data/generated_questions.jsonl` by default.
-Each line must be one JSON object for one four-choice question.
+This document describes the current MCQ dataset used by the implemented
+pipeline and the recommended extension for the revised open-ended response
+quality evaluation.
 
-Use `data/generated_questions_example.jsonl` only as a filename/schema example.
-Copy it to `data/generated_questions.jsonl` before editing real items.
+The implementation reads the main dataset from:
 
-Required fields:
+```text
+data/generated_questions.jsonl
+```
 
-| Field | Fill with |
-|---|---|
-| `id` | Stable question id, for example `q001` |
-| `domain` | One domain label, for example `AI_Computing` or `Medicine_Biology` |
-| `original_question` | The modern-language multiple-choice question stem |
-| `choices` | JSON object with exactly `A`, `B`, `C`, `D` |
-| `gold_answer` | Correct label: `A`, `B`, `C`, or `D` |
-| `gold_anachronism_terms` | Modern terms that should be detected |
-| `forbidden_terms` | Terms that must not remain in rewritten prompts |
-| `required_primitives` | Primitive ids that should be preserved |
-| `primitive_phrase` | Era-neutral functional description of the modern concept |
-| `human_validated` | `true` only after manual review |
+Each line is one JSON object. Use
+`data/generated_questions_example.jsonl` only as a schema example, not as final
+experiment evidence.
 
-Optional field:
+## 1. Current MCQ Dataset
 
-| Field | Fill with |
-|---|---|
-| `target_year` | Default is `1930` |
-| `split` | `train`, `dev`, or `test`; if omitted, the CLI assigns a deterministic 70/15/15 split from `id` |
+The current code in `src/talkie_bridge/` expects four-choice items. These items
+support prompt rewriting, Talkie response collection, response parsing, paired
+condition metrics, and component-level rewrite metrics.
 
-Example JSONL row:
+### Required Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `id` | string | Stable item id, for example `q001` |
+| `domain` | string | Domain label such as `AI_Computing` or `Medicine_Biology` |
+| `original_question` | string | Modern-language question stem |
+| `choices` | object | Exactly four keys: `A`, `B`, `C`, `D` |
+| `gold_answer` | string | Correct label: `A`, `B`, `C`, or `D` |
+| `gold_anachronism_terms` | string array | Modern terms that should be detected |
+| `forbidden_terms` | string array | Terms that should not remain after rewriting |
+| `required_primitives` | string array | Primitive ids that should be represented in the rewrite |
+| `primitive_phrase` | string | Era-neutral functional description of the target concept |
+| `human_validated` | boolean | `true` only after manual review |
+
+### Optional Fields
+
+| Field | Type | Description |
+|---|---|---|
+| `target_year` | integer | Default is `1930` |
+| `split` | string | `train`, `dev`, or `test`; if omitted, the CLI assigns a deterministic split from `id` |
+
+### Example Row
 
 ```json
 {"id":"q001","domain":"AI_Computing","original_question":"Why is RAG useful for reducing LLM hallucination?","choices":{"A":"It checks relevant records before writing, so the reply is less likely to rest only on memory.","B":"It improves the result only by making the message longer.","C":"It works mainly by changing the names of answer choices.","D":"It guarantees a correct answer without checking evidence."},"gold_answer":"A","gold_anachronism_terms":["RAG","LLM hallucination"],"forbidden_terms":["RAG","retrieval augmented generation","LLM","large language model","hallucination"],"required_primitives":["record_lookup_before_reply","unsupported_automatic_text"],"primitive_phrase":"first searches a store of relevant records before composing a reply, so unsupported statements from an automatic writing system can be reduced","human_validated":false,"target_year":1930,"split":"test"}
 ```
 
-Important:
+## 2. Annotation Semantics
 
-- `required_primitives` is treated as gold annotation for validation and metrics.
-- `forbidden_terms`, `required_primitives`, and `primitive_phrase` are treated as annotation fields.
-- Rewriting and deterministic repair do not read the current eval item's annotation
-  fields for generation-time control.
-- Gold annotation validation is computed after the final rewritten prompt is
-  produced and is stored as metrics/report evidence.
-- Generation dictionaries and the detector are built from predeclared dictionary files
-  when provided; otherwise they fall back to `split=train` rows only.
-- The learned primitive bottleneck trains on `split=train`, selects on `split=dev`,
-  and reports final evidence on `split=test` when test rows exist.
-- Very small mock datasets fall back to deterministic primitive rewriting and write
-  the reason to `cache/primitive_autoencoder_selection.json`.
+The annotation fields are used for validation and metrics. They should be
+written carefully because they determine whether the rewrite is judged to have
+removed anachronisms and preserved primitive meaning.
 
-Use this to create a local mock file:
+| Field | Guidance |
+|---|---|
+| `gold_anachronism_terms` | Include the modern expressions that should be detected in the original question |
+| `forbidden_terms` | Include aliases and variants that should not appear in rewritten prompts |
+| `required_primitives` | Use stable ids, not prose; these ids connect the item to the primitive dictionary |
+| `primitive_phrase` | Write the functional mechanism in era-neutral language |
+| `human_validated` | Set to `true` only after checking answer correctness, leakage risk, and annotation quality |
+
+The generator should not use dev/test item annotations as hidden help during
+final evaluation. For final claims, generation resources should come from one
+of these sources:
+
+- explicit predeclared dictionaries passed with CLI flags, or
+- train-split annotations only.
+
+The generated reports record the resource source in:
+
+```text
+cache/generation_resource_source.json
+```
+
+## 3. Dictionary Files
+
+Predeclared dictionaries are optional but recommended for a clean final run.
+
+| File | Purpose |
+|---|---|
+| `data/modern_terms_dictionary.json` | Maps aliases to canonical modern concepts and primitive ids |
+| `data/primitive_dictionary.json` | Maps primitive ids to concept terms and era-neutral primitive phrases |
+| `data/validation_primitive_dictionary.json` | Generated validation dictionary used for metrics |
+| `data/modern_terms_dictionary_example.json` | Template only |
+| `data/primitive_dictionary_example.json` | Template only |
+
+The CLI uses dictionary files only when both paths are supplied:
 
 ```powershell
-$env:PYTHONPATH='src'
+python -m talkie_bridge.cli prepare-manual --concept-dictionary-json data/modern_terms_dictionary.json --primitive-dictionary-json data/primitive_dictionary.json
+```
+
+Mock dictionary files are diagnostics only. They are blocked during evaluation
+unless `--allow-mock-dictionary` is supplied.
+
+## 4. Conditions Generated by the Pipeline
+
+The current implementation generates these conditions for each selected item:
+
+| Condition | Meaning |
+|---|---|
+| `raw` | Original question, no rewrite |
+| `rule_only` | Dictionary/rule-based rewrite |
+| `length_controlled` | Length-controlled rewrite baseline |
+| `proposed` | Primitive bottleneck rewrite with validation |
+| `proposed_no_validator` | Same proposed rewrite path without validator effect |
+
+The condition list is defined in `src/talkie_bridge/data_schema.py`.
+
+## 5. Manual Response Sheet
+
+`prepare-manual` writes:
+
+```text
+input_data/manual_talkie_input_sheet.csv
+results/manual_talkie_input_sheet.csv
+```
+
+Expected columns:
+
+| Column | Description |
+|---|---|
+| `item_id` | Dataset item id |
+| `condition` | Prompt condition |
+| `prompt_hash` | Hash of the exact prompt to protect response integrity |
+| `prompt` | Prompt to paste into Talkie |
+| `raw_response_manual` | Talkie response pasted by the experimenter |
+
+Manual evaluation fails by default if responses are blank or prompt hashes do
+not match. Use `--allow-missing-responses` or `--allow-hash-mismatch` only for
+diagnostics.
+
+## 6. Current Output Artifacts
+
+The implemented MCQ pipeline writes:
+
+| Path | Description |
+|---|---|
+| `results/prepared_prompts.csv` | Prompt rows for all generated conditions |
+| `results/prepared_prompts.jsonl` | JSONL version of prepared prompts |
+| `input_data/raw_4choice_questions.csv` | Raw-condition prompts |
+| `input_data/era_neutral_preprocessed_questions.csv` | Rewritten prompt conditions |
+| `results/component_metrics.csv` | Detector, rewriter, validator, repair metrics |
+| `results/dataset_quality.csv` | Dataset and rewrite diagnostics |
+| `results/dataset_quality.md` | Markdown version of dataset diagnostics |
+| `results/per_item_results.csv` | Item-level Talkie responses and parsed labels |
+| `results/final_metrics.csv` | Accuracy, macro-F1, invalid rate by condition |
+| `results/key_comparisons.csv` | Paired condition comparisons |
+| `results/paired_tests.csv` | Paired tests against raw |
+| `results/response_integrity.csv` | Prompt hash and completion checks |
+| `results/report.md` | Generated experiment report |
+
+## 7. Recommended Open-Ended Extension
+
+The current MCQ schema can be extended for the revised primary evaluation:
+LLM-judged open-ended response quality.
+
+The current implementation can already derive open-ended prompts from the
+existing fields. If `open_question` is missing, the CLI uses `concept_term` and
+`task` when available:
+
+```text
+Why might {concept_term} be useful for {task}?
+```
+
+The shared prompt instruction asks Talkie to answer in 1-2 sentences and
+explain the practical mechanism.
+
+Recommended additional dataset fields:
+
+| Field | Type | Description |
+|---|---|---|
+| `open_question` | string | Open-ended version of the question stem |
+| `expected_mechanism` | string | Short description of the mechanism a good answer should mention |
+| `judge_reference_points` | string array | Optional rubric anchors for functional correctness |
+| `leakage_sensitive_terms` | string array | Terms that would make the rewrite too close to the answer |
+
+Example extension:
+
+```json
+{"open_question":"Why might a QR code be selected for opening a stored address from a printed sign?","expected_mechanism":"A printed pattern can encode an address and a camera-like reader can recover the encoded information.","judge_reference_points":["printed code stores information","reader/camera recovers the stored information","stored address can then be opened or looked up"],"leakage_sensitive_terms":["correct answer","option A"]}
+```
+
+These fields are not required by the current CLI, but they provide a clean path
+for the proposed primary evaluation.
+
+## 8. Implemented Open-Ended Files
+
+Generate the open-ended Talkie sheet with:
+
+```powershell
+python -m talkie_bridge.cli prepare-open-ended --eval-split all --concept-dictionary-json data\modern_terms_dictionary.json --primitive-dictionary-json data\primitive_dictionary.json
+```
+
+This writes:
+
+| Path | Description |
+|---|---|
+| `results/open_ended_prepared_prompts.csv` | 100 items x 5 conditions of open-ended prompts |
+| `results/open_ended_prepared_prompts.jsonl` | JSONL version of the prompt rows |
+| `input_data/open_ended_talkie_input_sheet.csv` | Sheet to fill with Talkie responses |
+| `input_data/open_ended_raw_questions.csv` | Raw open-ended prompts |
+| `input_data/open_ended_preprocessed_questions.csv` | Rewritten open-ended prompts |
+| `results/open_ended_component_metrics.csv` | Rewrite component metrics for the open-ended prompts |
+| `results/open_ended_dataset_quality.md` | Dataset/rewrite quality summary |
+
+Long API collection, when intentionally run, uses:
+
+```powershell
+python -m talkie_bridge.cli run-open-ended-api --provider unofficial-api --eval-split all --max-tokens 96 --concept-dictionary-json data\modern_terms_dictionary.json --primitive-dictionary-json data\primitive_dictionary.json
+```
+
+That writes `results/open_ended_responses.csv` and prepares judge inputs.
+
+## 9. Implemented Judge Output Schema
+
+For blind pairwise LLM Judge evaluation, store one row per compared response
+pair.
+
+Unblinded analysis file:
+
+```text
+results/open_ended_judge_pairs_unblinded.csv
+```
+
+Blind judge input file:
+
+```text
+input_data/open_ended_judge_input_sheet.csv
+```
+
+The blind sheet contains only:
+
+| Column | Description |
+|---|---|
+| `pair_id` | Stable pair id |
+| `judge_prompt_hash` | Hash of the judge prompt |
+| `judge_prompt` | Prompt to send to the judge model |
+| `judge_raw_output` | Judge output pasted or written after judging |
+
+The unblinded file keeps analysis metadata:
+
+| Column | Description |
+|---|---|
+| `pair_id` | Stable pair id, for example `fixed_q001::proposed_vs_raw` |
+| `item_id` | Dataset item id |
+| `domain` | Domain label |
+| `split` | Dataset split |
+| `comparison` | Pairwise comparison label such as `proposed_vs_raw` |
+| `baseline_condition` | Baseline condition for the comparison |
+| `condition` | Candidate condition for the comparison |
+| `condition_a` | Hidden from judge; stored for analysis |
+| `condition_b` | Hidden from judge; stored for analysis |
+| `question` | Open-ended question shown in the judge prompt |
+| `expected_mechanism` | Reference mechanism shown only to the judge |
+| `judge_reference_points` | Optional reference points shown only to the judge |
+| `response_a` | Talkie response shown as answer A |
+| `response_b` | Talkie response shown as answer B |
+| `judge_prompt` | Full blind judge prompt |
+| `judge_prompt_hash` | Hash of the exact judge prompt |
+| `randomization_seed` | Seed used to assign condition order |
+
+Parsed judge output files add:
+
+| Column | Description |
+|---|---|
+| `judge_raw_output` | Unmodified judge output |
+| `winner` | `A`, `B`, or `Tie` |
+| `winner_condition` | Parsed condition winner after unblinding |
+| `task_relevance_a` | Optional rubric score |
+| `task_relevance_b` | Optional rubric score |
+| `functional_correctness_a` | Optional rubric score |
+| `functional_correctness_b` | Optional rubric score |
+| `era_neutrality_a` | Optional rubric score |
+| `era_neutrality_b` | Optional rubric score |
+| `anachronism_handling_a` | Optional rubric score |
+| `anachronism_handling_b` | Optional rubric score |
+| `usefulness_a` | Optional rubric score |
+| `usefulness_b` | Optional rubric score |
+| `leakage_risk_a` | Optional rubric score |
+| `leakage_risk_b` | Optional rubric score |
+| `rationale` | Short judge rationale when provided |
+
+Judge prompts must not reveal condition names. Response order should be
+randomized and stored so the analysis can unblind after judging.
+
+After filling `judge_raw_output`, parse and score with:
+
+```powershell
+python -m talkie_bridge.cli evaluate-open-ended-judge --judge-response-csv input_data/open_ended_judge_input_sheet.csv
+```
+
+This writes:
+
+| Path | Description |
+|---|---|
+| `results/open_ended_judge_scores.csv` | Parsed per-pair judge results |
+| `results/open_ended_pairwise_metrics.csv` | Win/tie metrics by comparison |
+| `results/open_ended_judge_integrity.csv` | Judge hash/parse completeness checks |
+| `results/open_ended_response_quality.md` | Markdown response-quality report |
+
+## 10. Dataset Quality Checklist
+
+Before making final claims:
+
+- Use at least 100 human-reviewed items.
+- Keep answer labels approximately balanced for MCQ diagnostics.
+- Check domain distribution.
+- Verify `human_validated=true` for final dataset rows.
+- Verify that forbidden terms cover common aliases.
+- Verify that primitive phrases are era-neutral and do not directly reveal the
+  answer.
+- Keep prompt hashes and raw responses.
+- Preserve negative results, including the current MCQ diagnostic result.
+- Do not describe the current primitive bottleneck selector as a full
+  natural-language generator.
+
+## 11. Mock Data
+
+Create a local mock dataset only for smoke tests:
+
+```powershell
 python -m talkie_bridge.cli init-mock-data --force
 ```
 
-Then replace `data/generated_questions.jsonl` with your manually authored and
-reviewed dataset before running `prepare-manual`.
-
-Predeclared generation dictionaries:
-
-- `modern_terms_dictionary.json` maps normalized aliases to `{alias, canonical_term, primitive_id, domain}`.
-- `primitive_dictionary.json` maps primitive ids to `{concept_term, domain, primitive_phrase}`.
-- `modern_terms_dictionary_example.json` and `primitive_dictionary_example.json`
-  are template files only; copy them to the non-example filenames before using
-  them in CLI commands.
-- These files are allowed to be prior project resources. They should not be
-  generated from dev/test item annotations during final evaluation.
-- They are used only when passed explicitly with `--concept-dictionary-json`
-  and `--primitive-dictionary-json`; otherwise generation resources come from
-  the train split.
-- Mock dictionary files are for diagnostics only and are blocked during
-  evaluation unless `--allow-mock-dictionary` is supplied.
+Then replace `data/generated_questions.jsonl` with the real reviewed dataset
+before collecting or reporting final evidence.
