@@ -94,3 +94,14 @@ def test_open_ended_manual_responses_prepare_and_evaluate_judge_sheet(tmp_path: 
 
     assert (tmp_path / "results" / "open_ended_pairwise_metrics.csv").exists()
     assert (tmp_path / "results" / "open_ended_response_quality.md").exists()
+
+    demo_path = tmp_path / "results" / "open_ended_live_demo.html"
+    assert main(["demo-open-ended", *_common_args(tmp_path), "--out", str(demo_path)]) == 0
+
+    demo_html = demo_path.read_text(encoding="utf-8")
+    assert "TalkieBridge Demo" in demo_html
+    assert "Click the next highlighted card to run the pipeline" in demo_html
+    assert "Click to rewrite" in demo_html
+    assert "Click to compare" in demo_html
+    assert "Aggregate Result" not in demo_html
+    assert "Reveal Rewrite" not in demo_html

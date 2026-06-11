@@ -226,6 +226,26 @@ Generate a static demo page for one item:
 python -m talkie_bridge.cli demo --item-id q001 --out results/demo.html
 ```
 
+Generate the presentation-safe cached live demo for the completed open-ended
+run:
+
+```powershell
+python -m talkie_bridge.cli demo-open-ended --out results/open_ended_live_demo.html
+```
+
+This HTML uses the stored Talkie responses and stored LLM Judge outputs. It
+does not call Talkie, OpenAI, or any other external API during the presentation.
+The default page is a card-based presentation demo designed for a short live
+walkthrough. Click the next highlighted card to show detection, the
+era-neutral rewrite, Talkie A/B responses, and the blind judge result.
+
+For GitHub Pages, copy the generated demo to `docs/index.html` and configure
+Pages to serve from `main` / `/docs`:
+
+```powershell
+Copy-Item results\open_ended_live_demo.html docs\index.html -Force
+```
+
 ## Generated Outputs
 
 Important output files:

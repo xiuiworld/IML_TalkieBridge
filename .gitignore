@@ -21,7 +21,8 @@ playwright-report/
 test-results/
 
 # Local reference materials not committed to the project repo
-/docs/
+/docs/*
+!/docs/index.html
 /prototypes/
 /Teammate/
 

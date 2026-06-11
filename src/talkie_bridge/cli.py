@@ -33,6 +33,7 @@ from talkie_bridge.data_schema import (
     write_jsonl,
 )
 from talkie_bridge.detector import BernoulliModernTermClassifier, build_modern_token_examples
+from talkie_bridge.live_demo import write_cached_live_demo
 from talkie_bridge.metrics import (
     compute_component_metrics,
     compute_condition_metrics,
@@ -230,6 +231,23 @@ def main(argv: Sequence[str] | None = None) -> int:
         print(f"Demo: {out_path}")
         return 0
 
+    if args.command == "demo-open-ended":
+        prepared_path = resolve_run_file(paths, args.prepared_csv, default_dir=paths.out_dir)
+        responses_path = resolve_run_file(paths, args.responses_csv, default_dir=paths.out_dir)
+        judge_scores_path = resolve_run_file(paths, args.judge_scores_csv, default_dir=paths.out_dir)
+        metrics_path = resolve_run_file(paths, args.metrics_csv, default_dir=paths.out_dir)
+        out_path = resolve_under(paths.root, args.out)
+        write_cached_live_demo(
+            out_path,
+            prepared_rows=read_csv_dicts(prepared_path),
+            response_rows=read_csv_dicts(responses_path),
+            judge_rows=read_csv_dicts(judge_scores_path),
+            metric_rows=read_csv_dicts(metrics_path),
+            max_examples=args.max_examples,
+        )
+        print(f"Open-ended live demo: {out_path}")
+        return 0
+
     raise ValueError(f"Unknown command: {args.command}")
 
 
@@ -378,6 +396,13 @@ def build_parser() -> argparse.ArgumentParser:
     demo = sub.add_parser("demo", parents=[parent], help="Write a static HTML demo for one dataset item.")
     demo.add_argument("--item-id", required=True)
     demo.add_argument("--out", default="results/demo.html")
+    demo_open = sub.add_parser("demo-open-ended", parents=[parent], help="Write a static cached live demo for the completed open-ended run.")
+    demo_open.add_argument("--prepared-csv", default="results/open_ended_prepared_prompts.csv")
+    demo_open.add_argument("--responses-csv", default="results/open_ended_responses.csv")
+    demo_open.add_argument("--judge-scores-csv", default="results/open_ended_judge_scores.csv")
+    demo_open.add_argument("--metrics-csv", default="results/open_ended_pairwise_metrics.csv")
+    demo_open.add_argument("--max-examples", type=int, default=1)
+    demo_open.add_argument("--out", default="results/open_ended_live_demo.html")
     return parser
 
 
