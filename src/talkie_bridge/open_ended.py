@@ -334,6 +334,10 @@ def write_response_quality_report(
         "This report summarizes blind pairwise LLM Judge results for TalkieBridge open-ended responses.",
         "Condition labels are hidden in the judge prompt and restored only for analysis.",
         "",
+        "## Summary",
+        "",
+        *_response_quality_summary(metrics, integrity),
+        "",
         "## Pairwise Metrics",
         "",
         *_markdown_table(
@@ -353,6 +357,13 @@ def write_response_quality_report(
         "## Judge Integrity",
         "",
         *_markdown_table(integrity, ["metric", "value"]),
+        "",
+        "## Claim Boundary",
+        "",
+        "- These results support claims about the preprocessing layer's effect on Talkie open-ended response quality.",
+        "- They do not support a claim that Talkie itself was modified or improved.",
+        "- They do not overturn the separate MCQ diagnostic result, where proposed preprocessing did not improve four-choice accuracy.",
+        "- The `proposed_no_validator` ablation should be used to state whether the validator had a measurable downstream effect.",
         "",
     ]
     return "\n".join(lines)
@@ -461,6 +472,72 @@ def _condition_baseline_scores(row: dict[str, Any], metric: str, *, condition: s
     elif row.get("condition_b") == baseline:
         baseline_score = score_b
     return condition_score, baseline_score
+
+
+def _response_quality_summary(metrics: Sequence[dict[str, Any]], integrity: Sequence[dict[str, Any]]) -> list[str]:
+    by_comparison = {str(row.get("comparison", "")): row for row in metrics}
+    lines: list[str] = []
+    n_pairs = _integrity_value(integrity, "n_pairs")
+    parse_rate = _integrity_value(integrity, "judge_parse_rate")
+    hash_rate = _integrity_value(integrity, "judge_prompt_hash_match_rate")
+    blank_count = _integrity_value(integrity, "blank_judge_output_count")
+    if n_pairs:
+        lines.append(
+            f"- Judge coverage: {int(n_pairs)} pairs, parse rate {_format_rate(parse_rate)}, "
+            f"prompt hash match rate {_format_rate(hash_rate)}, blank outputs {int(blank_count)}."
+        )
+    for comparison in (
+        "proposed_vs_raw",
+        "proposed_vs_rule_only",
+        "proposed_vs_length_controlled",
+        "proposed_vs_proposed_no_validator",
+    ):
+        row = by_comparison.get(comparison)
+        if row:
+            lines.append(f"- {_comparison_sentence(row)}")
+    if not lines:
+        return ["No judge metrics were available."]
+    return lines
+
+
+def _comparison_sentence(row: dict[str, Any]) -> str:
+    comparison = str(row.get("comparison", ""))
+    condition = str(row.get("condition", "condition"))
+    baseline = str(row.get("baseline_condition", "baseline"))
+    wins = int(row.get("condition_wins") or 0)
+    losses = int(row.get("baseline_wins") or 0)
+    ties = int(row.get("ties") or 0)
+    n_pairs = int(row.get("n_pairs") or 0)
+    win_rate = float(row.get("condition_win_rate_excluding_ties") or 0.0)
+    all_rate = float(row.get("condition_win_rate_all") or 0.0)
+    tie_word = "tie" if ties == 1 else "ties"
+    non_tie_total = wins + losses
+    non_tie_rate = _format_rate(win_rate) if non_tie_total else "not defined because all pairs tied"
+    if wins > losses:
+        direction = "beat"
+    elif losses > wins:
+        direction = "did not beat"
+    else:
+        direction = "tied"
+    return (
+        f"{comparison}: `{condition}` {direction} `{baseline}` "
+        f"({wins} wins, {losses} losses, {ties} {tie_word} over {n_pairs} pairs; "
+        f"win rate excluding ties {non_tie_rate}, all-pair win rate {_format_rate(all_rate)})."
+    )
+
+
+def _integrity_value(rows: Sequence[dict[str, Any]], metric: str) -> float:
+    for row in rows:
+        if row.get("metric") == metric:
+            try:
+                return float(row.get("value") or 0.0)
+            except (TypeError, ValueError):
+                return 0.0
+    return 0.0
+
+
+def _format_rate(value: float) -> str:
+    return f"{100.0 * value:.1f}%"
 
 
 def _markdown_table(rows: Sequence[dict[str, Any]], columns: Sequence[str]) -> list[str]:

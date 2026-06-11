@@ -31,6 +31,13 @@ The updated research question is:
 > Does era-neutral prompt rewriting improve the quality of Talkie's downstream
 > open-ended responses to modern/anachronistic prompts?
 
+The open-ended evaluation has now been run on 100 items x 5 conditions, with
+400 blind pairwise LLM Judge comparisons. The strongest result is that
+`proposed` beats `raw` on 79/100 pairs and `length_controlled` on 88/100 pairs.
+The important caveat is that `proposed` does not beat `rule_only` in this run
+(45 wins, 51 losses, 4 ties), and `proposed` ties `proposed_no_validator` on all
+100 pairs.
+
 See `PROJECT_PROPOSAL.md` for the full revised proposal.
 
 ## Repository Layout
@@ -63,6 +70,12 @@ python -m pip install -e .
 ```
 
 The package has no required third-party runtime dependencies.
+
+Optional long-run collection helpers need `requests`:
+
+```powershell
+python -m pip install requests
+```
 
 After editable install, either command style works:
 
@@ -180,6 +193,15 @@ compute pairwise response-quality metrics with:
 python -m talkie_bridge.cli evaluate-open-ended-judge --judge-response-csv input_data/open_ended_judge_input_sheet.csv
 ```
 
+The repository also includes a resumable OpenAI judge helper. It reads the API
+key only from `OPENAI_API_KEY`; do not hard-code keys in files:
+
+```powershell
+$env:OPENAI_API_KEY = "<your key>"
+python tools\fill_openai_judge.py --api responses --model gpt-5.4-mini --reasoning-effort none
+Remove-Item Env:\OPENAI_API_KEY
+```
+
 The final judge-side outputs are:
 
 ```text
@@ -253,16 +275,16 @@ The honest interpretation is that the current proposed method does not improve
 four-choice accuracy. The result motivates a better primary evaluation:
 blind pairwise judging of open-ended Talkie response quality.
 
-## Planned Primary Evaluation
+## Completed Primary Open-Ended Evaluation
 
-For the revised proposal, each item should be converted to an open-ended task:
+The revised proposal's primary evaluation was run as an open-ended task:
 
 ```text
 Answer in 1-2 sentences. Explain the practical mechanism.
 ```
 
-Talkie responses should be collected for `raw`, `rule_only`,
-`length_controlled`, and `proposed`. A blind LLM Judge should compare response
+Talkie responses were collected for `raw`, `rule_only`, `length_controlled`,
+`proposed`, and `proposed_no_validator`. A blind LLM Judge compared response
 pairs with randomized A/B order and a fixed rubric:
 
 - task relevance,
@@ -272,8 +294,35 @@ pairs with randomized A/B order and a fixed rubric:
 - answer usefulness,
 - leakage risk.
 
+The 400-pair judge run completed with full integrity:
+
+- judge prompt hash match rate: 1.0
+- judge parse rate: 1.0
+- blank judge outputs: 0
+
+Pairwise results:
+
+| Comparison | Proposed Wins | Baseline Wins | Ties | Proposed Win Rate, Excluding Ties |
+|---|---:|---:|---:|---:|
+| `proposed` vs `raw` | 79 | 18 | 3 | 0.8144 |
+| `proposed` vs `rule_only` | 45 | 51 | 4 | 0.4688 |
+| `proposed` vs `length_controlled` | 88 | 11 | 1 | 0.8889 |
+| `proposed` vs `proposed_no_validator` | 0 | 0 | 100 | 0.0000 |
+
+Interpretation:
+
+- The open-ended judge result supports the claim that `proposed` improves
+  response quality over raw modern prompts.
+- `proposed` also strongly beats the length-controlled condition, so the gain
+  is not explained only by prompt length.
+- `rule_only` is competitive and slightly better than `proposed` by pairwise
+  wins in this run, so the final report should not claim that the full pipeline
+  dominates every simpler baseline.
+- The validator did not show downstream effect because `proposed` and
+  `proposed_no_validator` tied on every judged pair.
+
 Store judge prompts, raw judge outputs, parsed scores, condition order,
-randomization seed, and model/version metadata. Suggested output files are
+randomization seed, and model/version metadata. The concrete output files are
 documented in `DATASET_SCHEMA.md`.
 
 ## Claims Boundary
@@ -283,6 +332,9 @@ Valid claims:
 - The repository implements a prompt rewriting and evaluation pipeline in front
   of a fixed Talkie evaluator.
 - The current MCQ diagnostic run does not show proposed accuracy improvement.
+- The completed open-ended judge run shows that `proposed` beats `raw` and
+  `length_controlled` on pairwise response quality, while not beating
+  `rule_only`.
 - Component metrics can evaluate anachronism removal, primitive recall,
   validation pass rate, and leakage risk.
 - The revised primary question is downstream open-ended response quality.

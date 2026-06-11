@@ -1,0 +1,5 @@
+﻿metric,value
+judge_prompt_hash_match_rate,1.0
+blank_judge_output_count,0
+judge_parse_rate,1.0
+n_pairs,400

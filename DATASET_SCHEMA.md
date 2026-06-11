@@ -232,6 +232,10 @@ Blind judge input file:
 input_data/open_ended_judge_input_sheet.csv
 ```
 
+The completed June 11, 2026 run contains 400 blind judge rows:
+100 each for `proposed_vs_raw`, `proposed_vs_rule_only`,
+`proposed_vs_length_controlled`, and `proposed_vs_proposed_no_validator`.
+
 The blind sheet contains only:
 
 | Column | Description |
@@ -293,6 +297,15 @@ After filling `judge_raw_output`, parse and score with:
 python -m talkie_bridge.cli evaluate-open-ended-judge --judge-response-csv input_data/open_ended_judge_input_sheet.csv
 ```
 
+The included helper can fill the blind sheet through the OpenAI Responses API.
+It is resumable and reads credentials only from `OPENAI_API_KEY`:
+
+```powershell
+$env:OPENAI_API_KEY = "<your key>"
+python tools\fill_openai_judge.py --api responses --model gpt-5.4-mini --reasoning-effort none
+Remove-Item Env:\OPENAI_API_KEY
+```
+
 This writes:
 
 | Path | Description |
@@ -301,6 +314,15 @@ This writes:
 | `results/open_ended_pairwise_metrics.csv` | Win/tie metrics by comparison |
 | `results/open_ended_judge_integrity.csv` | Judge hash/parse completeness checks |
 | `results/open_ended_response_quality.md` | Markdown response-quality report |
+
+Completed run integrity:
+
+| Metric | Value |
+|---|---:|
+| Judge prompt hash match rate | 1.0 |
+| Judge parse rate | 1.0 |
+| Blank judge outputs | 0 |
+| Judged pairs | 400 |
 
 ## 10. Dataset Quality Checklist
 

@@ -19,6 +19,14 @@ preprocessor improves multiple-choice accuracy. The strongest next proposal is
 therefore to keep the MCQ experiment as a diagnostic/secondary result and make
 LLM-judged open-ended response quality the primary evaluation.
 
+As of the completed June 11, 2026 run, the open-ended primary evaluation has
+also been executed: 500 Talkie responses were collected across 100 items and
+five conditions, and 400 blind pairwise LLM Judge comparisons were parsed with
+100% prompt-hash and parse integrity. The result supports a narrower claim:
+`proposed` improves judged open-ended response quality over `raw` and
+`length_controlled`, but it does not beat `rule_only`, and the validator
+ablation shows no downstream difference.
+
 ## 1. Problem Statement
 
 Modern prompts often contain terms that a 1930-era language model should not be
@@ -227,19 +235,20 @@ demonstrate downstream impact in that setting.
 
 ### 6.1 Primary Evaluation: Open-Ended Response Quality
 
-The primary evaluation should be open-ended rather than four-choice accuracy.
-Each item asks Talkie for a short explanation:
+The primary evaluation is open-ended rather than four-choice accuracy. Each
+item asks Talkie for a short explanation:
 
 ```text
 Answer in 1-2 sentences. Explain the practical mechanism.
 ```
 
-For each item, collect Talkie responses under at least these conditions:
+For each item, collect Talkie responses under these conditions:
 
 - `raw`
 - `rule_only`
 - `length_controlled`
 - `proposed`
+- `proposed_no_validator`
 
 Then compare responses using a blind pairwise LLM Judge. The judge should not
 see the condition names. Response order should be randomized. The raw judge
@@ -272,6 +281,19 @@ Primary metrics:
 - tie rate,
 - bootstrap confidence intervals,
 - paired sign test or Wilcoxon signed-rank test when appropriate.
+
+Completed June 11, 2026 judge results:
+
+| Comparison | Proposed Wins | Baseline Wins | Ties | Proposed Win Rate, Excluding Ties |
+|---|---:|---:|---:|---:|
+| `proposed` vs `raw` | 79 | 18 | 3 | 0.8144 |
+| `proposed` vs `rule_only` | 45 | 51 | 4 | 0.4688 |
+| `proposed` vs `length_controlled` | 88 | 11 | 1 | 0.8889 |
+| `proposed` vs `proposed_no_validator` | 0 | 0 | 100 | 0.0000 |
+
+This result is positive but nuanced. It is strong evidence against the raw and
+length-controlled baselines, but not against the simpler `rule_only` rewrite.
+The validator also did not show measurable downstream benefit in this run.
 
 ### 6.2 Secondary Evaluation: Rewrite Quality
 
@@ -364,6 +386,10 @@ Possible outcomes and interpretations:
   Talkie responses end to end.
 - The current MCQ diagnostic run does not show accuracy improvement for
   `proposed`.
+- The completed open-ended judge run shows that `proposed` improves judged
+  response quality over `raw` and `length_controlled`.
+- The completed open-ended judge run does not show that `proposed` improves
+  over `rule_only`.
 - Component metrics show that the current rewriter can remove annotated modern
   terms and preserve many required primitives.
 - The revised primary research question is whether era-neutral rewriting
@@ -373,6 +399,7 @@ Possible outcomes and interpretations:
 
 - "We improved Talkie-1930."
 - "The proposed method improves multiple-choice accuracy."
+- "The full proposed pipeline beats every simpler baseline."
 - "The project implements a full Denoising Text Autoencoder generator."
 - "The validator improves downstream performance" unless a future ablation
   shows that it does.
