@@ -8,7 +8,7 @@ import time
 from pathlib import Path
 from typing import Any, Callable, Iterator
 
-from talkie_bridge.data_schema import read_csv_dicts, read_jsonl, write_jsonl
+from talkie_bridge.data_schema import read_csv_dicts, read_jsonl
 
 
 TALKIE_STREAM_URL = "https://api.talkie-lm.com/api/chat/stream"
@@ -50,7 +50,22 @@ class JsonlCache:
     def put(self, row: dict[str, Any]) -> None:
         key = str(row["cache_key"])
         self.rows[key] = row
-        write_jsonl(self.path, self.rows.values())
+        self.path.parent.mkdir(parents=True, exist_ok=True)
+        line = json.dumps(row, ensure_ascii=False, sort_keys=True)
+        last_error: OSError | None = None
+        for attempt in range(5):
+            try:
+                with self.path.open("a", encoding="utf-8", newline="") as handle:
+                    handle.write(line)
+                    handle.write("\n")
+                return
+            except OSError as exc:
+                last_error = exc
+                if attempt == 4:
+                    break
+                time.sleep(0.5 * (attempt + 1))
+        if last_error is not None:
+            raise last_error
 
 
 class UnofficialTalkieApiClient:
