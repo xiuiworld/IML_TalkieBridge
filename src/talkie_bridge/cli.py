@@ -203,7 +203,7 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
 
     if args.command == "prepare-open-ended-judge":
-        response_path = resolve_under(paths.root, args.open_ended_response_csv)
+        response_path = resolve_run_file(paths, args.open_ended_response_csv, default_dir=paths.out_dir)
         response_rows = read_csv_dicts(response_path)
         pair_rows = build_judge_pair_rows(response_rows, seed=args.seed)
         write_open_ended_judge_sheets(paths, pair_rows)
@@ -211,8 +211,8 @@ def main(argv: Sequence[str] | None = None) -> int:
         return 0
 
     if args.command == "evaluate-open-ended-judge":
-        pair_path = resolve_under(paths.root, args.open_ended_judge_pairs_csv)
-        judge_path = resolve_under(paths.root, args.judge_response_csv)
+        pair_path = resolve_run_file(paths, args.open_ended_judge_pairs_csv, default_dir=paths.out_dir)
+        judge_path = resolve_run_file(paths, args.judge_response_csv, default_dir=paths.input_dir)
         pair_rows = read_csv_dicts(pair_path)
         judge_records = load_judge_records(judge_path)
         parsed_rows = parse_judge_rows(pair_rows, judge_records)
@@ -555,6 +555,19 @@ def resolve_optional_path(root: Path, value: str) -> Path | None:
     if not value:
         return None
     return resolve_under(root, value)
+
+
+def resolve_run_file(paths: RunPaths, value: str | Path, *, default_dir: Path) -> Path:
+    candidate = Path(value)
+    if candidate.is_absolute():
+        return candidate
+    root_candidate = paths.root / candidate
+    default_candidate = default_dir / candidate.name
+    if str(candidate).replace("\\", "/").startswith(("results/", "input_data/")):
+        return default_candidate
+    if root_candidate.exists():
+        return root_candidate
+    return default_candidate
 
 
 def write_mock_dataset(args: argparse.Namespace, paths: RunPaths) -> Path:

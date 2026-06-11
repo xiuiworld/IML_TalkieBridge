@@ -1,0 +1,7 @@
+{
+  "n_items": 100,
+  "n_judge_pairs": 400,
+  "n_response_rows": 500,
+  "note": "Judge prompts are blind: condition labels are stored in the unblinded analysis file but not included in the judge input sheet.",
+  "provider": "unofficial_talkie_api"
+}

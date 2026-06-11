@@ -4,7 +4,7 @@ import sys
 import types
 from pathlib import Path
 
-from talkie_bridge.clients import UnofficialTalkieApiClient
+from talkie_bridge.clients import UnofficialTalkieApiClient, clean_talkie_response_text
 
 
 class _FakeResponse:
@@ -59,3 +59,10 @@ def test_unofficial_api_retries_after_rate_limit(monkeypatch, tmp_path: Path) ->
     assert sleeps == [0.0]
     assert any(event["event"] == "retry_wait" and event["reason"] == "HTTP 429" for event in events)
     assert any(event["event"] == "response_complete" for event in events)
+
+
+def test_clean_talkie_response_text_decodes_adjacent_json_string_tokens() -> None:
+    raw = '"It"" mi""ght be"" useful"" because"" it works."'
+
+    assert clean_talkie_response_text(raw) == "It might be useful because it works."
+    assert clean_talkie_response_text("Already clean.") == "Already clean."

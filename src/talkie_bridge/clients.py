@@ -100,14 +100,15 @@ class UnofficialTalkieApiClient:
         if cached is not None:
             self._emit({"event": "cache_hit", "cache_key": cache_key})
             row = dict(cached)
+            row["raw_response"] = clean_talkie_response_text(str(row.get("raw_response", "")))
             row["cache_hit"] = True
             return row
         self._emit({"event": "request_start", "cache_key": cache_key})
-        answer = "".join(
+        answer = clean_talkie_response_text("".join(
             chunk
             for event, chunk in self._iter_events(prompt)
             if event == "token"
-        )
+        ))
         row = {
             "cache_key": cache_key,
             "raw_response": answer,
@@ -181,7 +182,7 @@ class UnofficialTalkieApiClient:
                         if line.startswith("event:"):
                             event_name = line[len("event:") :].strip()
                         elif line.startswith("data:"):
-                            data_lines.append(line[len("data:") :].strip())
+                            data_lines.append(_decode_sse_data(line[len("data:") :].strip()))
                     if data_lines:
                         yield event_name, "\n".join(data_lines)
                     return
@@ -228,6 +229,48 @@ def _cache_key(prompt: str, temperature: float, max_tokens: int) -> str:
         sort_keys=True,
     )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def clean_talkie_response_text(raw_text: str) -> str:
+    text = raw_text.strip()
+    if not text:
+        return ""
+    decoded = _decode_adjacent_json_strings(text)
+    if decoded is not None:
+        return decoded
+    return text
+
+
+def _decode_sse_data(raw_data: str) -> str:
+    try:
+        decoded = json.loads(raw_data)
+    except json.JSONDecodeError:
+        return raw_data
+    return decoded if isinstance(decoded, str) else str(decoded)
+
+
+def _decode_adjacent_json_strings(text: str) -> str | None:
+    if not text.startswith('"') or text.count('"') < 2:
+        return None
+    decoder = json.JSONDecoder()
+    index = 0
+    parts: list[str] = []
+    while index < len(text):
+        while index < len(text) and text[index].isspace():
+            index += 1
+        if index >= len(text):
+            break
+        if text[index] != '"':
+            return None
+        try:
+            decoded, end = decoder.raw_decode(text, index)
+        except json.JSONDecodeError:
+            return None
+        if not isinstance(decoded, str) or end <= index:
+            return None
+        parts.append(decoded)
+        index = end
+    return "".join(parts) if parts else None
 
 
 def _is_retryable_status(status_code: int) -> bool:

@@ -8,6 +8,7 @@ from collections import defaultdict
 from dataclasses import replace
 from typing import Any, Sequence
 
+from talkie_bridge.clients import clean_talkie_response_text
 from talkie_bridge.data_schema import CONDITIONS, DatasetItem, json_loads, stable_hash
 from talkie_bridge.prompting import build_judge_prompt, build_open_ended_prompt, prompt_hash
 
@@ -108,10 +109,10 @@ def build_open_ended_response_rows(
     for row in prompt_rows:
         response_record = responses.get((str(row["item_id"]), str(row["condition"])), {})
         if isinstance(response_record, str):
-            raw_response = response_record
+            raw_response = clean_talkie_response_text(response_record)
             response_prompt_hash = ""
         else:
-            raw_response = response_record.get("raw_response", "")
+            raw_response = clean_talkie_response_text(response_record.get("raw_response", ""))
             response_prompt_hash = response_record.get("prompt_hash", "")
         current_prompt_hash = str(row.get("prompt_hash", ""))
         rows.append(
@@ -160,13 +161,15 @@ def build_judge_pair_rows(
             swap = stable_hash(f"{seed}:{pair_id}") % 2 == 1
             first = candidate if swap else baseline
             second = baseline if swap else candidate
+            response_a = clean_talkie_response_text(str(first.get("raw_response", "")))
+            response_b = clean_talkie_response_text(str(second.get("raw_response", "")))
             question = str(candidate.get("open_question") or baseline.get("open_question") or "")
             expected = str(candidate.get("expected_mechanism") or baseline.get("expected_mechanism") or "")
             reference_points = _list_value(candidate.get("judge_reference_points") or baseline.get("judge_reference_points"))
             judge_prompt = build_judge_prompt(
                 question=question,
-                response_a=str(first.get("raw_response", "")),
-                response_b=str(second.get("raw_response", "")),
+                response_a=response_a,
+                response_b=response_b,
                 expected_mechanism=expected,
                 reference_points=reference_points,
             )
@@ -184,8 +187,8 @@ def build_judge_pair_rows(
                     "question": question,
                     "expected_mechanism": expected,
                     "judge_reference_points": reference_points,
-                    "response_a": first.get("raw_response", ""),
-                    "response_b": second.get("raw_response", ""),
+                    "response_a": response_a,
+                    "response_b": response_b,
                     "judge_prompt": judge_prompt,
                     "judge_prompt_hash": prompt_hash(judge_prompt),
                     "randomization_seed": seed,
