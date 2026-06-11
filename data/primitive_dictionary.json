@@ -1,0 +1,1531 @@
+{
+  "3d_printing": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "builds",
+      "digital",
+      "layer",
+      "object",
+      "plan"
+    ],
+    "mechanism": "forms shapes without first making special molds",
+    "primitive_id": "3d_printing",
+    "primitive_phrase": "builds an object layer by layer from a digital plan",
+    "term": "3D printing"
+  },
+  "airbag": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "collision",
+      "cushion",
+      "during",
+      "inflates",
+      "quickly",
+      "very"
+    ],
+    "mechanism": "spreads the stopping force over a larger area and time",
+    "primitive_id": "airbag",
+    "primitive_phrase": "inflates a cushion very quickly during a collision",
+    "term": "airbag"
+  },
+  "algorithmic_feed": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "calculated",
+      "interest",
+      "likely",
+      "messages",
+      "orders",
+      "signals"
+    ],
+    "mechanism": "places more likely relevant items before less relevant ones",
+    "primitive_id": "algorithmic_feed",
+    "primitive_phrase": "orders messages by calculated signals of likely interest",
+    "term": "algorithmic feed"
+  },
+  "anti_lock_braking_system": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "begin",
+      "brake",
+      "force",
+      "lock",
+      "rapidly",
+      "reduces",
+      "restores",
+      "wheels"
+    ],
+    "mechanism": "helps tires keep grip for steering",
+    "primitive_id": "anti_lock_braking_system",
+    "primitive_phrase": "rapidly reduces and restores brake force when wheels begin to lock",
+    "term": "anti-lock braking system"
+  },
+  "antibiotic_resistance": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "describes",
+      "germs",
+      "medicine",
+      "onward",
+      "passing",
+      "surviving",
+      "trait"
+    ],
+    "mechanism": "lets surviving germs become more common after treatment",
+    "primitive_id": "antibiotic_resistance",
+    "primitive_phrase": "describes germs surviving a medicine and passing that trait onward",
+    "term": "antibiotic resistance"
+  },
+  "antiviral_drug": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "copy",
+      "interferes",
+      "itself",
+      "needs",
+      "step",
+      "virus"
+    ],
+    "mechanism": "reduces multiplication of the virus",
+    "primitive_id": "antiviral_drug",
+    "primitive_phrase": "interferes with a step the virus needs to copy itself",
+    "term": "antiviral drug"
+  },
+  "api": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "another",
+      "commands",
+      "offers",
+      "published",
+      "request",
+      "set",
+      "use",
+      "work"
+    ],
+    "mechanism": "gives both systems a stable contract for requests and replies",
+    "primitive_id": "api",
+    "primitive_phrase": "offers a published set of commands that one machine can use to request work from another",
+    "term": "API"
+  },
+  "autopilot": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "adjust",
+      "automatically",
+      "control",
+      "instruments",
+      "rules",
+      "steering"
+    ],
+    "mechanism": "makes repeated small corrections without constant human input",
+    "primitive_id": "autopilot",
+    "primitive_phrase": "uses instruments and control rules to adjust steering automatically",
+    "term": "autopilot"
+  },
+  "battery_storage": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "chemically",
+      "electrical",
+      "energy",
+      "later",
+      "release",
+      "stores"
+    ],
+    "mechanism": "shifts energy from the time it is made to the time it is needed",
+    "primitive_id": "battery_storage",
+    "primitive_phrase": "stores electrical energy chemically for later release",
+    "term": "battery storage"
+  },
+  "biofuel": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "biological",
+      "burnable",
+      "fuel",
+      "grown",
+      "makes",
+      "material",
+      "recently"
+    ],
+    "mechanism": "uses carbon from recent growth rather than ancient deposits",
+    "primitive_id": "biofuel",
+    "primitive_phrase": "makes burnable fuel from recently grown biological material",
+    "term": "biofuel"
+  },
+  "biometric_authentication": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "body",
+      "compares",
+      "feature",
+      "reference",
+      "stored"
+    ],
+    "mechanism": "uses a hard-to-share personal physical trait",
+    "primitive_id": "biometric_authentication",
+    "primitive_phrase": "compares a body feature with a stored reference",
+    "term": "biometric authentication"
+  },
+  "blockchain": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "depends",
+      "each",
+      "earlier",
+      "links",
+      "new",
+      "records",
+      "so"
+    ],
+    "mechanism": "makes later alteration easy to detect",
+    "primitive_id": "blockchain",
+    "primitive_phrase": "links records so each new record depends on earlier records",
+    "term": "blockchain"
+  },
+  "cache": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "fast",
+      "keeps",
+      "nearby",
+      "recently",
+      "results",
+      "store",
+      "used"
+    ],
+    "mechanism": "avoids recomputing or refetching the same result",
+    "primitive_id": "cache",
+    "primitive_phrase": "keeps recently used results in a nearby fast store",
+    "term": "cache"
+  },
+  "carbon_capture": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "air",
+      "bearing",
+      "before",
+      "carbon",
+      "enters",
+      "gas",
+      "separates"
+    ],
+    "mechanism": "prevents part of the unwanted gas from escaping",
+    "primitive_id": "carbon_capture",
+    "primitive_phrase": "separates carbon-bearing gas before it enters the air",
+    "term": "carbon capture"
+  },
+  "carbon_fiber_composite": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "binding",
+      "embeds",
+      "fibers",
+      "inside",
+      "material",
+      "strong"
+    ],
+    "mechanism": "keeps strength while lowering weight",
+    "primitive_id": "carbon_fiber_composite",
+    "primitive_phrase": "embeds strong fibers inside a binding material",
+    "term": "carbon fiber composite"
+  },
+  "climate_model": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "air",
+      "energy",
+      "flows",
+      "mathematical",
+      "rules",
+      "simulate",
+      "water"
+    ],
+    "mechanism": "tests how changes may influence a large connected system",
+    "primitive_id": "climate_model",
+    "primitive_phrase": "uses mathematical rules to simulate air, water, and energy flows",
+    "term": "climate model"
+  },
+  "cloud_computing": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "computing",
+      "distant",
+      "machines",
+      "needed",
+      "rents"
+    ],
+    "mechanism": "adds or removes remote capacity without owning every machine locally",
+    "primitive_id": "cloud_computing",
+    "primitive_phrase": "rents distant computing machines as needed",
+    "term": "cloud computing"
+  },
+  "cloud_file_sharing": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "distant",
+      "file",
+      "keeps",
+      "machines",
+      "reachable",
+      "several",
+      "users"
+    ],
+    "mechanism": "gives each worker access to a shared current copy",
+    "primitive_id": "cloud_file_sharing",
+    "primitive_phrase": "keeps a file on distant machines reachable by several users",
+    "term": "cloud file sharing"
+  },
+  "contact_tracing_app": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "communication",
+      "device",
+      "encounter",
+      "keeps",
+      "portable",
+      "recent",
+      "records"
+    ],
+    "mechanism": "helps identify contacts faster than memory alone",
+    "primitive_id": "contact_tracing_app",
+    "primitive_phrase": "keeps recent encounter records on a portable communication device",
+    "term": "contact tracing app"
+  },
+  "contactless_payment": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "distance",
+      "information",
+      "over",
+      "payment",
+      "sends",
+      "short",
+      "very",
+      "wireless"
+    ],
+    "mechanism": "reduces handling and manual writing of payment details",
+    "primitive_id": "contactless_payment",
+    "primitive_phrase": "sends payment information over a very short wireless distance",
+    "term": "contactless payment"
+  },
+  "continuous_glucose_monitor": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "body",
+      "chemistry",
+      "measure",
+      "repeatedly",
+      "sensor",
+      "small"
+    ],
+    "mechanism": "shows trends that isolated measurements miss",
+    "primitive_id": "continuous_glucose_monitor",
+    "primitive_phrase": "uses a small sensor to measure body chemistry repeatedly",
+    "term": "continuous glucose monitor"
+  },
+  "crispr": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "cut",
+      "guided",
+      "hereditary",
+      "location",
+      "molecular",
+      "selected",
+      "tool"
+    ],
+    "mechanism": "aims the change at a chosen location instead of altering many places",
+    "primitive_id": "crispr",
+    "primitive_phrase": "uses a guided molecular tool to cut a selected hereditary location",
+    "term": "CRISPR"
+  },
+  "cruise_control": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "adjusts",
+      "automatically",
+      "chosen",
+      "force",
+      "hold",
+      "speed"
+    ],
+    "mechanism": "reduces constant manual speed correction",
+    "primitive_id": "cruise_control",
+    "primitive_phrase": "automatically adjusts engine force to hold a chosen speed",
+    "term": "cruise control"
+  },
+  "ct_scan": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "combines",
+      "cross",
+      "many",
+      "narrow",
+      "pictures",
+      "ray",
+      "section",
+      "views"
+    ],
+    "mechanism": "reconstructs slices that show internal structure",
+    "primitive_id": "ct_scan",
+    "primitive_phrase": "combines many narrow X-ray views into cross-section pictures",
+    "term": "CT scan"
+  },
+  "data_compression": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "codes",
+      "parts",
+      "predictable",
+      "repeated",
+      "shorter"
+    ],
+    "mechanism": "represents the same information with fewer symbols",
+    "primitive_id": "data_compression",
+    "primitive_phrase": "uses shorter codes for repeated or predictable parts",
+    "term": "data compression"
+  },
+  "database_index": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "guide",
+      "keeps",
+      "ordered",
+      "records",
+      "smaller",
+      "stored",
+      "where"
+    ],
+    "mechanism": "avoids inspecting every record one by one",
+    "primitive_id": "database_index",
+    "primitive_phrase": "keeps a smaller ordered guide to where records are stored",
+    "term": "database index"
+  },
+  "delivery_drone": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "flying",
+      "pilotless",
+      "small"
+    ],
+    "mechanism": "moves above ground obstacles without a driver onboard",
+    "primitive_id": "delivery_drone",
+    "primitive_phrase": "uses a small pilotless flying machine",
+    "term": "delivery drone"
+  },
+  "desalination_membrane": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "back",
+      "dissolved",
+      "holding",
+      "lets",
+      "much",
+      "pass",
+      "salt",
+      "water",
+      "while"
+    ],
+    "mechanism": "separates salt from water without boiling all of it",
+    "primitive_id": "desalination_membrane",
+    "primitive_phrase": "lets water pass while holding back much dissolved salt",
+    "term": "desalination membrane"
+  },
+  "digital_camera": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "elements",
+      "light",
+      "numerical",
+      "picture",
+      "records"
+    ],
+    "mechanism": "stores pictures as data that can be copied immediately",
+    "primitive_id": "digital_camera",
+    "primitive_phrase": "records light as numerical picture elements",
+    "term": "digital camera"
+  },
+  "digital_map": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "computes",
+      "data",
+      "paths",
+      "stores"
+    ],
+    "mechanism": "updates directions from stored roads and current position",
+    "primitive_id": "digital_map",
+    "primitive_phrase": "stores map data and computes paths on a machine",
+    "term": "digital map"
+  },
+  "dna_sequencing": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "hereditary",
+      "order",
+      "reads",
+      "units"
+    ],
+    "mechanism": "reveals the exact order where differences can be found",
+    "primitive_id": "dna_sequencing",
+    "primitive_phrase": "reads the order of hereditary chemical units",
+    "term": "DNA sequencing"
+  },
+  "e_book": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "data",
+      "electronic",
+      "stores",
+      "text"
+    ],
+    "mechanism": "reduces physical bulk while preserving the written content",
+    "primitive_id": "e_book",
+    "primitive_phrase": "stores book text as electronic data",
+    "term": "e-book"
+  },
+  "e_commerce": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "catalogues",
+      "electronic",
+      "orders",
+      "payment",
+      "records"
+    ],
+    "mechanism": "removes the need to visit the shop physically",
+    "primitive_id": "e_commerce",
+    "primitive_phrase": "uses electronic catalogues, orders, and payment records",
+    "term": "e-commerce"
+  },
+  "edge_computing": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "center",
+      "computation",
+      "device",
+      "distant",
+      "instead",
+      "measuring",
+      "near"
+    ],
+    "mechanism": "cuts delay by avoiding a long trip to a remote machine",
+    "primitive_id": "edge_computing",
+    "primitive_phrase": "does computation near the measuring device instead of a distant center",
+    "term": "edge computing"
+  },
+  "electric_vehicle": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "electric",
+      "electrical",
+      "energy",
+      "motor",
+      "moves",
+      "powered",
+      "stored"
+    ],
+    "mechanism": "avoids burning fuel at the vehicle while moving",
+    "primitive_id": "electric_vehicle",
+    "primitive_phrase": "moves by an electric motor powered from stored electrical energy",
+    "term": "electric vehicle"
+  },
+  "electronic_medical_record": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "data",
+      "keeps",
+      "patient",
+      "readable",
+      "records"
+    ],
+    "mechanism": "makes the same record easier to retrieve and transmit",
+    "primitive_id": "electronic_medical_record",
+    "primitive_phrase": "keeps patient records as machine-readable data",
+    "term": "electronic medical record"
+  },
+  "elisa": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "binding",
+      "color",
+      "plus",
+      "reaction"
+    ],
+    "mechanism": "turns specific binding into a visible measurement",
+    "primitive_id": "elisa",
+    "primitive_phrase": "uses a binding reaction plus a color signal",
+    "term": "ELISA"
+  },
+  "email": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "between",
+      "mailboxes",
+      "messages",
+      "moves",
+      "written"
+    ],
+    "mechanism": "delivers text without a physical carrier",
+    "primitive_id": "email",
+    "primitive_phrase": "moves written messages between machine mailboxes",
+    "term": "email"
+  },
+  "encryption": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "form",
+      "key",
+      "message",
+      "only",
+      "readable",
+      "secret",
+      "transforms"
+    ],
+    "mechanism": "keeps intercepted text unintelligible to outsiders",
+    "primitive_id": "encryption",
+    "primitive_phrase": "transforms a message into a form readable only with a secret key",
+    "term": "encryption"
+  },
+  "food_delivery_app": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "courier",
+      "customer",
+      "matches",
+      "messages",
+      "payment",
+      "portable",
+      "restaurant",
+      "through"
+    ],
+    "mechanism": "coordinates the parties without repeated telephone calls",
+    "primitive_id": "food_delivery_app",
+    "primitive_phrase": "matches customer, restaurant, courier, and payment through portable messages",
+    "term": "food delivery app"
+  },
+  "fusion_reactor": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "atomic",
+      "conditions",
+      "extreme",
+      "joins",
+      "light",
+      "nuclei",
+      "under"
+    ],
+    "mechanism": "releases energy from combining light atoms",
+    "primitive_id": "fusion_reactor",
+    "primitive_phrase": "joins light atomic nuclei under extreme conditions",
+    "term": "fusion reactor"
+  },
+  "genome_wide_association_study": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "across",
+      "compares",
+      "hereditary",
+      "many",
+      "people",
+      "positions"
+    ],
+    "mechanism": "finds statistical associations between variations and outcomes",
+    "primitive_id": "genome_wide_association_study",
+    "primitive_phrase": "compares many hereditary positions across many people",
+    "term": "genome-wide association study"
+  },
+  "gps": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "compares",
+      "distant",
+      "estimate",
+      "position",
+      "signals",
+      "timed",
+      "transmitters"
+    ],
+    "mechanism": "derives location from measured signal timing",
+    "primitive_id": "gps",
+    "primitive_phrase": "compares timed signals from distant transmitters to estimate position",
+    "term": "GPS"
+  },
+  "gpu_acceleration": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "calculating",
+      "many",
+      "same",
+      "small",
+      "time",
+      "units"
+    ],
+    "mechanism": "performs many similar calculations in parallel instead of one after another",
+    "primitive_id": "gpu_acceleration",
+    "primitive_phrase": "uses many small calculating units at the same time",
+    "term": "GPU acceleration"
+  },
+  "heat_pump": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "another",
+      "heat",
+      "moves",
+      "place",
+      "work"
+    ],
+    "mechanism": "uses existing heat instead of only creating heat by burning fuel",
+    "primitive_id": "heat_pump",
+    "primitive_phrase": "moves heat from one place to another using work",
+    "term": "heat pump"
+  },
+  "high_speed_rail": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "designed",
+      "high",
+      "speed",
+      "sustained",
+      "track",
+      "trains",
+      "very"
+    ],
+    "mechanism": "carries many people quickly with guided motion",
+    "primitive_id": "high_speed_rail",
+    "primitive_phrase": "uses trains and track designed for sustained very high speed",
+    "term": "high-speed rail"
+  },
+  "hybrid_car": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "combines",
+      "drive",
+      "electric",
+      "energy",
+      "fuel",
+      "stored"
+    ],
+    "mechanism": "recovers or reuses energy that would otherwise be wasted",
+    "primitive_id": "hybrid_car",
+    "primitive_phrase": "combines a fuel engine with an electric drive and stored energy",
+    "term": "hybrid car"
+  },
+  "instant_messaging": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "almost",
+      "between",
+      "devices",
+      "immediately",
+      "messages",
+      "sends",
+      "short",
+      "written"
+    ],
+    "mechanism": "reduces delay compared with ordinary letters",
+    "primitive_id": "instant_messaging",
+    "primitive_phrase": "sends short written messages almost immediately between devices",
+    "term": "instant messaging"
+  },
+  "insulin_pump": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "device",
+      "doses",
+      "measured",
+      "medicine",
+      "releases",
+      "small",
+      "through",
+      "wearable"
+    ],
+    "mechanism": "adjusts dosing more continuously than occasional injections",
+    "primitive_id": "insulin_pump",
+    "primitive_phrase": "releases measured small doses of medicine through a wearable device",
+    "term": "insulin pump"
+  },
+  "internet": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "addressing",
+      "connects",
+      "many",
+      "networks",
+      "smaller",
+      "system"
+    ],
+    "mechanism": "lets messages travel across many linked networks",
+    "primitive_id": "internet",
+    "primitive_phrase": "connects many smaller machine networks into one addressing system",
+    "term": "internet"
+  },
+  "lab_on_a_chip": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "channels",
+      "drops",
+      "moves",
+      "plate",
+      "small",
+      "through",
+      "tiny"
+    ],
+    "mechanism": "uses little sample and short paths to speed measurement",
+    "primitive_id": "lab_on_a_chip",
+    "primitive_phrase": "moves tiny drops through small channels on a plate",
+    "term": "lab-on-a-chip"
+  },
+  "led_lighting": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "device",
+      "electrical",
+      "light",
+      "makes",
+      "small",
+      "solid"
+    ],
+    "mechanism": "turns more electrical energy into light and less into waste heat",
+    "primitive_id": "led_lighting",
+    "primitive_phrase": "makes light with a small solid electrical device",
+    "term": "LED lighting"
+  },
+  "lithium_ion_battery": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "cell",
+      "electrical",
+      "energy",
+      "light",
+      "much",
+      "stores"
+    ],
+    "mechanism": "gives high energy for its weight",
+    "primitive_id": "lithium_ion_battery",
+    "primitive_phrase": "stores much electrical energy in a light chemical cell",
+    "term": "lithium-ion battery"
+  },
+  "machine_learning": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "adjusts",
+      "after",
+      "cases",
+      "labelled",
+      "many",
+      "rules",
+      "seeing"
+    ],
+    "mechanism": "learns recurring patterns from past examples",
+    "primitive_id": "machine_learning",
+    "primitive_phrase": "adjusts its rules after seeing many labelled cases",
+    "term": "machine learning"
+  },
+  "medical_ultrasound": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "echoes",
+      "frequency",
+      "high",
+      "measures",
+      "sends",
+      "sound"
+    ],
+    "mechanism": "forms pictures from returning sound waves",
+    "primitive_id": "medical_ultrasound",
+    "primitive_phrase": "sends high-frequency sound and measures echoes",
+    "term": "medical ultrasound"
+  },
+  "microplastics": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "describes",
+      "manufactured",
+      "material",
+      "pieces",
+      "plastic",
+      "small",
+      "very"
+    ],
+    "mechanism": "focuses attention on particles too small to see easily",
+    "primitive_id": "microplastics",
+    "primitive_phrase": "describes very small pieces of manufactured plastic material",
+    "term": "microplastics"
+  },
+  "monoclonal_antibody": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "copies",
+      "defensive",
+      "highly",
+      "many",
+      "molecule",
+      "single",
+      "specific"
+    ],
+    "mechanism": "binds mainly to the chosen marker instead of many unrelated ones",
+    "primitive_id": "monoclonal_antibody",
+    "primitive_phrase": "uses many copies of a single highly specific defensive molecule",
+    "term": "monoclonal antibody"
+  },
+  "mri": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "effects",
+      "form",
+      "inside",
+      "magnetic",
+      "measured",
+      "picture",
+      "returning",
+      "signals",
+      "strong"
+    ],
+    "mechanism": "distinguishes soft tissues without using a knife",
+    "primitive_id": "mri",
+    "primitive_phrase": "uses strong magnetic effects and measured returning signals to form an inside picture",
+    "term": "MRI"
+  },
+  "mrna_vaccine": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "delivers",
+      "harmless",
+      "identifying",
+      "instructions",
+      "making",
+      "part",
+      "temporary"
+    ],
+    "mechanism": "trains defenses without giving the whole disease agent",
+    "primitive_id": "mrna_vaccine",
+    "primitive_phrase": "delivers temporary instructions for making a harmless identifying part",
+    "term": "mRNA vaccine"
+  },
+  "natural_language_processing": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "patterns",
+      "phrases",
+      "statistical",
+      "words"
+    ],
+    "mechanism": "groups texts by language evidence rather than manual reading alone",
+    "primitive_id": "natural_language_processing",
+    "primitive_phrase": "uses statistical patterns in words and phrases",
+    "term": "natural language processing"
+  },
+  "neural_network": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "adjustable",
+      "connects",
+      "layers",
+      "many",
+      "simple",
+      "units"
+    ],
+    "mechanism": "combines many small weighted signals into a prediction",
+    "primitive_id": "neural_network",
+    "primitive_phrase": "connects many simple adjustable units in layers",
+    "term": "neural network"
+  },
+  "ocean_cleanup_device": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "barriers",
+      "concentrate",
+      "currents",
+      "floating",
+      "material"
+    ],
+    "mechanism": "gathers scattered waste so it can be removed",
+    "primitive_id": "ocean_cleanup_device",
+    "primitive_phrase": "uses barriers and currents to concentrate floating material",
+    "term": "ocean cleanup device"
+  },
+  "ocr": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "letters",
+      "matches",
+      "printed",
+      "shapes",
+      "symbols",
+      "written"
+    ],
+    "mechanism": "converts images of letters into machine-readable characters",
+    "primitive_id": "ocr",
+    "primitive_phrase": "matches shapes of printed letters to written symbols",
+    "term": "OCR"
+  },
+  "online_banking": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "connection",
+      "distant",
+      "electronic",
+      "move",
+      "records",
+      "view"
+    ],
+    "mechanism": "lets the customer inspect records remotely",
+    "primitive_id": "online_banking",
+    "primitive_phrase": "uses a distant electronic connection to view and move account records",
+    "term": "online banking"
+  },
+  "online_forum": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "discussions",
+      "electronic",
+      "keeps",
+      "place",
+      "public",
+      "shared",
+      "written"
+    ],
+    "mechanism": "lets many distant people answer the same topic over time",
+    "primitive_id": "online_forum",
+    "primitive_phrase": "keeps public written discussions in a shared electronic place",
+    "term": "online forum"
+  },
+  "online_learning_platform": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "connected",
+      "delivers",
+      "exercises",
+      "lessons",
+      "machines",
+      "messages",
+      "through"
+    ],
+    "mechanism": "lets instruction continue across distance",
+    "primitive_id": "online_learning_platform",
+    "primitive_phrase": "delivers lessons, exercises, and messages through connected machines",
+    "term": "online learning platform"
+  },
+  "organ_transplant_matching": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "between",
+      "biological",
+      "compares",
+      "donor",
+      "markers",
+      "patient"
+    ],
+    "mechanism": "reduces the chance that the body rejects the donated organ",
+    "primitive_id": "organ_transplant_matching",
+    "primitive_phrase": "compares biological markers between donor and patient",
+    "term": "organ transplant matching"
+  },
+  "password_manager": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "protected",
+      "secret",
+      "stores",
+      "vault",
+      "words"
+    ],
+    "mechanism": "lets each service have a strong different secret without memorizing all of them",
+    "primitive_id": "password_manager",
+    "primitive_phrase": "stores secret words in a protected vault",
+    "term": "password manager"
+  },
+  "pcr": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "chosen",
+      "copies",
+      "hereditary",
+      "many",
+      "segment",
+      "times"
+    ],
+    "mechanism": "turns a small trace into enough material to measure",
+    "primitive_id": "pcr",
+    "primitive_phrase": "copies a chosen hereditary chemical segment many times",
+    "term": "PCR"
+  },
+  "podcast": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "delivers",
+      "electronic",
+      "episodes",
+      "feed",
+      "recorded",
+      "sound",
+      "subscription",
+      "through"
+    ],
+    "mechanism": "sends new recordings automatically to interested listeners",
+    "primitive_id": "podcast",
+    "primitive_phrase": "delivers recorded sound episodes through an electronic subscription feed",
+    "term": "podcast"
+  },
+  "pulse_oximeter": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "absorbed",
+      "colors",
+      "compares",
+      "light",
+      "shines",
+      "through",
+      "tissue"
+    ],
+    "mechanism": "uses light absorption differences to estimate oxygen level",
+    "primitive_id": "pulse_oximeter",
+    "primitive_phrase": "shines light through tissue and compares how colors are absorbed",
+    "term": "pulse oximeter"
+  },
+  "qr_code": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "camera",
+      "coded",
+      "information",
+      "pattern",
+      "read",
+      "square",
+      "stores"
+    ],
+    "mechanism": "lets a machine read the address without manual typing",
+    "primitive_id": "qr_code",
+    "primitive_phrase": "stores coded information in a square pattern read by a camera",
+    "term": "QR code"
+  },
+  "qr_code_payment": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "camera",
+      "code",
+      "identify",
+      "readable",
+      "square",
+      "transaction"
+    ],
+    "mechanism": "reduces manual entry of account details",
+    "primitive_id": "qr_code_payment",
+    "primitive_phrase": "uses a camera-readable square code to identify the transaction",
+    "term": "QR code payment"
+  },
+  "rag_for_llm_hallucination": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "before",
+      "composing",
+      "first",
+      "records",
+      "relevant",
+      "reply",
+      "searches",
+      "store"
+    ],
+    "mechanism": "checks outside records before answering, so unsupported claims are less likely",
+    "primitive_id": "rag_for_llm_hallucination",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply",
+    "term": "RAG for LLM hallucination"
+  },
+  "recommendation_algorithm": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "calculates",
+      "choices",
+      "prior",
+      "similarities",
+      "suggestions"
+    ],
+    "mechanism": "ranks options using evidence of likely preference",
+    "primitive_id": "recommendation_algorithm",
+    "primitive_phrase": "calculates suggestions from prior choices and similarities",
+    "term": "recommendation algorithm"
+  },
+  "recommender_system": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "among",
+      "choices",
+      "compares",
+      "objects",
+      "past",
+      "people",
+      "similarities"
+    ],
+    "mechanism": "uses preference patterns to rank likely useful items",
+    "primitive_id": "recommender_system",
+    "primitive_phrase": "compares past choices and similarities among people or objects",
+    "term": "recommender system"
+  },
+  "remote_work_software": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "combines",
+      "distant",
+      "documents",
+      "records",
+      "speech",
+      "task"
+    ],
+    "mechanism": "keeps communication and work records accessible from separate places",
+    "primitive_id": "remote_work_software",
+    "primitive_phrase": "combines distant speech, documents, and task records",
+    "term": "remote work software"
+  },
+  "renewable_energy_grid": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "changes",
+      "coordinates",
+      "many",
+      "output",
+      "power",
+      "sources",
+      "weather",
+      "whose"
+    ],
+    "mechanism": "matches supply and demand despite variable sources",
+    "primitive_id": "renewable_energy_grid",
+    "primitive_phrase": "coordinates many power sources whose output changes with weather",
+    "term": "renewable energy grid"
+  },
+  "ride_sharing_app": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "communication",
+      "device",
+      "drivers",
+      "match",
+      "portable",
+      "riders"
+    ],
+    "mechanism": "reduces search time by coordinating location and demand",
+    "primitive_id": "ride_sharing_app",
+    "primitive_phrase": "uses a portable communication device to match riders and drivers",
+    "term": "ride-sharing app"
+  },
+  "satellite_monitoring": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "above",
+      "earth",
+      "high",
+      "observes",
+      "repeatedly"
+    ],
+    "mechanism": "covers wide areas with repeated comparable views",
+    "primitive_id": "satellite_monitoring",
+    "primitive_phrase": "observes the earth repeatedly from high above",
+    "term": "satellite monitoring"
+  },
+  "satellite_television": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "above",
+      "earth",
+      "high",
+      "object",
+      "relays",
+      "signals",
+      "through"
+    ],
+    "mechanism": "covers areas that ground wires or towers may not reach",
+    "primitive_id": "satellite_television",
+    "primitive_phrase": "relays signals through an object high above the earth",
+    "term": "satellite television"
+  },
+  "search_engine": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "against",
+      "catalog",
+      "large",
+      "likely",
+      "matches",
+      "query",
+      "ranks",
+      "records"
+    ],
+    "mechanism": "orders many records by signals of relevance",
+    "primitive_id": "search_engine",
+    "primitive_phrase": "matches a query against a large catalog and ranks likely useful records",
+    "term": "search engine"
+  },
+  "sensor_fusion": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "combines",
+      "instruments",
+      "measurements",
+      "several"
+    ],
+    "mechanism": "reduces error by using independent observations together",
+    "primitive_id": "sensor_fusion",
+    "primitive_phrase": "combines measurements from several instruments",
+    "term": "sensor fusion"
+  },
+  "smart_meter": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "automatically",
+      "frequently",
+      "readings",
+      "records",
+      "sends",
+      "usage"
+    ],
+    "mechanism": "reveals when demand rises or falls",
+    "primitive_id": "smart_meter",
+    "primitive_phrase": "records usage frequently and sends readings automatically",
+    "term": "smart meter"
+  },
+  "smart_thermostat": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "adjusts",
+      "automatically",
+      "learns",
+      "schedules",
+      "temperature"
+    ],
+    "mechanism": "heats or cools less when comfort is not needed",
+    "primitive_id": "smart_thermostat",
+    "primitive_phrase": "learns schedules and adjusts temperature automatically",
+    "term": "smart thermostat"
+  },
+  "smartphone": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "combines",
+      "messages",
+      "pocket",
+      "records",
+      "speech",
+      "tools",
+      "wireless",
+      "written"
+    ],
+    "mechanism": "lets a person communicate and consult records from many places",
+    "primitive_id": "smartphone",
+    "primitive_phrase": "combines pocket wireless speech, written messages, tools, and records",
+    "term": "smartphone"
+  },
+  "social_media": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "connected",
+      "groups",
+      "lets",
+      "many",
+      "messages",
+      "people",
+      "publish",
+      "short"
+    ],
+    "mechanism": "uses social links to pass messages rapidly",
+    "primitive_id": "social_media",
+    "primitive_phrase": "lets many people publish short messages to connected groups",
+    "term": "social media"
+  },
+  "software_container": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "expects",
+      "files",
+      "packs",
+      "program",
+      "surrounding"
+    ],
+    "mechanism": "keeps the program environment consistent across machines",
+    "primitive_id": "software_container",
+    "primitive_phrase": "packs a program with the surrounding files it expects",
+    "term": "software container"
+  },
+  "solar_panel": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "current",
+      "directly",
+      "electrical",
+      "sunlight",
+      "turns"
+    ],
+    "mechanism": "uses local sunlight instead of transported fuel",
+    "primitive_id": "solar_panel",
+    "primitive_phrase": "turns sunlight directly into electrical current",
+    "term": "solar panel"
+  },
+  "spam_filter": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "learns",
+      "messages",
+      "ones",
+      "separate",
+      "signs",
+      "unwanted",
+      "wanted"
+    ],
+    "mechanism": "marks likely unwanted messages before they reach the reader",
+    "primitive_id": "spam_filter",
+    "primitive_phrase": "learns signs that separate wanted messages from unwanted ones",
+    "term": "spam filter"
+  },
+  "stem_cell_therapy": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "body",
+      "cells",
+      "develop",
+      "specialized"
+    ],
+    "mechanism": "may replace or support damaged specialized cells",
+    "primitive_id": "stem_cell_therapy",
+    "primitive_phrase": "uses cells that can develop into specialized body cells",
+    "term": "stem cell therapy"
+  },
+  "streaming_video": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "continuously",
+      "data",
+      "parts",
+      "picture",
+      "sends",
+      "small"
+    ],
+    "mechanism": "allows playback while later parts are still arriving",
+    "primitive_id": "streaming_video",
+    "primitive_phrase": "sends picture data continuously in small parts",
+    "term": "streaming video"
+  },
+  "telemedicine": {
+    "domain": "Medicine_Biology",
+    "keywords": [
+      "advice",
+      "communication",
+      "distant",
+      "exchange",
+      "records",
+      "symptoms"
+    ],
+    "mechanism": "allows medical judgment without both people being in one room",
+    "primitive_id": "telemedicine",
+    "primitive_phrase": "uses distant communication to exchange symptoms, advice, and records",
+    "term": "telemedicine"
+  },
+  "traffic_sensor_network": {
+    "domain": "Transportation_Engineering",
+    "keywords": [
+      "collects",
+      "connected",
+      "instruments",
+      "many",
+      "measurements",
+      "road"
+    ],
+    "mechanism": "adjusts decisions using current traffic conditions",
+    "primitive_id": "traffic_sensor_network",
+    "primitive_phrase": "collects road measurements from many connected instruments",
+    "term": "traffic sensor network"
+  },
+  "two_factor_authentication": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "addition",
+      "proof",
+      "requires",
+      "second",
+      "secret",
+      "word"
+    ],
+    "mechanism": "keeps the password alone from being enough",
+    "primitive_id": "two_factor_authentication",
+    "primitive_phrase": "requires a second proof in addition to the secret word",
+    "term": "two-factor authentication"
+  },
+  "version_control": {
+    "domain": "AI_Computing",
+    "keywords": [
+      "changes",
+      "dated",
+      "edits",
+      "history",
+      "keeps",
+      "lets",
+      "merge",
+      "workers"
+    ],
+    "mechanism": "makes past versions recoverable and conflicting edits visible",
+    "primitive_id": "version_control",
+    "primitive_phrase": "keeps a dated history of edits and lets workers merge changes",
+    "term": "version control"
+  },
+  "video_call": {
+    "domain": "Communication_Media",
+    "keywords": [
+      "both",
+      "directions",
+      "moving",
+      "pictures",
+      "sends",
+      "voice"
+    ],
+    "mechanism": "lets participants see and hear one another while apart",
+    "primitive_id": "video_call",
+    "primitive_phrase": "sends voice and moving pictures in both directions",
+    "term": "video call"
+  },
+  "wastewater_sensor": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "chemicals",
+      "dirty",
+      "measures",
+      "repeatedly",
+      "selected",
+      "water"
+    ],
+    "mechanism": "detects changes before manual inspection would notice them",
+    "primitive_id": "wastewater_sensor",
+    "primitive_phrase": "measures selected chemicals in dirty water repeatedly",
+    "term": "wastewater sensor"
+  },
+  "wearable_fitness_tracker": {
+    "domain": "Daily_Tech_Society",
+    "keywords": [
+      "body",
+      "instrument",
+      "movement",
+      "signals",
+      "small",
+      "worn"
+    ],
+    "mechanism": "collects measurements throughout the day",
+    "primitive_id": "wearable_fitness_tracker",
+    "primitive_phrase": "uses a small worn instrument to record movement and body signals",
+    "term": "wearable fitness tracker"
+  },
+  "wind_turbine_farm": {
+    "domain": "Environment_Energy",
+    "keywords": [
+      "connected",
+      "driven",
+      "generators",
+      "many",
+      "rotors",
+      "wind"
+    ],
+    "mechanism": "converts moving air into electrical power at scale",
+    "primitive_id": "wind_turbine_farm",
+    "primitive_phrase": "uses many wind-driven rotors connected to generators",
+    "term": "wind turbine farm"
+  }
+}

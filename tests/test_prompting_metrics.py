@@ -12,6 +12,19 @@ def test_normalize_choice_is_strict_and_handles_common_answer_forms() -> None:
     assert normalize_choice("I think A or B") == INVALID_LABEL
 
 
+def test_normalize_choice_can_recover_option_text_answers() -> None:
+    choices = {
+        "A": "To store pictures as data that can be copied immediately.",
+        "B": "To read a printed address without manual typing.",
+        "C": "To allow playback while later parts are still arriving.",
+        "D": "To let many distant people answer the same topic over time.",
+    }
+
+    assert normalize_choice('"It reads a printed address without manual typing"', choices) == "B"
+    assert normalize_choice('"To allow playback while later parts are still arriving."', choices) == "C"
+    assert normalize_choice("manual topic over time", choices) == INVALID_LABEL
+
+
 def test_metrics_include_invalid_rate_and_paired_exact_mcnemar() -> None:
     rows = [
         {"item_id": "1", "condition": "raw", "gold_answer": "A", "parsed_answer": "A", "correct": True},
@@ -29,4 +42,3 @@ def test_metrics_include_invalid_rate_and_paired_exact_mcnemar() -> None:
     assert proposed_pair["accuracy_delta"] == 0.5
     assert proposed_pair["mcnemar_b"] == 1
     assert proposed_pair["mcnemar_c"] == 0
-

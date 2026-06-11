@@ -18,6 +18,7 @@ from talkie_bridge.autoencoder import train_select_autoencoder
 from talkie_bridge.clients import UnofficialTalkieApiClient, load_manual_response_records
 from talkie_bridge.data_schema import (
     CONDITIONS,
+    LABELS,
     DatasetItem,
     RunPaths,
     infer_split,
@@ -105,6 +106,10 @@ def main(argv: Sequence[str] | None = None) -> int:
             temperature=args.temperature,
             max_tokens=args.max_tokens,
             timeout=args.timeout,
+            request_delay=args.request_delay,
+            max_retries=args.max_retries,
+            retry_base_delay=args.retry_base_delay,
+            retry_max_delay=args.retry_max_delay,
         )
         responses: dict[tuple[str, str], dict[str, str]] = {}
         for row in prompt_rows:
@@ -161,6 +166,10 @@ def build_parser() -> argparse.ArgumentParser:
     run_api.add_argument("--temperature", type=float, default=0.0)
     run_api.add_argument("--max-tokens", type=int, default=8)
     run_api.add_argument("--timeout", type=int, default=120)
+    run_api.add_argument("--request-delay", type=float, default=1.0, help="Seconds to wait after each uncached API response.")
+    run_api.add_argument("--max-retries", type=int, default=6, help="Maximum retry attempts for 429 and transient server errors.")
+    run_api.add_argument("--retry-base-delay", type=float, default=30.0, help="Initial retry delay in seconds when the API does not send Retry-After.")
+    run_api.add_argument("--retry-max-delay", type=float, default=300.0, help="Maximum retry delay in seconds.")
     run_api.add_argument("--allow-mock-dictionary", action="store_true")
     demo = sub.add_parser("demo", parents=[parent], help="Write a static HTML demo for one dataset item.")
     demo.add_argument("--item-id", required=True)
@@ -398,7 +407,10 @@ def build_result_rows(
         else:
             raw_response = response_record.get("raw_response", "")
             response_prompt_hash = response_record.get("prompt_hash", "")
-        parsed = normalize_choice(raw_response)
+        choices = row.get("choices")
+        if not isinstance(choices, dict):
+            choices = {label: str(row.get(f"choice_{label}", "")) for label in LABELS}
+        parsed = normalize_choice(raw_response, choices)
         correct = parsed == row["gold_answer"]
         current_prompt_hash = str(row.get("prompt_hash", ""))
         hash_match = bool(response_prompt_hash) and response_prompt_hash == current_prompt_hash

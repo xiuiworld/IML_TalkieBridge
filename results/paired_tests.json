@@ -1,0 +1,50 @@
+[
+  {
+    "accuracy_delta": -0.02,
+    "baseline_condition": "raw",
+    "bootstrap_ci_high": 0.04,
+    "bootstrap_ci_low": -0.1,
+    "comparison": "rule_only_vs_raw",
+    "condition": "rule_only",
+    "exact_mcnemar_p": 0.79052734375,
+    "mcnemar_b": 6,
+    "mcnemar_c": 8,
+    "n_items": 100
+  },
+  {
+    "accuracy_delta": 0.03,
+    "baseline_condition": "raw",
+    "bootstrap_ci_high": 0.08,
+    "bootstrap_ci_low": -0.02,
+    "comparison": "length_controlled_vs_raw",
+    "condition": "length_controlled",
+    "exact_mcnemar_p": 0.453125,
+    "mcnemar_b": 5,
+    "mcnemar_c": 2,
+    "n_items": 100
+  },
+  {
+    "accuracy_delta": -0.02,
+    "baseline_condition": "raw",
+    "bootstrap_ci_high": 0.04,
+    "bootstrap_ci_low": -0.09,
+    "comparison": "proposed_vs_raw",
+    "condition": "proposed",
+    "exact_mcnemar_p": 0.7744140625,
+    "mcnemar_b": 5,
+    "mcnemar_c": 7,
+    "n_items": 100
+  },
+  {
+    "accuracy_delta": -0.02,
+    "baseline_condition": "raw",
+    "bootstrap_ci_high": 0.04,
+    "bootstrap_ci_low": -0.09,
+    "comparison": "proposed_no_validator_vs_raw",
+    "condition": "proposed_no_validator",
+    "exact_mcnemar_p": 0.7744140625,
+    "mcnemar_b": 5,
+    "mcnemar_c": 7,
+    "n_items": 100
+  }
+]

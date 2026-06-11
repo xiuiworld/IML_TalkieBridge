@@ -1,0 +1,44 @@
+{
+  "api": {
+    "alias": "API",
+    "canonical_term": "API",
+    "domain": "AI_Computing",
+    "primitive_id": "published_machine_commands"
+  },
+  "application programming interface": {
+    "alias": "application programming interface",
+    "canonical_term": "API",
+    "domain": "AI_Computing",
+    "primitive_id": "published_machine_commands"
+  },
+  "hallucination": {
+    "alias": "hallucination",
+    "canonical_term": "LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "unsupported_automatic_text"
+  },
+  "large language model": {
+    "alias": "large language model",
+    "canonical_term": "LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "unsupported_automatic_text"
+  },
+  "llm hallucination": {
+    "alias": "LLM hallucination",
+    "canonical_term": "LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_id": "unsupported_automatic_text"
+  },
+  "rag": {
+    "alias": "RAG",
+    "canonical_term": "RAG",
+    "domain": "AI_Computing",
+    "primitive_id": "record_lookup_before_reply"
+  },
+  "retrieval augmented generation": {
+    "alias": "retrieval augmented generation",
+    "canonical_term": "RAG",
+    "domain": "AI_Computing",
+    "primitive_id": "record_lookup_before_reply"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "concept_dictionary_json": "data/modern_terms_dictionary.json",
+  "note": "Generated prompts use explicit predeclared dictionaries only when CLI paths are provided; otherwise train split annotations are used.",
+  "primitive_dictionary_json": "data/primitive_dictionary.json",
+  "source": "predeclared_dictionary"
+}

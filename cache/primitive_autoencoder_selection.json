@@ -1,0 +1,16 @@
+{
+  "dev_items": 10,
+  "dev_primitive_f1": 0.0,
+  "enabled": true,
+  "fallback_reason": "",
+  "selected_config": {
+    "decode_threshold": 0.18,
+    "epochs": 40,
+    "l2": 0.0005,
+    "latent_dim": 8,
+    "learning_rate": 0.08,
+    "noise_prob": 0.1,
+    "top_k_primitives": 2
+  },
+  "train_items": 75
+}

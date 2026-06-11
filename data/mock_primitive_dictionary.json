@@ -1,0 +1,17 @@
+{
+  "published_machine_commands": {
+    "concept_term": "API",
+    "domain": "AI_Computing",
+    "primitive_phrase": "offers a published set of commands one machine can use to request work from another"
+  },
+  "record_lookup_before_reply": {
+    "concept_term": "RAG",
+    "domain": "AI_Computing",
+    "primitive_phrase": "first searches a store of relevant records before composing a reply"
+  },
+  "unsupported_automatic_text": {
+    "concept_term": "LLM hallucination",
+    "domain": "AI_Computing",
+    "primitive_phrase": "an automatic writing system may produce unsupported statements unless constrained by evidence"
+  }
+}

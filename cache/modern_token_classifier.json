@@ -1,0 +1,7 @@
+{
+  "alpha": 1.0,
+  "n_background": 1181,
+  "n_modern": 141,
+  "threshold": 0.65,
+  "vocab_size": 476
+}

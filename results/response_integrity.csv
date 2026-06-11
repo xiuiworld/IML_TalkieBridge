@@ -1,0 +1,6 @@
+﻿metric,value
+prompt_hash_match_rate,1.0
+missing_response_prompt_hash_count,0
+blank_response_count,0
+response_completion_rate,1.0
+n_rows,500

@@ -1,0 +1,5 @@
+﻿comparison,condition,baseline_condition,n_items,accuracy_delta,bootstrap_ci_low,bootstrap_ci_high,mcnemar_b,mcnemar_c,exact_mcnemar_p
+rule_only_vs_raw,rule_only,raw,15,0.0,-0.2,0.2,1,1,1.0
+length_controlled_vs_raw,length_controlled,raw,15,0.06666666666666667,0.0,0.2,1,0,1.0
+proposed_vs_raw,proposed,raw,15,0.0,-0.2,0.2,1,1,1.0
+proposed_no_validator_vs_raw,proposed_no_validator,raw,15,0.0,-0.2,0.2,1,1,1.0

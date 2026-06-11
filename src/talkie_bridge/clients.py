@@ -4,8 +4,9 @@ from __future__ import annotations
 
 import hashlib
 import json
+import time
 from pathlib import Path
-from typing import Any, Iterator
+from typing import Any, Callable, Iterator
 
 from talkie_bridge.data_schema import read_csv_dicts, read_jsonl, write_jsonl
 
@@ -60,11 +61,21 @@ class UnofficialTalkieApiClient:
         temperature: float = 0.0,
         max_tokens: int = 8,
         timeout: int = 120,
+        request_delay: float = 1.0,
+        max_retries: int = 6,
+        retry_base_delay: float = 30.0,
+        retry_max_delay: float = 300.0,
+        sleep_fn: Callable[[float], None] = time.sleep,
     ) -> None:
         self.cache = JsonlCache(cache_path)
         self.temperature = temperature
         self.max_tokens = max_tokens
         self.timeout = timeout
+        self.request_delay = request_delay
+        self.max_retries = max_retries
+        self.retry_base_delay = retry_base_delay
+        self.retry_max_delay = retry_max_delay
+        self.sleep_fn = sleep_fn
 
     def ask(self, prompt: str) -> dict[str, Any]:
         cache_key = _cache_key(prompt, self.temperature, self.max_tokens)
@@ -84,6 +95,8 @@ class UnofficialTalkieApiClient:
             "max_tokens": self.max_tokens,
         }
         self.cache.put(row)
+        if self.request_delay > 0:
+            self.sleep_fn(self.request_delay)
         return row
 
     def _iter_events(self, prompt: str) -> Iterator[tuple[str, str]]:
@@ -104,32 +117,50 @@ class UnofficialTalkieApiClient:
             "referer": "https://talkie-lm.com/",
             "user-agent": "talkie-bridge/0.1",
         }
-        with requests.post(
-            TALKIE_STREAM_URL,
-            json=payload,
-            headers=headers,
-            stream=True,
-            timeout=self.timeout,
-        ) as response:
-            response.raise_for_status()
-            event_name = "message"
-            data_lines: list[str] = []
-            for raw_line in response.iter_lines(decode_unicode=True):
-                if raw_line is None:
-                    continue
-                line = raw_line.rstrip("\r")
-                if not line:
+        for attempt in range(self.max_retries + 1):
+            try:
+                with requests.post(
+                    TALKIE_STREAM_URL,
+                    json=payload,
+                    headers=headers,
+                    stream=True,
+                    timeout=self.timeout,
+                ) as response:
+                    status_code = getattr(response, "status_code", 0)
+                    if _is_retryable_status(status_code) and attempt < self.max_retries:
+                        self.sleep_fn(self._retry_delay(attempt, response))
+                        continue
+                    response.raise_for_status()
+                    event_name = "message"
+                    data_lines: list[str] = []
+                    for raw_line in response.iter_lines(decode_unicode=True):
+                        if raw_line is None:
+                            continue
+                        line = raw_line.rstrip("\r")
+                        if not line:
+                            if data_lines:
+                                yield event_name, "\n".join(data_lines)
+                                event_name = "message"
+                                data_lines = []
+                            continue
+                        if line.startswith("event:"):
+                            event_name = line[len("event:") :].strip()
+                        elif line.startswith("data:"):
+                            data_lines.append(line[len("data:") :].strip())
                     if data_lines:
                         yield event_name, "\n".join(data_lines)
-                        event_name = "message"
-                        data_lines = []
-                    continue
-                if line.startswith("event:"):
-                    event_name = line[len("event:") :].strip()
-                elif line.startswith("data:"):
-                    data_lines.append(line[len("data:") :].strip())
-            if data_lines:
-                yield event_name, "\n".join(data_lines)
+                    return
+            except requests.RequestException:
+                if attempt >= self.max_retries:
+                    raise
+                self.sleep_fn(self._retry_delay(attempt, None))
+
+    def _retry_delay(self, attempt: int, response: Any | None) -> float:
+        retry_after = _retry_after_seconds(response)
+        if retry_after is not None:
+            return min(retry_after, self.retry_max_delay)
+        delay = self.retry_base_delay * (2**attempt)
+        return min(delay, self.retry_max_delay)
 
 
 def _cache_key(prompt: str, temperature: float, max_tokens: int) -> str:
@@ -139,3 +170,20 @@ def _cache_key(prompt: str, temperature: float, max_tokens: int) -> str:
         sort_keys=True,
     )
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()
+
+
+def _is_retryable_status(status_code: int) -> bool:
+    return status_code == 429 or 500 <= status_code < 600
+
+
+def _retry_after_seconds(response: Any | None) -> float | None:
+    if response is None:
+        return None
+    headers = getattr(response, "headers", {}) or {}
+    raw_value = headers.get("retry-after") or headers.get("Retry-After")
+    if raw_value is None:
+        return None
+    try:
+        return max(float(raw_value), 0.0)
+    except (TypeError, ValueError):
+        return None
